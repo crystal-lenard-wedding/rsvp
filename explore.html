@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore — Crystal & Lenard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fffde8;
+      --blue: #4fa8c5;
+      --ink: #1c2b4a;
+      --soft: #2e4a72;
+      --white: #ffffff;
+      --border: rgba(79, 168, 197, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+    }
+
+    nav {
+      height: 64px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 253, 232, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .page-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 8vw, 5.6rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    h1 em {
+      color: var(--blue);
+      font-style: italic;
+    }
+
+    .sub {
+      max-width: 720px;
+      color: var(--soft);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+
+    .explore-card {
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 1.25rem;
+    }
+
+    .explore-emoji {
+      font-size: 1.7rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .explore-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .explore-dist {
+      color: var(--blue);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .explore-desc {
+      color: var(--soft);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    @media(max-width:640px) {
+      nav {
+        padding: 0 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+        height: auto;
+        gap: 0.6rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+      }
+
+      .page-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.65rem 0.9rem;
+      }
+
+      main {
+        padding: 3rem 0;
+      }
+
+      .explore-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="logo" href="index.html">Crystal & Lenard</a>
+    <div class="page-links">
+      <a class="nav-link" href="index.html#travel">← Home</a>
+      <a class="nav-link" href="travel.html">Travel</a>
+      <a class="nav-link" href="accommodations.html">Accommodations</a>
+      <a class="nav-link" href="explore.html">Explore</a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="eyebrow">While You're Here</p>
+    <h1><em>Explore</em> the Area</h1>
+    <p class="sub">Make a long weekend of it, from Santa Barbara's garden streets to Big Sur's dramatic cliffs.</p>
+    <div class="explore-grid">
+      <div class="explore-card">
+        <div class="explore-emoji">🏛️</div>
+        <div class="explore-name">Santa Barbara Mission</div>
+        <div class="explore-dist">SB · 5 min</div>
+        <div class="explore-desc">The "Queen of the Missions", an 1786 Spanish colonial landmark surrounded by rose
+          gardens.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🍷</div>
+        <div class="explore-name">Santa Ynez Wine Country</div>
+        <div class="explore-dist">~40 min north</div>
+        <div class="explore-desc">Rolling vineyard valleys and Solvang's charming Danish village.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🌊</div>
+        <div class="explore-name">Butterfly Beach</div>
+        <div class="explore-dist">Montecito · 10 min</div>
+        <div class="explore-desc">Quiet upscale beach, perfect for a golden-hour stroll.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🌁</div>
+        <div class="explore-name">Big Sur</div>
+        <div class="explore-dist">~3 hr north on PCH</div>
+        <div class="explore-desc">McWay Falls, Bixby Bridge, and one of the most dramatic coastlines on Earth.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🏡</div>
+        <div class="explore-name">Carmel-by-the-Sea</div>
+        <div class="explore-dist">~4 hr north</div>
+        <div class="explore-desc">Storybook village, white-sand beach, galleries, and California dining.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🌺</div>
+        <div class="explore-name">Lotusland Garden</div>
+        <div class="explore-dist">SB · 15 min</div>
+        <div class="explore-desc">Extraordinary private estate with 3,000+ exotic species. Book in advance.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🥘</div>
+        <div class="explore-name">The Funk Zone</div>
+        <div class="explore-dist">SB · 8 min</div>
+        <div class="explore-desc">Wine bars, craft breweries, galleries, and fresh tacos.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🦭</div>
+        <div class="explore-name">Channel Islands</div>
+        <div class="explore-dist">~1.5 hr ferry</div>
+        <div class="explore-desc">California's Galapagos: sea caves, marine wildlife, and pristine wilderness.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🏰</div>
+        <div class="explore-name">Hearst Castle</div>
+        <div class="explore-dist">~1.5 hr north on PCH</div>
+        <div class="explore-desc">Legendary hilltop palace with Neptune Pool, opulent rooms, and ocean panoramas.</div>
+      </div>
+      <div class="explore-card">
+        <div class="explore-emoji">🚲</div>
+        <div class="explore-name">Cabrillo Beachway</div>
+        <div class="explore-dist">SB · 10 min</div>
+        <div class="explore-desc">Rent bikes and cruise the palm-lined coastal path at sunrise.</div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

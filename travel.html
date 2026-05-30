@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel — Crystal & Lenard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fffde8;
+      --lemon: #f7e234;
+      --lemon-deep: #c9b200;
+      --blue: #4fa8c5;
+      --blue-light: #b3daea;
+      --ink: #1c2b4a;
+      --soft: #2e4a72;
+      --muted: #7a8fae;
+      --white: #ffffff;
+      --border: rgba(79, 168, 197, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+    }
+
+    nav {
+      height: 64px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 253, 232, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-link {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .page-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 8vw, 5.6rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    h1 em {
+      color: var(--blue);
+      font-style: italic;
+    }
+
+    .sub {
+      max-width: 720px;
+      color: var(--soft);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      min-height: 220px;
+    }
+
+    .info-card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .info-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.18rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .info-card-body {
+      color: var(--soft);
+      line-height: 1.65;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-card-tag {
+      display: inline-block;
+      padding: 0.22rem 0.62rem;
+      background: #fff9b8;
+      border: 1px solid rgba(201, 178, 0, 0.25);
+      color: var(--ink);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media(max-width:900px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:640px) {
+      nav {
+        padding: 0 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+        height: auto;
+        gap: 0.6rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+      }
+
+      .page-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.65rem 0.9rem;
+      }
+
+      main {
+        padding: 3rem 0;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="logo" href="index.html">Crystal & Lenard</a>
+    <div class="page-links">
+      <a class="nav-link" href="index.html#travel">← Home</a>
+      <a class="nav-link" href="travel.html">Travel</a>
+      <a class="nav-link" href="accommodations.html">Accommodations</a>
+      <a class="nav-link" href="explore.html">Explore</a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Getting Here</p>
+    <h1><em>Travel</em> to Santa Barbara</h1>
+    <p class="sub">Choose the route that fits your weekend best. Santa Barbara is easy by air, train, or a scenic
+      coastal drive.</p>
+    <div class="card-grid">
+      <div class="info-card">
+        <div class="info-card-icon">✈️</div>
+        <div class="info-card-title">Fly into LAX</div>
+        <div class="info-card-body">Los Angeles International Airport Arrival, followed by a scenic drive north along
+          PCH or US-101.
+        </div>
+        <div class="info-card-tag">~2 hr from LAX</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🛫</div>
+        <div class="info-card-title">Fly into SBA</div>
+        <div class="info-card-body">Santa Barbara Airport is just 13 minutes to Simpson House Inn. American, United and
+          Alaska fly here.</div>
+        <div class="info-card-tag">~13 min from SBA</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🚂</div>
+        <div class="info-card-title">Amtrak Surfliner</div>
+        <div class="info-card-body">A beautiful coastal train from LA Union Station, with ocean cliffs along the way.
+        </div>
+        <div class="info-card-tag">~2.5 hr from LA</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🚗</div>
+        <div class="info-card-title">Drive via US-101</div>
+        <div class="info-card-body">From LA, head north through Ventura. From SF, head south through rolling hills and
+          lemon groves.</div>
+        <div class="info-card-tag">~2 hr from LA · ~5.5 hr from SF</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🅿️</div>
+        <div class="info-card-title">Parking at Venue</div>
+        <div class="info-card-body">Limited on-site parking. Street parking is available nearby. Rideshare is strongly
+          recommended.</div>
+        <div class="info-card-tag">Rideshare recommended</div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
