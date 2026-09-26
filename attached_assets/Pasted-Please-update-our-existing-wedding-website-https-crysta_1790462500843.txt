@@ -1,0 +1,270 @@
+Please update our existing wedding website:
+
+https://crystal-lenard-wedding.github.io/rsvp/
+
+IMPORTANT DEPLOYMENT / HOSTING REQUIREMENT:
+- The website MUST continue to be hosted on GitHub Pages at exactly this existing public URL:
+  https://crystal-lenard-wedding.github.io/rsvp/
+- Guests already have this URL, so DO NOT migrate hosting to Replit.
+- DO NOT replace the GitHub Pages URL with a Replit URL.
+- DO NOT change the repo/site structure in a way that breaks the `/rsvp/` GitHub Pages path.
+- I am using Replit only to edit/improve the code.
+- Make the changes in the GitHub-connected codebase/repository so they can be committed/pushed back to GitHub and served by GitHub Pages.
+- Do not create a separate production deployment in Replit.
+- Preserve all working existing URLs and relative paths unless specifically instructed otherwise below.
+
+SOURCE-OF-TRUTH HIERARCHY:
+
+Our new Month-of Guest Guide is now the most up-to-date and authoritative source for guest-facing wedding-day information:
+
+https://crystal-lenard-guest-guide.replit.app/
+
+The main wedding website should now function primarily as the more detailed/supplemental website for:
+- travel
+- accommodations
+- Santa Barbara recommendations
+- our story
+- registry
+- detailed dress-code inspiration
+- other background wedding information
+
+Do NOT make the older main website appear more authoritative than the new Guest Guide for wedding-day logistics.
+
+Please make the following updates.
+
+1. ADD A PROMINENT LINK TO THE NEW GUEST GUIDE
+
+Add a clearly visible link/button/banner near the top of:
+- the homepage
+- Travel page
+- Accommodations/Hotels page
+- Explore Santa Barbara page
+- any other major guest-facing page
+
+Suggested copy:
+
+🍋 Wedding is almost here!
+View our Month-of Guest Guide →
+
+Link:
+https://crystal-lenard-guest-guide.replit.app/
+
+Design it to match our existing elegant yellow/lemon garden wedding aesthetic.
+
+It should be noticeable but tasteful — not a huge intrusive announcement.
+
+The goal is that if a guest enters the old/main site directly, they can immediately find the newest Guest Guide.
+
+2. FIX THE PARKING CONTRADICTION
+
+The Guest Guide is correct.
+
+There is NO dedicated guest parking lot at Simpson House Inn.
+
+Remove any language such as:
+“Limited on-site parking”
+
+Replace it with concise wording consistent with the Guest Guide, such as:
+
+“Street parking is available around Simpson House Inn, but spaces may be limited. There is no dedicated guest parking lot, so rideshare is encouraged when possible.”
+
+Make sure no other page implies guests should expect venue parking.
+
+3. RENAME THE OLD “GUEST GUIDE” SECTION
+
+The main website currently has a section using wording like:
+
+“Guest Guide”
+“Plan Your Weekend”
+
+Because we now have a separate, actual Month-of Guest Guide, this is confusing.
+
+Do not call this section “Guest Guide” anymore.
+
+Rename it to something like:
+
+“Plan Your Weekend”
+
+or
+
+“Explore Santa Barbara”
+
+Use whichever best matches the existing content.
+
+The term “Guest Guide” should refer specifically to:
+https://crystal-lenard-guest-guide.replit.app/
+
+4. REMOVE / RETIRE THE OLD RSVP EXPERIENCE
+
+The RSVP deadline has passed.
+
+The main website should no longer prominently ask guests:
+- “RSVP Now”
+- “Will you join us?”
+- “RSVP by August 31”
+
+Remove or retire those calls to action.
+
+Replace them with a simple message where appropriate:
+
+“RSVPs are now closed. If your plans have changed, please contact Crystal or Lenard.”
+
+Do not delete historical RSVP data or anything needed behind the scenes — this is only about the current guest-facing website experience.
+
+5. UPDATE THE WEDDING-DAY SCHEDULE
+
+The current website schedule shows:
+- 3:30 PM Guest Arrival
+- 4:00 PM Ceremony
+- 4:30 PM Cocktail Hour
+- 5:45 PM Reception
+
+Add an ending/wrap-up time so guests have a complete schedule.
+
+Add approximately:
+
+9:00 PM — Reception winds down
+
+Keep the wording elegant and guest-friendly.
+
+Do NOT add unnecessary internal wedding-planning details.
+
+6. FIX OUTDATED SANTA BARBARA AIRPORT AIRLINE INFORMATION
+
+The Travel page currently lists only some airlines serving Santa Barbara Airport.
+
+Rather than maintaining a list that could become outdated, simplify it.
+
+Replace the airline list with wording such as:
+
+“Santa Barbara Airport (SBA) is served by several major airlines and is the closest airport to the venue.”
+
+Keep any useful existing information about distance/travel time.
+
+7. ALIGN DRESS-CODE WORDING
+
+The Guest Guide makes clear that our wedding colors are inspiration, NOT requirements.
+
+Make sure the main website communicates the same thing.
+
+Suggested wording:
+
+“Our garden palette is inspired by yellow, soft green, lavender and touches of blue. These colors are inspiration, not requirements — wear whatever makes you feel great within the semi-formal garden dress code.”
+
+Keep the existing visual inspiration/color palette if it looks good.
+
+8. MAKE THE INFORMATION HIERARCHY CLEAR
+
+The Month-of Guest Guide should be the primary place for:
+- arrival time
+- parking
+- weather
+- dress code essentials
+- outdoor/layer reminder
+- adults-only reminder
+- wedding-day logistics
+- event end time
+- immediate guest FAQs
+
+The main website should complement it rather than duplicate every detail.
+
+Avoid creating situations where the guest clicks:
+Guest Guide → Main Site → Guest Guide → Main Site
+just to find basic information.
+
+Whenever the main site references the Guest Guide, link directly to it.
+
+9. AVOID CIRCULAR OR DEAD-END NAVIGATION
+
+QA every major navigation path.
+
+A guest should be able to:
+
+Guest Guide → Travel / Hotels / Explore
+
+AND THEN easily get back to:
+
+Month-of Guest Guide
+
+Do not make guests repeatedly return to the homepage just to find the Guest Guide.
+
+Add the Guest Guide link consistently to the navigation/header/footer or a persistent tasteful banner.
+
+10. PRESERVE EXISTING LINKS
+
+Please QA all existing:
+- Travel links
+- hotel/accommodations links
+- Maps links
+- registry links
+- Explore Santa Barbara links
+- internal navigation
+- anchor links
+
+Do not remove something simply because it is older if it is still useful and correct.
+
+Fix broken links if discovered.
+
+11. PRESERVE OUR CURRENT DESIGN
+
+Do NOT redesign the website from scratch.
+
+Keep the visual identity we already established:
+- elegant
+- playful but tasteful
+- lemon/yellow garden theme
+- soft green
+- small touches of blue
+- refined wedding typography
+- clean/mobile-friendly presentation
+
+Do not make it look like a generic wedding template.
+
+12. MOBILE QA
+
+After making the changes, specifically check the site on mobile widths.
+
+Make sure:
+- the Guest Guide banner/button does not overlap other text
+- navigation remains usable
+- buttons fit cleanly
+- typography remains readable
+- no decorative lemons/florals interfere with content
+- no horizontal scrolling is introduced
+
+13. FINAL QA
+
+Before finishing, compare the live-content wording against:
+
+Guest Guide:
+https://crystal-lenard-guest-guide.replit.app/
+
+Main Site:
+https://crystal-lenard-wedding.github.io/rsvp/
+
+Flag or fix:
+- contradictory information
+- outdated wedding-day information
+- dead links
+- confusing duplicate sections
+- circular navigation
+- missing return paths
+- stale RSVP language
+
+Again, where wedding-day guest logistics conflict, the Month-of Guest Guide should win.
+
+MOST IMPORTANT TECHNICAL REQUIREMENT:
+
+Do not change production hosting.
+
+The final production site must remain:
+
+https://crystal-lenard-wedding.github.io/rsvp/
+
+Replit is being used as the editing/development environment only.
+
+When finished, summarize:
+1. Every file you changed
+2. The major content changes
+3. Any links or information you found that still need my review
+4. The exact Git/GitHub steps needed to push these changes so GitHub Pages updates at the existing URL

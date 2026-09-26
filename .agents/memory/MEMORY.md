@@ -1,0 +1,1 @@
+- [Replit config edits](replit-config-edits.md) — .replit changes require verified replacement; a trailing blank line in the temp file preserves the original newline.

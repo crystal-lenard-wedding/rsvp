@@ -104,6 +104,29 @@
       letter-spacing: 0;
     }
 
+    .guest-guide-banner {
+      margin-top: var(--nav-h);
+      padding: 0.85rem 1rem;
+      background: #fefbd0;
+      border-bottom: 1px solid rgba(201, 178, 0, 0.28);
+      color: var(--ink);
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .guest-guide-banner a {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration-color: var(--lemon-deep);
+      text-underline-offset: 3px;
+    }
+
+    .guest-guide-banner a:hover,
+    .guest-guide-banner a:focus-visible {
+      color: var(--blue);
+    }
+
     .nav-burger {
       display: none;
       flex-direction: column;
@@ -233,7 +256,7 @@
     }
 
     .hero {
-      min-height: 100vh;
+      min-height: calc(100vh - var(--nav-h) - 3.5rem);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2155,6 +2178,20 @@
         display: flex;
       }
 
+      .hero-names {
+        font-size: clamp(2.15rem, 10vw, 3rem);
+        white-space: normal;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+      }
+
+      .floating-rsvp {
+        display: none;
+      }
+
       .explore-grid {
         grid-template-columns: 1fr;
       }
@@ -2319,7 +2356,7 @@
       <li class="nav-page-link"><a href="accommodations.html">Accommodations</a></li>
       <li class="nav-page-link"><a href="explore.html">Explore</a></li>
       <li><a href="#registry">Registry</a></li>
-      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="https://crystal-lenard-guest-guide.replit.app/">Guest Guide ↗</a></li>
     </ul>
     <button class="nav-burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -2332,8 +2369,10 @@
     <a href="accommodations.html" class="page-link" onclick="toggleMenu()">Accommodations ↗</a>
     <a href="explore.html" class="page-link" onclick="toggleMenu()">Explore ↗</a>
     <a href="#registry" onclick="toggleMenu()">Registry</a>
-    <a href="#rsvp" onclick="toggleMenu()">RSVP</a>
+    <a href="https://crystal-lenard-guest-guide.replit.app/" class="page-link">Month-of Guest Guide ↗</a>
   </div>
+
+  <div class="guest-guide-banner">🍋 Wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View our Month-of Guest Guide →</a></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -2350,7 +2389,7 @@
       <p class="hero-venue">Simpson House Inn</p>
       <p class="hero-location">Santa Barbara, California</p>
       <div class="hero-cta">
-        <a href="#rsvp" class="btn btn-dark">RSVP Now</a>
+        <a href="https://crystal-lenard-guest-guide.replit.app/" class="btn btn-dark">Month-of Guest Guide</a>
         <a href="#story" class="btn btn-outline">Our Story</a>
       </div>
     </div>
@@ -2374,9 +2413,9 @@
       <div class="detail-sub">121 E Arrellaga St, Santa Barbara</div>
     </div>
     <div class="detail-item">
-      <div class="detail-label">RSVP By</div>
-      <div class="detail-value">August 31, 2026</div>
-      <div class="detail-sub">Kindly respond by this date</div>
+      <div class="detail-label">Reception</div>
+      <div class="detail-value">Until ~9:00 PM</div>
+      <div class="detail-sub">The evening winds down shortly after</div>
     </div>
   </div>
 
@@ -2515,18 +2554,24 @@
             <div class="tl-event">Reception</div>
             <div class="tl-desc">Seated dinner, toasts & celebration</div>
           </div>
+          <div class="tl-item">
+            <div class="tl-time">9:00 PM</div>
+            <div class="tl-event">Reception Winds Down</div>
+            <div class="tl-desc">A lovely close to our evening together</div>
+          </div>
         </div>
+        <p class="section-sub fade-in">For the latest arrival, parking, and day-of details, visit the <a href="https://crystal-lenard-guest-guide.replit.app/">Month-of Guest Guide →</a></p>
       </div>
 
       <!-- TRAVEL -->
-      <div class="panel-block" id="travel" data-section="3" data-label="Guest Guide">
-        <p class="eyebrow fade-in">Guest Guide</p>
+      <div class="panel-block" id="travel" data-section="3" data-label="Plan Your Weekend">
+        <p class="eyebrow fade-in">Explore Santa Barbara</p>
         <h2 class="section-title fade-in">Plan Your <em>Weekend</em></h2>
         <div class="guide-grid fade-in">
           <a class="guide-card" href="travel.html">
             <div class="guide-icon">✈️</div>
             <div class="guide-title">Travel</div>
-            <div class="guide-desc">Airports, train options, driving notes, parking, and rideshare details. <span
+            <div class="guide-desc">Airports, train options, and driving notes. For wedding-day parking, see the Month-of Guest Guide. <span
                 class="guide-more">Click for more.</span></div>
           </a>
           <a class="guide-card" href="accommodations.html">
@@ -2686,9 +2731,9 @@
         <p class="eyebrow fade-in">What to Wear</p>
         <h2 class="section-title fade-in">Dress <em>Code</em></h2>
         <p class="section-sub fade-in">Semi-Formal · Garden Luxury</p>
-        <p class="dress-note fade-in">We’d love for guests to wear these garden-inspired shades if possible, but
-          semi-formal attire in a similar style is perfect too.<br>As late October brings fluctuating temperatures, we
-          recommend bringing extra layers for comfort.</p>
+        <p class="dress-note fade-in">Our garden palette is inspired by yellow, soft green, lavender and touches of blue.
+          These colors are inspiration, not requirements. Wear whatever makes you feel great within the semi-formal
+          garden dress code. Please avoid all-white.<br>It can get chilly after sunset, so bring a light layer.</p>
 
         <!-- Dress code illustration cards -->
         <div class="dress-strip-grid fade-in">
@@ -2829,28 +2874,14 @@
         </div>
       </div>
 
-      <!-- RSVP -->
-      <div class="panel-block" id="rsvp" data-section="5" data-label="RSVP">
-        <p class="eyebrow fade-in">Kindly Reply</p>
-        <h2 class="section-title fade-in">Will you <em>join us?</em></h2>
-        <p class="section-sub fade-in">We'd love to celebrate with you under the Santa Barbara sun.</p>
-
+      <!-- Keep the existing #rsvp anchor for previously shared links. -->
+      <div class="panel-block" id="rsvp" data-section="5" data-label="RSVP Information">
+        <p class="eyebrow fade-in">A Note for Guests</p>
+        <h2 class="section-title fade-in">RSVPs are <em>closed</em></h2>
         <div class="rsvp-card fade-in">
           <div class="rsvp-card-icon">🍋</div>
-          <h3 class="rsvp-card-title">RSVP by <em>August 31, 2026</em></h3>
-          <p class="rsvp-card-text">Please let us know if you'll be joining us for our special day. Click below to fill
-            out your RSVP — it only takes a minute!</p>
-          <div class="rsvp-card-details">
-            <div class="rsvp-detail"><span class="rsvp-detail-icon">📅</span><span>October 25, 2026 · Sunday</span>
-            </div>
-            <div class="rsvp-detail"><span class="rsvp-detail-icon">📍</span><span>Simpson House Inn, Santa
-                Barbara</span></div>
-            <div class="rsvp-detail"><span class="rsvp-detail-icon">🍽️</span><span>Dinner choices included in the
-                form</span></div>
-            <div class="rsvp-detail"><span class="rsvp-detail-icon">🎵</span><span>Song requests welcome!</span></div>
-          </div>
-          <a href="https://forms.gle/qAjMSNV8JCWYnt6L6" target="_blank" class="rsvp-card-btn">RSVP Now 🍋</a>
-          <p class="rsvp-card-note">You'll be taken to a short Google Form — takes less than 2 minutes.</p>
+          <p class="rsvp-card-text">RSVPs are now closed. If your plans have changed, please contact Crystal or Lenard directly.</p>
+          <p class="rsvp-card-note">For the latest wedding-day information, visit our <a href="https://crystal-lenard-guest-guide.replit.app/">Month-of Guest Guide →</a></p>
         </div>
       </div>
 
@@ -2895,6 +2926,7 @@
     <div class="footer-date" style="margin-bottom:0.3rem;">October 25, 2026 · Santa Barbara, California</div>
     <div class="footer-date">Simpson House Inn · 121 E Arrellaga St</div>
     <div class="footer-lemons">🍋 🌿 🍋 🌿 🍋</div>
+    <p><a href="https://crystal-lenard-guest-guide.replit.app/">Month-of Guest Guide →</a></p>
     <p class="footer-love">Made with love · More than a wedding</p>
   </footer>
 
@@ -3133,10 +3165,10 @@
       }
     }
   </script>
-  <!-- FLOATING RSVP PILL -->
+  <!-- Persistent link to the latest guest information -->
   <div class="floating-rsvp">
-    <span class="floating-rsvp-date">October 25, 2026</span>
-    <a href="https://forms.gle/qAjMSNV8JCWYnt6L6" target="_blank" class="floating-rsvp-btn">RSVP</a>
+    <span class="floating-rsvp-date">Month-of details</span>
+    <a href="https://crystal-lenard-guest-guide.replit.app/" class="floating-rsvp-btn">Guest Guide</a>
   </div>
 
 
