@@ -1,1 +1,1 @@
-- [Replit config edits](replit-config-edits.md) — .replit changes require verified replacement; a trailing blank line in the temp file preserves the original newline.
+- [Replit config edits](replit-config-edits.md) — .replit needs validated replacement; running Node can auto-add its module to a static project.
