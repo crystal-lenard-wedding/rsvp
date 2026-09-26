@@ -5,6 +5,11 @@ https://crystal-lenard-wedding.github.io/rsvp/. Keep the existing HTML and asset
 structure compatible with GitHub Pages. Replit is for editing and previewing,
 not production hosting.
 
+This site remains current and should be updated alongside the linked Mini Guest
+Guide. Neither site supersedes the other. Keep the guide easy to find without
+repeating its link throughout the site's content or implying this site's
+schedule and travel information are outdated.
+
 Run the `Preview static site` workflow to serve the repository root with
 `python3 -m http.server 5000 --bind 0.0.0.0`. Open the Replit web preview
 to view `index.html`; the other pages are linked from it. There are no
