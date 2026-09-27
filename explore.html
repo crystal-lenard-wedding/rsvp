@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="8">
+  <meta name="site-version" content="9">
   <title>Explore — Crystal & Lenard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=8" defer></script>
-  <script src="nav-scroll.js?v=8" defer></script>
+  <script src="version-check.js?v=9" defer></script>
+  <script src="nav-scroll.js?v=9" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -97,6 +97,42 @@
       background: var(--ink);
       border-color: var(--ink);
       color: var(--white);
+    }
+
+    .nav-guide {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--lemon-deep);
+      border-radius: 999px;
+      background: var(--lemon);
+      color: var(--ink);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .nav-guide:hover,
+    .nav-guide:focus-visible {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-guide-new {
+      padding: 0.15rem 0.3rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.55rem;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .nav-guide:hover .nav-guide-new,
+    .nav-guide:focus-visible .nav-guide-new {
+      background: var(--lemon);
+      color: var(--ink);
     }
 
     .page-links {
@@ -236,7 +272,9 @@
 
     .picker-feature {
       position: relative;
-      min-height: 245px;
+      width: min(100%, 680px);
+      min-height: 220px;
+      justify-self: center;
       margin: 0;
       overflow: hidden;
       background: var(--blue-pale);
@@ -389,6 +427,22 @@
       .picker-feature { min-height: 200px; }
     }
 
+    @media(max-width:920px) {
+      nav {
+        height: auto;
+        padding: 0.9rem 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .page-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.65rem 0.9rem;
+      }
+    }
+
     @media(max-width:640px) {
       .guest-guide-banner {
         font-size: 0.82rem;
@@ -439,11 +493,11 @@
       <a class="nav-link" href="travel.html">Travel</a>
       <a class="nav-link" href="accommodations.html">Accommodations</a>
       <a class="nav-link" href="explore.html">Explore</a>
-      <a class="nav-link" href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide ↗</a>
+      <a class="nav-link nav-guide" href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide <span class="nav-guide-new">New</span><span aria-hidden="true">↗</span></a>
     </div>
   </nav>
 
-  <div class="guest-guide-banner">🍋 Wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View our Mini Guest Guide →</a></div>
+  <div class="guest-guide-banner">🍋 Our wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View the Mini Guest Guide →</a></div>
 
   <main>
     <section class="hero" aria-labelledby="page-title">

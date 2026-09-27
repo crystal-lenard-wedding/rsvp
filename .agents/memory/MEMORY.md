@@ -4,3 +4,4 @@
 - [Photo carousel controls](photo-carousel-controls.md) — preserve a high-contrast desktop selector and mobile arrows/count as the gallery grows.
 - [Accommodation area imagery](accommodation-area-imagery.md) — section photos are illustrative area imagery, not photos of listed hotels.
 - [Site cache versioning](site-cache-versioning.md) — bump version markers together across every page and the manifest so guests receive updated HTML.
+- [Travel shortcut landing](travel-shortcut-landing.md) — a visible heading can still feel like overscrolling; land ahead of each section with breathing room.
