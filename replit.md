@@ -18,3 +18,10 @@ committed and pushed to the GitHub repository when approved for publication.
 
 The RSVP and contact links use external services. Avoid submitting real
 responses while testing the local preview.
+
+Before each production update, run `python3 scripts/bump-version.py` after
+editing the site. It increments `version.json` and the version embedded in all
+four HTML pages, including the `version-check.js` cache-busting URL. Commit and
+push those files together with the update to the existing GitHub Pages repo.
+Styles and page-specific JavaScript are inline in the HTML, so they always
+arrive with the page. Do not add a service worker or offline cache.
