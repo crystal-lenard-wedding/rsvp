@@ -612,6 +612,34 @@
       z-index: 1;
     }
 
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 3.5rem 3.25rem 4.3rem;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(12, 25, 39, 0.78));
+      text-shadow: 0 1px 5px rgba(12, 25, 39, 0.35);
+      pointer-events: none;
+    }
+
+    .photo-caption-place {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .photo-caption-story {
+      display: block;
+      font: italic 400 clamp(1.1rem, 2vw, 1.5rem)/1.35 'Playfair Display', serif;
+      margin-top: 0.35rem;
+    }
+
     .ph-inner {
       width: 100%;
       height: 100%;
@@ -827,6 +855,14 @@
       object-fit: cover;
       object-position: center;
       display: block;
+    }
+
+    .mobile-photo-slide .photo-caption {
+      padding: 3rem 1.2rem 4rem;
+    }
+
+    .mobile-photo-slide .photo-caption-story {
+      font-size: 1.1rem;
     }
 
     .mobile-carousel-dots {
@@ -2419,52 +2455,64 @@
     <div class="split-photo-panel" id="photoPanel">
 
       <div class="photo-slide slide-0 active" data-slide="0" style="background:#1c2b4a;">
-        <img src="swiper/optimized/1.webp" alt="Crystal & Lenard wedding photo 1" loading="lazy" decoding="async"
+        <img src="swiper/optimized/1.webp" alt="Crystal and Lenard laughing together on Catalina Island" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Catalina Island, California · August 2025</span><span class="photo-caption-story">We got engaged on August 31!</span></div>
       </div>
       <div class="photo-slide slide-1" data-slide="1" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/2.webp" alt="Crystal & Lenard wedding photo 2" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/2.webp" alt="Crystal and Lenard holding their marriage certificate at the Washington State Capitol" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Olympia, Washington · October 2025</span><span class="photo-caption-story">We married at the State Capitol on October 3.</span></div>
       </div>
       <div class="photo-slide slide-2" data-slide="2" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/3.webp" alt="Crystal & Lenard wedding photo 3" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/3.webp" alt="Crystal and Lenard walking across sunlit steps in wedding attire" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Los Angeles, California · August 2025</span><span class="photo-caption-story">A free wedding-themed photoshoot? Perfect timing.</span></div>
       </div>
       <div class="photo-slide slide-3" data-slide="3" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/4.webp" alt="Crystal & Lenard wedding photo 4" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/4.webp" alt="Crystal and Lenard dressed for a photoshoot in Lijiang" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Lijiang, Yunnan, China · April 2026</span><span class="photo-caption-story">A photoshoot inspired by traditional dress.</span></div>
       </div>
       <div class="photo-slide slide-4" data-slide="4" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/5.webp" alt="Crystal & Lenard wedding photo 5" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/5.webp" alt="Crystal and Lenard smiling together in a helicopter" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">En route to Catalina Island · August 2025</span><span class="photo-caption-story">Crystal had no idea a proposal was coming.</span></div>
       </div>
       <div class="photo-slide slide-5" data-slide="5" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/6.webp" alt="Crystal & Lenard wedding photo 6" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/6.webp" alt="Crystal and Lenard celebrating outside the Washington State Capitol" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Olympia, Washington · October 2025</span><span class="photo-caption-story">Just married, outside the State Capitol.</span></div>
       </div>
       <div class="photo-slide slide-6" data-slide="6" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/7.webp" alt="Crystal & Lenard wedding photo 7" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/7.webp" alt="Crystal and Lenard walking together beneath a colonnade" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Los Angeles, California · August 2025</span><span class="photo-caption-story">Another frame from our wedding-themed shoot.</span></div>
       </div>
       <div class="photo-slide slide-7" data-slide="7" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/8.webp" alt="Crystal & Lenard wedding photo 8" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/8.webp" alt="Crystal and Lenard in a second set of traditional-inspired outfits in Lijiang" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Lijiang, Yunnan, China · April 2026</span><span class="photo-caption-story">Another look inspired by traditional dress in China.</span></div>
       </div>
       <div class="photo-slide slide-8" data-slide="8" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/9.webp" alt="Crystal & Lenard wedding photo 9" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/9.webp" alt="Crystal and Lenard embracing inside the Washington State Capitol" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Olympia, Washington · October 2025</span><span class="photo-caption-story">A moment from our wedding day.</span></div>
       </div>
       <div class="photo-slide slide-9" data-slide="9" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/10.webp" alt="Crystal & Lenard wedding photo 10" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/10.webp" alt="Crystal and Lenard smiling over drinks at a sunny outdoor table" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Los Angeles, California · August 2025</span><span class="photo-caption-story">A sunny moment from that wedding-themed shoot.</span></div>
       </div>
       <div class="photo-slide slide-10" data-slide="10" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/11.webp" alt="Crystal & Lenard wedding photo 11" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/11.webp" alt="Crystal and Lenard sharing a booth at In-N-Out" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">California · June 2025</span><span class="photo-caption-story">A photographer asked where we'd like to shoot. Of course we picked In-N-Out.</span></div>
       </div>
       <div class="photo-slide slide-11" data-slide="11" style="background:#1c2b4a;">
-        <img data-src="swiper/optimized/12.webp" alt="Crystal & Lenard wedding photo 12" loading="lazy" decoding="async"
+        <img data-src="swiper/optimized/12.webp" alt="Crystal and Lenard posing together at Grand Central Market" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="photo-caption"><span class="photo-caption-place">Downtown Los Angeles · August 2025</span><span class="photo-caption-story">Grand Central Market, from our wedding-themed shoot.</span></div>
       </div>
       <!-- Dot nav -->
       <div class="panel-dots" id="panelDots">
@@ -3063,7 +3111,7 @@
     function startAutoPlay() {
       clearInterval(autoTimer);
       if (reducedMotion.matches || mobileViewport.matches || document.hidden) return;
-      autoTimer = setInterval(nextSlide, 5000);
+      autoTimer = setInterval(nextSlide, 7000);
     }
 
     function resetAutoPlay() {
@@ -3116,6 +3164,7 @@
         const clone = slide.cloneNode(true);
         clone.className = 'mobile-photo-slide' + (index === 0 ? ' active' : '');
         clone.removeAttribute('id');
+        clone.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
         if (index === 0 || (index === 1 && mobileViewport.matches && !reducedMotion.matches)) loadSlideImage(clone);
         carousel.appendChild(clone);
       });
@@ -3177,7 +3226,7 @@
       if (reducedMotion.matches || !mobileViewport.matches || document.hidden) return;
       mobileTimer = setInterval(function () {
         goToMobileSlide(mobileCurrent + 1);
-      }, 5000);
+      }, 7000);
     }
 
     initMobileStoryCarousel();
