@@ -721,18 +721,22 @@
     /* Navigation dots */
     .panel-dots {
       position: absolute;
-      right: 14px;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       gap: 0;
       z-index: 10;
+      padding: 6px 5px;
+      border-radius: 999px;
+      background: rgba(12, 25, 39, 0.78);
+      box-shadow: 0 2px 14px rgba(12, 25, 39, 0.3);
     }
 
     .panel-dot {
-      width: 28px;
-      height: 28px;
+      width: 34px;
+      height: clamp(26px, 4.2vh, 34px);
       display: grid;
       place-items: center;
       background: none;
@@ -743,16 +747,24 @@
 
     .panel-dot::after {
       content: '';
-      width: 5px;
-      height: 5px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: background 0.4s, transform 0.4s;
+      background: rgba(255, 255, 255, 0.78);
+      transition: background 0.3s, transform 0.3s;
     }
 
     .panel-dot.active::after {
       background: var(--lemon);
-      transform: scale(1.5);
+      transform: scale(1.4);
+      box-shadow: 0 0 0 2px var(--ink);
+    }
+
+    .panel-dot:focus-visible,
+    .mobile-carousel-arrow:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -2px;
+      border-radius: 50%;
     }
 
     /* Section label on panel */
@@ -858,46 +870,53 @@
     }
 
     .mobile-photo-slide .photo-caption {
-      padding: 3rem 1.2rem 4rem;
+      padding: 3rem 1.2rem 4.7rem;
     }
 
     .mobile-photo-slide .photo-caption-story {
       font-size: 1.1rem;
     }
 
-    .mobile-carousel-dots {
+    .mobile-carousel-controls {
       position: absolute;
-      left: 0;
-      right: 0;
+      left: 50%;
       bottom: 1rem;
       z-index: 3;
       display: flex;
-      justify-content: center;
-      gap: 0;
+      align-items: center;
+      gap: 0.2rem;
+      transform: translateX(-50%);
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(12, 25, 39, 0.86);
+      box-shadow: 0 2px 14px rgba(12, 25, 39, 0.3);
+      color: #fff;
     }
 
-    .mobile-carousel-dot {
-      width: 24px;
-      height: 32px;
+    .mobile-carousel-arrow {
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
       border: 0;
       padding: 0;
       background: none;
+      color: #fff;
+      font: 600 1.35rem/1 Arial, sans-serif;
       cursor: pointer;
     }
 
-    .mobile-carousel-dot::after {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
+    .mobile-carousel-arrow:hover {
+      color: var(--lemon);
     }
 
-    .mobile-carousel-dot.active::after {
-      background: var(--lemon);
-      transform: scale(1.35);
+    .mobile-carousel-count {
+      min-width: 3.8rem;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-variant-numeric: tabular-nums;
     }
 
     .guide-grid {
@@ -2507,16 +2526,21 @@
       <div class="photo-slide slide-10" data-slide="10" style="background:#1c2b4a;">
         <img data-src="swiper/optimized/11.webp" alt="Crystal and Lenard sharing a booth at In-N-Out" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
-        <div class="photo-caption"><span class="photo-caption-place">California · June 2025</span><span class="photo-caption-story">A photographer asked where we'd like to shoot. Of course we picked In-N-Out.</span></div>
+        <div class="photo-caption"><span class="photo-caption-place">Near LAX, California · June 2025</span><span class="photo-caption-story">A photographer asked where we'd like to shoot. Of course we picked In-N-Out.</span></div>
       </div>
       <div class="photo-slide slide-11" data-slide="11" style="background:#1c2b4a;">
         <img data-src="swiper/optimized/12.webp" alt="Crystal and Lenard posing together at Grand Central Market" loading="lazy" decoding="async"
           style="width:100%;height:100%;object-fit:cover;object-position:center;">
         <div class="photo-caption"><span class="photo-caption-place">Downtown Los Angeles · August 2025</span><span class="photo-caption-story">Grand Central Market, from our wedding-themed shoot.</span></div>
       </div>
+      <div class="photo-slide slide-12" data-slide="12" style="background:#1c2b4a;">
+        <img data-src="swiper/optimized/13.webp" alt="Crystal and Lenard walking hand in hand in kimono on a street in Kyoto, with a pagoda behind them" loading="lazy" decoding="async"
+          style="width:100%;height:100%;object-fit:cover;object-position:center 65%;">
+        <div class="photo-caption"><span class="photo-caption-place">Kyoto, Japan · June 2026</span><span class="photo-caption-story">Hand in hand in Kyoto, dressed in kimono.</span></div>
+      </div>
       <!-- Dot nav -->
-      <div class="panel-dots" id="panelDots">
-        <button class="panel-dot active" data-dot="0" aria-label="Show photo 1" onclick="goToSlide(0, true)"></button>
+      <div class="panel-dots" id="panelDots" role="group" aria-label="Choose a photo">
+        <button class="panel-dot active" data-dot="0" aria-label="Show photo 1" aria-current="true" onclick="goToSlide(0, true)"></button>
         <button class="panel-dot" data-dot="1" aria-label="Show photo 2" onclick="goToSlide(1, true)"></button>
         <button class="panel-dot" data-dot="2" aria-label="Show photo 3" onclick="goToSlide(2, true)"></button>
         <button class="panel-dot" data-dot="3" aria-label="Show photo 4" onclick="goToSlide(3, true)"></button>
@@ -2528,13 +2552,20 @@
         <button class="panel-dot" data-dot="9" aria-label="Show photo 10" onclick="goToSlide(9, true)"></button>
         <button class="panel-dot" data-dot="10" aria-label="Show photo 11" onclick="goToSlide(10, true)"></button>
         <button class="panel-dot" data-dot="11" aria-label="Show photo 12" onclick="goToSlide(11, true)"></button>
+        <button class="panel-dot" data-dot="12" aria-label="Show photo 13, Kyoto" onclick="goToSlide(12, true)"></button>
       </div>
       <div class="panel-section-label" id="panelLabel">Our Story</div>
     </div>
 
     <!-- ── RIGHT: Scrollable Sections ── -->
     <div class="split-content">
-      <div class="mobile-story-carousel" id="mobileStoryCarousel" aria-label="Wedding photo carousel"></div>
+      <div class="mobile-story-carousel" id="mobileStoryCarousel" aria-label="Wedding photo carousel">
+        <div class="mobile-carousel-controls" role="group" aria-label="Photo controls">
+          <button type="button" class="mobile-carousel-arrow" id="mobilePrev" aria-label="Previous photo" aria-controls="mobileStoryCarousel">←</button>
+          <span class="mobile-carousel-count" id="mobileCarouselCount">1 / 13</span>
+          <button type="button" class="mobile-carousel-arrow" id="mobileNext" aria-label="Next photo" aria-controls="mobileStoryCarousel">→</button>
+        </div>
+      </div>
 
       <!-- STORY -->
       <div class="panel-block" id="story" data-section="0" data-label="Our Story">
@@ -3073,7 +3104,7 @@
     const dots = document.querySelectorAll('.panel-dot');
     const label = document.getElementById('panelLabel');
     const sections = document.querySelectorAll('.panel-block[data-section]');
-    const totalPhotos = slides.length; // 12 photos
+    const totalPhotos = slides.length;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const mobileViewport = window.matchMedia('(max-width: 900px)');
     let current = 0;
@@ -3093,13 +3124,15 @@
       if (!slides.length || !totalPhotos) return;
       slides[current].classList.remove('active');
       slides[current].setAttribute('aria-hidden', 'true');
-      dots[current % dots.length]?.classList.remove('active');
+      dots[current]?.classList.remove('active');
+      dots[current]?.removeAttribute('aria-current');
       current = ((idx % totalPhotos) + totalPhotos) % totalPhotos;
       loadSlideImage(slides[current]);
       if (!reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
       slides[current].classList.add('active');
       slides[current].setAttribute('aria-hidden', 'false');
-      dots[current % dots.length]?.classList.add('active');
+      dots[current]?.classList.add('active');
+      dots[current]?.setAttribute('aria-current', 'true');
       // Update section label from nearest section
       const nearestSection = [...sections].find(s => parseInt(s.dataset.section) === Math.floor(current * sections.length / totalPhotos));
       if (label && nearestSection) label.textContent = nearestSection.dataset.label || '';
@@ -3134,19 +3167,21 @@
         if (mobileViewport.matches) return;
         const sectionIdx = parseInt(best.target.dataset.section);
         if (!isNaN(sectionIdx)) {
-          // Map visible homepage sections across the 12 photos.
+          // Map visible homepage sections across the photos.
           const photoIdx = Math.round(sectionIdx * (totalPhotos - 1) / (sections.length - 1));
           if (photoIdx !== current) {
             clearInterval(autoTimer);
             slides[current].classList.remove('active');
             slides[current].setAttribute('aria-hidden', 'true');
-            dots[current % dots.length]?.classList.remove('active');
+            dots[current]?.classList.remove('active');
+            dots[current]?.removeAttribute('aria-current');
             current = photoIdx;
             loadSlideImage(slides[current]);
             if (!reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
             slides[current].classList.add('active');
             slides[current].setAttribute('aria-hidden', 'false');
-            dots[current % dots.length]?.classList.add('active');
+            dots[current]?.classList.add('active');
+            dots[current]?.setAttribute('aria-current', 'true');
             if (label) label.textContent = best.target.dataset.label || '';
             startAutoPlay();
           }
@@ -3169,19 +3204,9 @@
         carousel.appendChild(clone);
       });
 
-      const dotWrap = document.createElement('div');
-      dotWrap.className = 'mobile-carousel-dots';
-      slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'mobile-carousel-dot' + (index === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Show photo ' + (index + 1));
-        dot.addEventListener('click', function () {
-          goToMobileSlide(index, true);
-        });
-        dotWrap.appendChild(dot);
-      });
-      carousel.appendChild(dotWrap);
+      document.getElementById('mobileCarouselCount').textContent = `1 / ${slides.length}`;
+      document.getElementById('mobilePrev').addEventListener('click', () => goToMobileSlide(mobileCurrent - 1, true));
+      document.getElementById('mobileNext').addEventListener('click', () => goToMobileSlide(mobileCurrent + 1, true));
 
       let touchStartX = 0;
       let touchStartY = 0;
@@ -3204,17 +3229,15 @@
 
     function goToMobileSlide(idx, fromUser = false) {
       const mobileSlides = document.querySelectorAll('.mobile-photo-slide');
-      const mobileDots = document.querySelectorAll('.mobile-carousel-dot');
       if (!mobileSlides.length) return;
       mobileSlides[mobileCurrent].classList.remove('active');
       mobileSlides[mobileCurrent].setAttribute('aria-hidden', 'true');
-      mobileDots[mobileCurrent]?.classList.remove('active');
       mobileCurrent = ((idx % mobileSlides.length) + mobileSlides.length) % mobileSlides.length;
       loadSlideImage(mobileSlides[mobileCurrent]);
       if (!reducedMotion.matches) loadSlideImage(mobileSlides[(mobileCurrent + 1) % mobileSlides.length]);
       mobileSlides[mobileCurrent].classList.add('active');
       mobileSlides[mobileCurrent].setAttribute('aria-hidden', 'false');
-      mobileDots[mobileCurrent]?.classList.add('active');
+      document.getElementById('mobileCarouselCount').textContent = `${mobileCurrent + 1} / ${mobileSlides.length}`;
       if (fromUser) {
         clearInterval(mobileTimer);
         startMobileAutoPlay();
