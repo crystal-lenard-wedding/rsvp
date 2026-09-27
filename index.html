@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="1">
+  <meta name="site-version" content="2">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=1" defer></script>
+  <script src="version-check.js?v=2" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -129,6 +131,7 @@
       font-weight: 500;
       text-decoration-color: var(--lemon-deep);
       text-underline-offset: 3px;
+      white-space: nowrap;
     }
 
     .guest-guide-banner a:hover,
@@ -231,7 +234,7 @@
       left: 0;
       right: 0;
       height: 42%;
-      background: url("images/hero-watercolor-top.jpg") top center/cover no-repeat;
+      background: url("images/hero-watercolor-top-desktop.webp") top center/cover no-repeat;
       pointer-events: none;
       z-index: 0;
     }
@@ -252,7 +255,7 @@
       left: 0;
       right: 0;
       height: 30%;
-      background: url("images/hero-watercolor-bottom.jpg") bottom center/cover no-repeat;
+      background: url("images/hero-watercolor-bottom-desktop.webp") bottom center/cover no-repeat;
       pointer-events: none;
       z-index: 0;
     }
@@ -423,8 +426,6 @@
       text-transform: uppercase;
       color: var(--ink);
       margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeDown 1s 0.2s forwards;
       font-weight: 400;
     }
 
@@ -435,8 +436,6 @@
       line-height: 1;
       letter-spacing: -0.01em;
       white-space: nowrap;
-      opacity: 0;
-      animation: fadeDown 1s 0.4s forwards;
     }
 
     .hero-names .amp {
@@ -453,8 +452,6 @@
       justify-content: center;
       gap: 1rem;
       margin: 2rem 0;
-      opacity: 0;
-      animation: fadeDown 1s 0.6s forwards;
     }
 
     .hero-divider .line {
@@ -473,8 +470,6 @@
       font-size: 1.5rem;
       color: var(--soft);
       margin-bottom: 0.4rem;
-      opacity: 0;
-      animation: fadeDown 1s 0.7s forwards;
     }
 
     .hero-location {
@@ -482,8 +477,6 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
-      opacity: 0;
-      animation: fadeDown 1s 0.85s forwards;
     }
 
     .hero-cta {
@@ -492,8 +485,6 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeDown 1s 1s forwards;
     }
 
     .btn {
@@ -527,18 +518,6 @@
     .btn-outline:hover {
       background: var(--ink);
       color: var(--cream);
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     /* DETAILS STRIP */
@@ -1000,7 +979,7 @@
       font-size: 0.66rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: #276d85;
       margin-bottom: 0.7rem;
     }
 
@@ -1141,7 +1120,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: #276d85;
       margin-bottom: 0.15rem;
     }
 
@@ -1153,7 +1132,7 @@
 
     .tl-desc {
       font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--soft);
       line-height: 1.5;
     }
 
@@ -2181,7 +2160,25 @@
     }
 
     /* RESPONSIVE */
+    @media(max-width:1150px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-burger {
+        display: flex;
+      }
+    }
+
     @media(max-width:900px) {
+      .hero-art-top {
+        background-image: url("images/hero-watercolor-top-mobile.webp");
+      }
+
+      .hero-art-bottom {
+        background-image: url("images/hero-watercolor-bottom-mobile.webp");
+      }
+
       .nav-links {
         display: none;
       }
@@ -2420,7 +2417,7 @@
     <a href="https://crystal-lenard-guest-guide.replit.app/" class="page-link" onclick="navigateFromMenu(event)">Mini Guest Guide ↗</a>
   </div>
 
-  <div class="guest-guide-banner">🍋 Wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View our Mini Guest Guide →</a></div>
+  <div class="guest-guide-banner">🍋 Wedding soon! <a href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide →</a></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -3089,7 +3086,7 @@
     }
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && mobileMenu.classList.contains('open')) closeMenu(false);
+      if (window.innerWidth > 1150 && mobileMenu.classList.contains('open')) closeMenu(false);
     });
 
     // Fade-in on scroll
@@ -3107,6 +3104,10 @@
     const totalPhotos = slides.length;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const mobileViewport = window.matchMedia('(max-width: 900px)');
+    const desktopGallery = document.getElementById('photoPanel');
+    const mobileGallery = document.getElementById('mobileStoryCarousel');
+    let desktopGalleryVisible = false;
+    let mobileGalleryVisible = false;
     let current = 0;
     let autoTimer = null;
     let mobileCurrent = 0;
@@ -3128,7 +3129,7 @@
       dots[current]?.removeAttribute('aria-current');
       current = ((idx % totalPhotos) + totalPhotos) % totalPhotos;
       loadSlideImage(slides[current]);
-      if (!reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
+      if (desktopGalleryVisible && !reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
       slides[current].classList.add('active');
       slides[current].setAttribute('aria-hidden', 'false');
       dots[current]?.classList.add('active');
@@ -3143,7 +3144,8 @@
 
     function startAutoPlay() {
       clearInterval(autoTimer);
-      if (reducedMotion.matches || mobileViewport.matches || document.hidden) return;
+      autoTimer = null;
+      if (reducedMotion.matches || mobileViewport.matches || document.hidden || !desktopGalleryVisible) return;
       autoTimer = setInterval(nextSlide, 7000);
     }
 
@@ -3152,7 +3154,6 @@
     }
 
     loadSlideImage(slides[0]);
-    if (!mobileViewport.matches && !reducedMotion.matches) loadSlideImage(slides[1]);
     startAutoPlay();
 
     // Also switch on scroll — map each section to a photo range
@@ -3177,7 +3178,7 @@
             dots[current]?.removeAttribute('aria-current');
             current = photoIdx;
             loadSlideImage(slides[current]);
-            if (!reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
+            if (desktopGalleryVisible && !reducedMotion.matches) loadSlideImage(slides[(current + 1) % totalPhotos]);
             slides[current].classList.add('active');
             slides[current].setAttribute('aria-hidden', 'false');
             dots[current]?.classList.add('active');
@@ -3200,7 +3201,7 @@
         clone.className = 'mobile-photo-slide' + (index === 0 ? ' active' : '');
         clone.removeAttribute('id');
         clone.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
-        if (index === 0 || (index === 1 && mobileViewport.matches && !reducedMotion.matches)) loadSlideImage(clone);
+        if (index === 0) loadSlideImage(clone);
         carousel.appendChild(clone);
       });
 
@@ -3234,19 +3235,19 @@
       mobileSlides[mobileCurrent].setAttribute('aria-hidden', 'true');
       mobileCurrent = ((idx % mobileSlides.length) + mobileSlides.length) % mobileSlides.length;
       loadSlideImage(mobileSlides[mobileCurrent]);
-      if (!reducedMotion.matches) loadSlideImage(mobileSlides[(mobileCurrent + 1) % mobileSlides.length]);
+      if (mobileGalleryVisible && !reducedMotion.matches) loadSlideImage(mobileSlides[(mobileCurrent + 1) % mobileSlides.length]);
       mobileSlides[mobileCurrent].classList.add('active');
       mobileSlides[mobileCurrent].setAttribute('aria-hidden', 'false');
       document.getElementById('mobileCarouselCount').textContent = `${mobileCurrent + 1} / ${mobileSlides.length}`;
       if (fromUser) {
-        clearInterval(mobileTimer);
         startMobileAutoPlay();
       }
     }
 
     function startMobileAutoPlay() {
       clearInterval(mobileTimer);
-      if (reducedMotion.matches || !mobileViewport.matches || document.hidden) return;
+      mobileTimer = null;
+      if (reducedMotion.matches || !mobileViewport.matches || document.hidden || !mobileGalleryVisible) return;
       mobileTimer = setInterval(function () {
         goToMobileSlide(mobileCurrent + 1);
       }, 7000);
@@ -3257,6 +3258,25 @@
       startAutoPlay();
       startMobileAutoPlay();
     }
+    const galleryObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.target === desktopGallery) {
+          desktopGalleryVisible = entry.isIntersecting;
+          if (desktopGalleryVisible && !reducedMotion.matches) {
+            loadSlideImage(slides[(current + 1) % totalPhotos]);
+          }
+        } else if (entry.target === mobileGallery) {
+          mobileGalleryVisible = entry.isIntersecting;
+          if (mobileGalleryVisible && !reducedMotion.matches) {
+            const mobileSlides = document.querySelectorAll('.mobile-photo-slide');
+            loadSlideImage(mobileSlides[(mobileCurrent + 1) % mobileSlides.length]);
+          }
+        }
+      }
+      updateCarouselPlayback();
+    }, { threshold: 0.1 });
+    galleryObserver.observe(desktopGallery);
+    galleryObserver.observe(mobileGallery);
     reducedMotion.addEventListener('change', updateCarouselPlayback);
     mobileViewport.addEventListener('change', updateCarouselPlayback);
     document.addEventListener('visibilitychange', updateCarouselPlayback);
