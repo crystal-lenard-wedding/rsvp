@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="7">
+  <meta name="site-version" content="8">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=7" defer></script>
+  <script src="version-check.js?v=8" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -115,6 +115,43 @@
       letter-spacing: 0;
     }
 
+    .nav-links .nav-guide-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: 0.3rem;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--lemon-deep);
+      border-radius: 999px;
+      background: var(--lemon);
+      color: var(--ink);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .nav-links .nav-guide-link a:hover,
+    .nav-links .nav-guide-link a:focus-visible {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .nav-guide-new {
+      padding: 0.15rem 0.3rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.55rem;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .nav-links .nav-guide-link a:hover .nav-guide-new,
+    .nav-links .nav-guide-link a:focus-visible .nav-guide-new {
+      background: var(--lemon);
+      color: var(--ink);
+    }
+
     .guest-guide-banner {
       margin-top: var(--nav-h);
       padding: 0.85rem 1rem;
@@ -213,6 +250,16 @@
 
     .mobile-menu a.page-link {
       color: var(--blue);
+    }
+
+    .mobile-menu a.guide-link {
+      width: fit-content;
+      max-width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--lemon-deep);
+      border-radius: 999px;
+      background: var(--lemon);
+      color: var(--ink);
     }
 
     /* HERO */
@@ -1158,11 +1205,12 @@
     }
 
     .tl-time {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
+      font-size: 1.18rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: #276d85;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.25rem;
     }
 
     .tl-event {
@@ -2307,10 +2355,13 @@
         font-size: 1rem;
       }
 
-      .tl-time,
       .dress-tip,
       .rsvp-card-note {
         font-size: 0.82rem;
+      }
+
+      .tl-time {
+        font-size: 1.2rem;
       }
 
       .tl-event,
@@ -2430,7 +2481,7 @@
       <li class="nav-page-link"><a href="accommodations.html">Accommodations</a></li>
       <li class="nav-page-link"><a href="explore.html">Explore</a></li>
       <li><a href="#registry">Registry</a></li>
-      <li><a href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide ↗</a></li>
+      <li class="nav-guide-link"><a href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide <span class="nav-guide-new">New</span><span aria-hidden="true">↗</span></a></li>
     </ul>
     <button class="nav-burger" id="menuButton" type="button" onclick="toggleMenu()" aria-label="Open menu"
       aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -2444,10 +2495,10 @@
     <a href="accommodations.html" class="page-link" onclick="navigateFromMenu(event)">Accommodations ↗</a>
     <a href="explore.html" class="page-link" onclick="navigateFromMenu(event)">Explore ↗</a>
     <a href="#registry" onclick="navigateFromMenu(event)">Registry</a>
-    <a href="https://crystal-lenard-guest-guide.replit.app/" class="page-link" onclick="navigateFromMenu(event)">Mini Guest Guide ↗</a>
+    <a href="https://crystal-lenard-guest-guide.replit.app/" class="guide-link" onclick="navigateFromMenu(event)">Mini Guest Guide <span class="nav-guide-new">New</span> ↗</a>
   </div>
 
-  <div class="guest-guide-banner">🍋 Wedding soon! <a href="https://crystal-lenard-guest-guide.replit.app/">Mini Guest Guide →</a></div>
+  <div class="guest-guide-banner">🍋 Wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View our Mini Guest Guide →</a></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -2491,9 +2542,9 @@
         <a class="detail-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
       </div>
       <div class="detail-item">
-        <div class="detail-label">Reception</div>
-        <div class="detail-value">Until ~9:00 PM</div>
-        <div class="detail-sub">The evening winds down shortly after</div>
+        <div class="detail-label">Evening close</div>
+        <div class="detail-value">9:00 PM</div>
+        <div class="detail-sub">Reception winds down around this time</div>
       </div>
     </div>
   </section>
@@ -2820,7 +2871,7 @@
               <div class="dress-strip-card">
                 <div class="dress-strip-img"
                   style="background:#f6f5f1;display:flex;align-items:flex-end;justify-content:center;">
-                  <img src="images/optimized/suit-or-blazer.webp" alt="Suit or Blazer dress code inspiration" width="356" height="1211" loading="lazy" decoding="async">
+                  <img src="images/optimized/suit-or-blazer-distinct.webp" alt="Suit or Blazer dress code inspiration" width="312" height="988" loading="lazy" decoding="async">
                 </div>
                 <span class="dress-strip-label">Suit or blazer</span>
               </div>
