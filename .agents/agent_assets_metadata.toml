@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "hrg7bA3gM3LJYrKPBRF0X"
+uri = "file://attached_assets/photo-caption-reference.jpg"
+type = "image"
+title = "Homepage photos 1–12"
+description = "Numbered reference sheet for sharing the stories behind each photo."
+logical_id = "84653919-3eea-4021-a307-eca1d0862c98"
+content_hash = "sha256:4eb936f60ddf39bb657c39cbd55f5775ec104b182428c5f12a7c4fc99f1db97e"
+size = 326966
+mtime_ms = 1790470817282
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/repl:243715d3-7660-47a2-b203-779803c218aa/84653919-3eea-4021-a307-eca1d0862c98/0a56207f-b81c-4bcd-833a-bde0234df585"
+storage_version_token = "1790470826391234"
+content_type = "image/jpeg"
