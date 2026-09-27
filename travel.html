@@ -93,7 +93,7 @@
     main {
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 5rem 0;
+      padding: 4.5rem 0 5rem;
     }
 
     .eyebrow {
@@ -121,12 +121,21 @@
       max-width: 720px;
       color: var(--soft);
       line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+
+    .travel-section {
       margin-bottom: 2.5rem;
+    }
+
+    .travel-section h2 {
+      font: 400 clamp(1.6rem, 3vw, 2.15rem) 'Playfair Display', serif;
+      margin-bottom: 0.85rem;
     }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
     }
 
@@ -134,7 +143,8 @@
       background: var(--white);
       border: 1px solid var(--border);
       padding: 1.6rem;
-      min-height: 220px;
+      display: flex;
+      flex-direction: column;
     }
 
     .info-card-icon {
@@ -152,7 +162,28 @@
       color: var(--soft);
       line-height: 1.65;
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .info-card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .info-card-link {
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 500;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
     }
 
     .info-card-tag {
@@ -166,13 +197,12 @@
       text-transform: uppercase;
     }
 
-    @media(max-width:900px) {
-      .card-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
     @media(max-width:640px) {
+      .guest-guide-banner {
+        font-size: 0.82rem;
+        padding: 0.7rem 0.5rem;
+      }
+
       nav {
         padding: 0 1rem;
         align-items: flex-start;
@@ -197,9 +227,6 @@
         grid-template-columns: 1fr;
       }
 
-      .info-card {
-        min-height: auto;
-      }
     }
   </style>
 </head>
@@ -221,46 +248,79 @@
   <main>
     <p class="eyebrow">Getting Here</p>
     <h1><em>Travel</em> to Santa Barbara</h1>
-    <p class="sub">Choose the route that fits your weekend best. Santa Barbara is easy by air, train, or a scenic
-      coastal drive.</p>
-    <div class="card-grid">
-      <div class="info-card">
-        <div class="info-card-icon">✈️</div>
-        <div class="info-card-title">Fly into LAX</div>
-        <div class="info-card-body">Los Angeles International Airport Arrival, followed by a scenic drive north along
-          PCH or US-101.
+    <p class="sub">Choose what works for your weekend. Once you're in Santa Barbara, our venue is Simpson House Inn at 121 E Arrellaga St.</p>
+
+    <section class="travel-section" aria-labelledby="fly-heading">
+      <h2 id="fly-heading">By air</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🛫</div>
+          <h3 class="info-card-title">Fly into SBA</h3>
+          <p class="info-card-body">Santa Barbara Airport is the closest airport to the venue. Plan on about 13 minutes by car to Simpson House Inn.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">About 13 min to the venue</span>
+            <a class="info-card-link" href="https://flysba.santabarbaraca.gov/" target="_blank" rel="noopener noreferrer">Airport info ↗</a>
+          </div>
         </div>
-        <div class="info-card-tag">~2 hr from LAX</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🛫</div>
-        <div class="info-card-title">Fly into SBA</div>
-        <div class="info-card-body">Santa Barbara Airport (SBA) is served by several major airlines and is the closest
-          airport to the venue, about 13 minutes from Simpson House Inn.</div>
-        <div class="info-card-tag">~13 min from SBA</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🚂</div>
-        <div class="info-card-title">Amtrak Surfliner</div>
-        <div class="info-card-body">A beautiful coastal train from LA Union Station, with ocean cliffs along the way.
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">✈️</div>
+          <h3 class="info-card-title">Fly into LAX</h3>
+          <p class="info-card-body">From Los Angeles International Airport, connect to US-101 north toward Santa Barbara. Allow about two hours in light traffic and extra time when roads are busy.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">About 2 hr in light traffic</span>
+            <a class="info-card-link" href="https://www.flylax.com/" target="_blank" rel="noopener noreferrer">Airport info ↗</a>
+          </div>
         </div>
-        <div class="info-card-tag">~2.5 hr from LA</div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">🚗</div>
-        <div class="info-card-title">Drive via US-101</div>
-        <div class="info-card-body">From LA, head north through Ventura. From SF, head south through rolling hills and
-          lemon groves.</div>
-        <div class="info-card-tag">~2 hr from LA · ~5.5 hr from SF</div>
+    </section>
+
+    <section class="travel-section" aria-labelledby="ground-heading">
+      <h2 id="ground-heading">By train or car</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🚂</div>
+          <h3 class="info-card-title">Pacific Surfliner</h3>
+          <p class="info-card-body">Amtrak's Pacific Surfliner connects LA Union Station with Santa Barbara. Check your train's schedule and arrange a ride from the station to the venue.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">Santa Barbara station</span>
+            <a class="info-card-link" href="https://www.pacificsurfliner.com/" target="_blank" rel="noopener noreferrer">Train schedules ↗</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🚗</div>
+          <h3 class="info-card-title">Drive via US-101</h3>
+          <p class="info-card-body">Take US-101 north from LA or south from the Bay Area. Travel times vary significantly with traffic, so check your route before leaving.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">Check traffic before leaving</span>
+            <a class="info-card-link" href="https://quickmap.dot.ca.gov/" target="_blank" rel="noopener noreferrer">Live road conditions ↗</a>
+          </div>
+        </div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">🅿️</div>
-        <div class="info-card-title">Parking at Venue</div>
-        <div class="info-card-body">Street parking is available around Simpson House Inn, but spaces may be limited.
-          There is no dedicated guest parking lot, so rideshare is encouraged when possible.</div>
-        <div class="info-card-tag">Rideshare recommended</div>
+    </section>
+
+    <section class="travel-section" aria-labelledby="venue-heading">
+      <h2 id="venue-heading">Getting to the venue</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🅿️</div>
+          <h3 class="info-card-title">Parking nearby</h3>
+          <p class="info-card-body">Street parking around Simpson House Inn can be limited, and there is no dedicated guest parking lot. Leave extra time if you're driving.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">Limited street parking</span>
+            <a class="info-card-link" href="https://www.google.com/maps/search/?api=1&amp;query=Simpson+House+Inn+121+E+Arrellaga+St+Santa+Barbara" target="_blank" rel="noopener noreferrer">Venue map ↗</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🚕</div>
+          <h3 class="info-card-title">Take a rideshare</h3>
+          <p class="info-card-body">A rideshare or taxi avoids the parking search. Use Simpson House Inn, 121 E Arrellaga St, Santa Barbara as your destination.</p>
+          <div class="info-card-footer">
+            <span class="info-card-tag">Easy arrival option</span>
+            <a class="info-card-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </body>
 

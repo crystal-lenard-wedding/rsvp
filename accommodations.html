@@ -124,13 +124,45 @@
     .venue-note {
       background: #fefbd0;
       border: 1px solid rgba(201, 178, 0, 0.28);
-      padding: 1.2rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.8fr);
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem;
       line-height: 1.65;
       margin-bottom: 3rem;
     }
 
     .venue-note strong {
       font-weight: 500;
+    }
+
+    .venue-note-copy {
+      padding: 0.4rem 0.5rem;
+    }
+
+    .venue-note-copy p {
+      margin: 0.35rem 0 0.7rem;
+    }
+
+    .venue-note a {
+      color: var(--ink);
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .venue-art img {
+      display: block;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border: 1px solid rgba(201, 178, 0, 0.2);
+    }
+
+    .venue-art figcaption {
+      color: var(--soft);
+      font-size: 0.7rem;
+      padding-top: 0.25rem;
     }
 
     .hotel-group {
@@ -224,6 +256,11 @@
     }
 
     @media(max-width:640px) {
+      .guest-guide-banner {
+        font-size: 0.82rem;
+        padding: 0.7rem 0.5rem;
+      }
+
       nav {
         padding: 0 1rem;
         align-items: flex-start;
@@ -251,6 +288,15 @@
       .info-card {
         min-height: auto;
       }
+
+      .venue-note {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .venue-art img {
+        height: 210px;
+      }
     }
   </style>
 </head>
@@ -274,8 +320,17 @@
     <h1>Recommended <em>Accommodations</em></h1>
     <p class="sub">At guests' own expense. Book early; October is magical in Santa Barbara. Drive times below are
       approximate from Simpson House Inn and can vary with traffic.</p>
-    <div class="venue-note"><strong>Our venue is Simpson House Inn.</strong> We have bought out the entire inn for the
-      wedding weekend, so it is not available for guest booking. Here are some other places to stay.</div>
+    <div class="venue-note">
+      <div class="venue-note-copy">
+        <strong>Our venue is Simpson House Inn.</strong>
+        <p>We have bought out the entire inn for the wedding weekend, so it is not available for guest booking. Here are some other places to stay.</p>
+        <a href="https://www.simpsonhouseinn.com/" target="_blank" rel="noopener noreferrer">See the venue ↗</a>
+      </div>
+      <figure class="venue-art">
+        <img src="attached_assets/generated_images/venue-outing.jpg" alt="Illustration of the Victorian-style Simpson House Inn framed by gardens" width="1024" height="1024">
+        <figcaption>Illustration inspired by Simpson House Inn</figcaption>
+      </figure>
+    </div>
 
     <section class="hotel-group" aria-labelledby="downtown-heading">
       <h2 id="downtown-heading">Downtown &amp; the Riviera</h2>
@@ -285,17 +340,15 @@
           <div class="info-card-icon" aria-hidden="true">🏨</div>
           <div class="info-card-title">Kimpton Canary</div>
           <div class="info-card-dist">Downtown · about 5 min drive</div>
-          <div class="info-card-body">Boutique hotel with a rooftop terrace overlooking the city. Handy for downtown
-            shops and restaurants.</div>
+          <div class="info-card-body">Downtown boutique hotel with a rooftop pool and city views. Shops and restaurants are nearby.</div>
           <a href="https://www.canarysantabarbara.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
             aria-label="Visit Kimpton Canary website">Visit website →</a>
         </div>
         <div class="info-card">
           <div class="info-card-icon" aria-hidden="true">🌿</div>
           <div class="info-card-title">Courtyard Santa Barbara Downtown</div>
-          <div class="info-card-dist">Downtown · Marriott Bonvoy</div>
-          <div class="info-card-body">A Marriott option on State Street with a pool and on-site dining. Check directions
-            for your drive to the venue.</div>
+          <div class="info-card-dist">Downtown · about 2 min drive</div>
+          <div class="info-card-body">On State Street, with an outdoor pool and an on-site restaurant.</div>
           <a href="https://www.marriott.com/en-us/hotels/sbacs-courtyard-santa-barbara-downtown/overview/" target="_blank"
             rel="noopener noreferrer" class="info-card-link" aria-label="Visit Courtyard Santa Barbara Downtown website">Visit website →</a>
         </div>
@@ -303,8 +356,7 @@
           <div class="info-card-icon" aria-hidden="true">🌸</div>
           <div class="info-card-title">El Encanto</div>
           <div class="info-card-dist">The Riviera · about 5 min drive</div>
-          <div class="info-card-body">Hilltop bungalows, gardens and sweeping views. A quieter Santa Barbara stay above
-            downtown.</div>
+          <div class="info-card-body">Hilltop bungalows and gardens with views above downtown. A quieter place to stay.</div>
           <a href="https://elencanto.com/" target="_blank" rel="noopener noreferrer" class="info-card-link"
             aria-label="Visit El Encanto website">Visit website →</a>
         </div>
@@ -319,8 +371,7 @@
           <div class="info-card-icon" aria-hidden="true">🌊</div>
           <div class="info-card-title">Hotel Californian</div>
           <div class="info-card-dist">Waterfront · about 10 min drive</div>
-          <div class="info-card-body">Spanish Colonial Revival steps from the beach, with a rooftop pool and ocean
-            views.</div>
+          <div class="info-card-body">Spanish Colonial-style hotel near the waterfront and Funk Zone, with a rooftop pool.</div>
           <a href="https://hotelcalifornian.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
             aria-label="Visit Hotel Californian website">Visit website →</a>
         </div>
@@ -328,19 +379,17 @@
           <div class="info-card-icon" aria-hidden="true">🌴</div>
           <div class="info-card-title">Harbor View Inn</div>
           <div class="info-card-dist">Waterfront · about 10 min drive</div>
-          <div class="info-card-body">Across from the beach near Stearns Wharf, with the harbor and sunset walks close
-            by.</div>
+          <div class="info-card-body">Across from the beach near Stearns Wharf, with the harbor close by.</div>
           <a href="https://harborviewinnsb.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
             aria-label="Visit Harbor View Inn website">Visit website →</a>
         </div>
         <div class="info-card">
           <div class="info-card-icon" aria-hidden="true">☀️</div>
           <div class="info-card-title">Hilton Santa Barbara Beachfront Resort</div>
-          <div class="info-card-dist">Waterfront · Hilton Honors</div>
-          <div class="info-card-body">A beachfront resort on East Cabrillo Boulevard. Check directions for your drive
-            to the venue.</div>
-          <a href="https://www.hilton.com/en/hotels/sbafphh-hilton-santa-barbara-beachfront-resort/" target="_blank"
-            rel="noopener noreferrer" class="info-card-link" aria-label="Visit Hilton Santa Barbara Beachfront Resort website">Visit website →</a>
+          <div class="info-card-dist">Waterfront · about 10 min drive</div>
+          <div class="info-card-body">Across from East Beach on Cabrillo Boulevard, with an outdoor pool and on-site dining.</div>
+          <a href="https://santabarbaraca.com/businesses/hilton-santa-barbara-beachfront-resort" target="_blank"
+            rel="noopener noreferrer" class="info-card-link" aria-label="View Hilton Santa Barbara Beachfront Resort details on Visit Santa Barbara">Hotel details →</a>
         </div>
       </div>
     </section>
@@ -352,9 +401,8 @@
         <div class="info-card">
           <div class="info-card-icon" aria-hidden="true">🧳</div>
           <div class="info-card-title">Hyatt Place Santa Barbara</div>
-          <div class="info-card-dist">Upper State Street · World of Hyatt</div>
-          <div class="info-card-body">A Hyatt option at 4111 State Street, farther from downtown. Check directions for
-            your drive to the venue.</div>
+          <div class="info-card-dist">Upper State Street · about 10 min drive</div>
+          <div class="info-card-body">A comfortable option at 4111 State Street with free breakfast, away from the downtown bustle.</div>
           <a href="https://www.hyatt.com/hyatt-place/en-US/sbazs-hyatt-place-santa-barbara" target="_blank"
             rel="noopener noreferrer" class="info-card-link" aria-label="Visit Hyatt Place Santa Barbara website">Visit website →</a>
         </div>
