@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="3">
+  <meta name="site-version" content="4">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=3" defer></script>
+  <script src="version-check.js?v=4" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -524,17 +524,28 @@
     .details-strip {
       background: #1c2b4a;
       color: var(--cream);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      padding: 1.5rem 2rem 1rem;
+    }
+
+    .details-heading {
+      font: italic 400 1.35rem 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .detail-item {
-      flex: 1;
-      min-width: 180px;
-      padding: 2.2rem 1.5rem;
+      min-width: 0;
+      padding: 1.2rem 0.85rem 1.4rem;
       text-align: center;
-      border-right: 1px solid rgba(255, 255, 255, 0.07);
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .detail-item:last-child {
@@ -557,9 +568,23 @@
 
     .detail-sub {
       font-size: 0.72rem;
-      opacity: 0.45;
+      opacity: 0.8;
       margin-top: 0.25rem;
-      letter-spacing: 0.08em;
+      line-height: 1.45;
+    }
+
+    .detail-link {
+      display: inline-block;
+      color: var(--cream);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration-color: var(--lemon);
+      text-underline-offset: 3px;
+      margin-top: 0.55rem;
+    }
+
+    .detail-link:hover {
+      color: var(--lemon);
     }
 
     /* ══ STICKY SPLIT LAYOUT ══ */
@@ -766,6 +791,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .panel-block {
@@ -895,8 +921,8 @@
 
     .guide-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
       margin-top: 1.2rem;
     }
 
@@ -904,14 +930,15 @@
       border: 1px solid rgba(79, 168, 197, 0.32);
       border-top: 3px solid var(--blue);
       background: var(--white);
-      padding: 1.4rem;
+      padding: 1.15rem 3.4rem 1.15rem 1.1rem;
       text-decoration: none;
       color: var(--ink);
       transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
-      min-height: 185px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+      align-items: center;
+      gap: 0.9rem;
       box-shadow: 0 8px 24px rgba(28, 43, 74, 0.06);
     }
 
@@ -924,8 +951,9 @@
     .guide-card::after {
       content: '→';
       position: absolute;
-      top: 1.1rem;
+      top: 50%;
       right: 1.15rem;
+      transform: translateY(-50%);
       width: 28px;
       height: 28px;
       border: 1px solid rgba(79, 168, 197, 0.35);
@@ -939,34 +967,37 @@
     }
 
     .guide-card:hover::after {
-      transform: translateX(3px);
+      transform: translate(3px, -50%);
       background: var(--blue);
       color: var(--white);
     }
 
     .guide-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.7rem;
+      align-self: start;
+      line-height: 1.4;
     }
 
     .guide-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .guide-desc {
       color: var(--soft);
-      font-size: 0.8rem;
-      line-height: 1.55;
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
 
     .guide-more {
-      color: var(--blue);
-      font-size: inherit;
-      letter-spacing: 0;
-      text-transform: none;
-      font-weight: 400;
+      display: inline-block;
+      color: #276d85;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 0.35rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* Section commons */
@@ -1029,22 +1060,37 @@
     }
 
     /* STORY */
+    .story-milestones {
+      border-left: 1px solid rgba(79, 168, 197, 0.4);
+      padding-left: 1.5rem;
+    }
+
     .story-block {
-      margin-bottom: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(79, 168, 197, 0.1);
+      position: relative;
+      padding-bottom: 1.9rem;
+    }
+
+    .story-block::before {
+      content: '';
+      position: absolute;
+      top: 0.15rem;
+      left: -1.9rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--lemon);
     }
 
     .story-block:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     .story-tag {
       font-size: 0.6rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: #276d85;
       display: block;
       margin-bottom: 0.7rem;
     }
@@ -1064,7 +1110,7 @@
 
     .story-body {
       font-size: 0.93rem;
-      line-height: 1.85;
+      line-height: 1.7;
       color: var(--soft);
     }
 
@@ -1135,21 +1181,24 @@
     .adults-banner {
       background: var(--ink);
       color: var(--cream);
-      padding: 2.2rem;
-      text-align: center;
-      margin-bottom: 2.5rem;
+      padding: 1.3rem;
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.3rem 0.9rem;
+      text-align: left;
+      margin-top: 1.5rem;
     }
 
     .adults-banner .icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+      grid-row: 1 / 4;
     }
 
     .adults-banner h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 400;
-      margin-bottom: 0.7rem;
+      line-height: 1.2;
     }
 
     .adults-banner h3 em {
@@ -1158,19 +1207,15 @@
     }
 
     .adults-banner p {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.75;
-      max-width: 460px;
-      margin: 0 auto;
+      font-size: 0.94rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.55;
     }
 
     .adults-banner p+p {
-      margin-top: 0.4rem;
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      opacity: 0.45;
-      font-size: 0.8rem;
+      font-size: 0.92rem;
     }
 
     /* DRESS CODE */
@@ -1217,19 +1262,30 @@
 
     .dress-strip-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr;
+      gap: 1.7rem;
       margin-bottom: 1.8rem;
       align-items: start;
     }
 
-    .dress-strip-col {}
+    .dress-strip-col {
+      min-width: 0;
+    }
+
+    .dress-swipe-hint {
+      display: none;
+    }
 
     .dress-strip-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.7rem;
       margin-bottom: 0.9rem;
+    }
+
+    .dress-strip-cards:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
     }
 
     .dress-strip-card {
@@ -1262,9 +1318,10 @@
     .dress-strip-label {
       font-family: 'Playfair Display', serif;
       font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.5rem 0.6rem 0.1rem;
-      letter-spacing: 0.03em;
+      font-weight: 400;
+      padding: 0.65rem 0.4rem;
+      display: block;
+      text-align: center;
     }
 
     .dress-strip-desc {
@@ -2046,7 +2103,7 @@
       }
 
       .split-wrapper {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .split-photo-panel {
@@ -2090,8 +2147,84 @@
         letter-spacing: 0.16em;
       }
 
-      .guide-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        min-height: 490px;
+        padding: 3rem 1rem 2.5rem;
+      }
+
+      .hero-inner {
+        margin-top: 0;
+      }
+
+      .hero-divider {
+        margin: 1.3rem 0;
+      }
+
+      .hero-cta {
+        margin-top: 1.6rem;
+        gap: 0.65rem;
+      }
+
+      .hero-cta .btn {
+        padding: 0.85rem 1.5rem;
+      }
+
+      .details-strip {
+        padding: 1.2rem 1rem 0.6rem;
+      }
+
+      .details-heading {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .details-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .detail-item {
+        padding: 0.85rem 0.45rem 1rem;
+      }
+
+      .detail-item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .detail-item:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .detail-value {
+        font-size: 1.07rem;
+      }
+
+      .dress-swipe-hint {
+        display: block;
+        color: var(--soft);
+        font-size: 0.8rem;
+        margin: -0.6rem 0 0.65rem;
+      }
+
+      .dress-strip-cards {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: x proximity;
+        padding: 0 0.15rem 0.5rem;
+      }
+
+      .dress-strip-card {
+        flex: 0 0 min(68%, 210px);
+        scroll-snap-align: start;
+      }
+
+      .dress-strip-img {
+        height: 205px;
+      }
+
+      .adults-banner p,
+      .adults-banner p+p {
+        font-size: 0.96rem;
       }
 
       .mobile-story-carousel {
@@ -2163,11 +2296,6 @@
         width: 100%;
         max-width: 280px;
         text-align: center;
-      }
-
-      .detail-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
       }
 
       .registry-card {
@@ -2286,28 +2414,32 @@
   </section>
 
   <!-- DETAILS STRIP -->
-  <div class="details-strip">
-    <div class="detail-item">
-      <div class="detail-label">Date</div>
-      <div class="detail-value">October 25, 2026</div>
-      <div class="detail-sub">Sunday</div>
+  <section class="details-strip" aria-labelledby="glance-heading">
+    <h2 class="details-heading" id="glance-heading">Wedding at a glance</h2>
+    <div class="details-grid">
+      <div class="detail-item">
+        <div class="detail-label">Date</div>
+        <div class="detail-value">October 25, 2026</div>
+        <div class="detail-sub">Sunday</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Guest arrival</div>
+        <div class="detail-value">3:30 PM</div>
+        <div class="detail-sub">Ceremony starts at 4:00 PM</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Venue</div>
+        <div class="detail-value">Simpson House Inn</div>
+        <div class="detail-sub">121 E Arrellaga St, Santa Barbara</div>
+        <a class="detail-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Reception</div>
+        <div class="detail-value">Until ~9:00 PM</div>
+        <div class="detail-sub">The evening winds down shortly after</div>
+      </div>
     </div>
-    <div class="detail-item">
-      <div class="detail-label">GUEST ARRIVAL</div>
-      <div class="detail-value">3:30 PM</div>
-      <div class="detail-sub">Ceremony starts at 4:00pm</div>
-    </div>
-    <div class="detail-item">
-      <div class="detail-label">Venue</div>
-      <div class="detail-value">Simpson House Inn</div>
-      <div class="detail-sub">121 E Arrellaga St, Santa Barbara</div>
-    </div>
-    <div class="detail-item">
-      <div class="detail-label">Reception</div>
-      <div class="detail-value">Until ~9:00 PM</div>
-      <div class="detail-sub">The evening winds down shortly after</div>
-    </div>
-  </div>
+  </section>
 
   <!-- SPLIT LAYOUT -->
   <div class="split-wrapper">
@@ -2414,28 +2546,40 @@
         <p class="eyebrow fade-in">How It All Began</p>
         <h2 class="section-title fade-in">Our <em>Story</em></h2>
         <div class="divider-lemon fade-in"><span class="line"></span><span>🍋</span><span class="line r"></span></div>
-        <div class="story-block fade-in">
-          <span class="story-tag">Labor Day · September 2024</span>
-          <h3 class="story-heading">A bookstore, a bench, and a <em>beginning</em></h3>
-          <div class="story-body">
-            <p>It started with a swipe. Lenard matched with Crystal on Hinge and wasted no time — he asked to meet in
-              person, and on Labor Day 2024 they found themselves at a beautiful bookstore and café in Culver City, Los
-              Angeles. They talked for hours on a colorful bench outside, moved on to lunch at Cava, and said goodbye
-              with a warm hug that neither of them wanted to end. Everything else, as they say, is history.</p>
+        <div class="story-milestones">
+          <div class="story-block fade-in">
+            <span class="story-tag">01 · Labor Day, September 2024</span>
+            <h3 class="story-heading">A bookstore, a bench, and a <em>beginning</em></h3>
+            <div class="story-body">
+              <p>It started with a swipe. Lenard matched with Crystal on Hinge and asked to meet in person. On Labor Day,
+                they found a beautiful bookstore and café in Culver City, Los Angeles. They talked for hours on a
+                colorful bench, moved on to lunch at Cava, and said goodbye with a hug neither wanted to end.</p>
+            </div>
           </div>
-        </div>
-        <div class="story-block fade-in">
-          <span class="story-tag">A Year of Adventures · 2024 – 2025</span>
-          <h3 class="story-heading">The world, together — and then <em>forever</em></h3>
-          <div class="story-body">
-            <p>When you meet the right person, everything moves at exactly the right speed. Within their first week as a
-              couple they were already on a plane to Vancouver. A month later, China. Then the adventures kept coming —
-              La Jolla, a snowy Christmas in Denver and Vail, the vast silence of Death Valley, Seattle in spring,
-              the California redwoods, and a dozen places in between.</p>
-            <p>Then came August 2025 — a golden afternoon on Catalina Island, where Lenard got down on one knee. She
-              said yes. 🌊 The rest of the year was one long celebration: Bainbridge Island, a full sweep of their
-              favorite cities, and now — Santa Barbara on October 25th, 2026, surrounded by everyone they love most. We
-              can't wait to share this day with you. 🍋</p>
+          <div class="story-block fade-in">
+            <span class="story-tag">02 · A year of adventures</span>
+            <h3 class="story-heading">The world, <em>together</em></h3>
+            <div class="story-body">
+              <p>Within their first week as a couple they were on a plane to Vancouver. A month later, China. Then came
+                La Jolla, a snowy Christmas in Denver and Vail, Death Valley, Seattle in spring, the California
+                redwoods, and a dozen places in between.</p>
+            </div>
+          </div>
+          <div class="story-block fade-in">
+            <span class="story-tag">03 · Catalina Island, August 2025</span>
+            <h3 class="story-heading">A golden afternoon, a big <em>yes</em></h3>
+            <div class="story-body">
+              <p>On Catalina Island, Lenard got down on one knee. Crystal said yes. 🌊 The rest of the year was one long
+                celebration, from Bainbridge Island to their favorite cities.</p>
+            </div>
+          </div>
+          <div class="story-block fade-in">
+            <span class="story-tag">04 · Santa Barbara, October 2026</span>
+            <h3 class="story-heading">The next chapter, with <em>you</em></h3>
+            <div class="story-body">
+              <p>Now comes October 25th, 2026 at Simpson House Inn, surrounded by everyone they love most. We can't
+                wait to share this day with you. 🍋</p>
+            </div>
           </div>
         </div>
       </div>
@@ -2474,6 +2618,13 @@
             <div class="tl-desc">A lovely close to our evening together</div>
           </div>
         </div>
+        <div class="adults-banner fade-in">
+          <div class="icon" aria-hidden="true">🥂</div>
+          <h3>An Adults-Only <em>Affair</em></h3>
+          <p>We have arranged an intimate, adults-only celebration. Please do not bring children under 18 to the
+            ceremony or reception. We appreciate your understanding.</p>
+          <p>If you have any questions, please reach out to us directly.</p>
+        </div>
       </div>
 
       <!-- TRAVEL -->
@@ -2482,35 +2633,34 @@
         <h2 class="section-title fade-in">Plan Your <em>Weekend</em></h2>
         <div class="guide-grid fade-in">
           <a class="guide-card" href="travel.html">
-            <div class="guide-icon">✈️</div>
-            <div class="guide-title">Travel</div>
-            <div class="guide-desc">Airports, train options, driving notes, parking, and rideshare details. <span
-                class="guide-more">Click for more.</span></div>
+            <div class="guide-icon" aria-hidden="true">✈️</div>
+            <div class="guide-copy">
+              <div class="guide-title">Travel</div>
+              <div class="guide-desc">Airports, trains, parking, and rideshare.</div>
+              <span class="guide-more">Travel details →</span>
+            </div>
           </a>
           <a class="guide-card" href="accommodations.html">
-            <div class="guide-icon">🏨</div>
-            <div class="guide-title">Accommodations</div>
-            <div class="guide-desc">Recommended hotels and nearby stays for the Santa Barbara weekend. <span
-                class="guide-more">Click for more.</span></div>
+            <div class="guide-icon" aria-hidden="true">🏨</div>
+            <div class="guide-copy">
+              <div class="guide-title">Accommodations</div>
+              <div class="guide-desc">Recommended hotels and nearby stays.</div>
+              <span class="guide-more">Explore places to stay →</span>
+            </div>
           </a>
           <a class="guide-card" href="explore.html">
-            <div class="guide-icon">🌊</div>
-            <div class="guide-title">Explore</div>
-            <div class="guide-desc">Beaches, gardens, wine country, coastal drives, and local favorites. <span
-                class="guide-more">Click for more.</span></div>
+            <div class="guide-icon" aria-hidden="true">🌊</div>
+            <div class="guide-copy">
+              <div class="guide-title">Explore</div>
+              <div class="guide-desc">Beaches, gardens, and local favorites.</div>
+              <span class="guide-more">Explore Santa Barbara →</span>
+            </div>
           </a>
         </div>
       </div>
 
-      <!-- DRESS CODE (includes Adults Only banner) -->
+      <!-- DRESS CODE -->
       <div class="panel-block" id="dresscode" data-section="2" data-label="Dress Code">
-        <div class="adults-banner fade-in">
-          <div class="icon">🥂</div>
-          <h3>An Adults-Only <em>Affair</em></h3>
-          <p>We have arranged an intimate, adults-only celebration. We kindly ask that guests do not bring children
-            under 18 to the ceremony or reception. We appreciate your understanding!</p>
-          <p>If you have any questions, please reach out to us directly.</p>
-        </div>
         <p class="eyebrow fade-in">What to Wear</p>
         <h2 class="section-title fade-in">Dress <em>Code</em></h2>
         <p class="section-sub fade-in">Semi-Formal · Garden Luxury</p>
@@ -2535,7 +2685,8 @@
                 <div class="palette-swatch" style="background:#b3daea;"></div><span>Baby Blue</span>
               </div>
             </div>
-            <div class="dress-strip-cards" style="grid-template-columns:repeat(3,1fr);">
+            <p class="dress-swipe-hint">Swipe to see all three looks →</p>
+            <div class="dress-strip-cards" role="region" aria-label="Dress inspiration, scroll for more" tabindex="0">
 
               <!-- Sage Green halter gown -->
               <div class="dress-strip-card">
@@ -2543,6 +2694,7 @@
                   style="background:#f3f8f2;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Sage%20Green.png" alt="Sage Green dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Sage green</span>
               </div>
 
               <!-- Lemon Yellow strapless gown -->
@@ -2551,6 +2703,7 @@
                   style="background:#fefdf0;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Lemon%20Yellow.png" alt="Lemon Yellow dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Lemon yellow</span>
               </div>
 
               <!-- Baby Blue one-shoulder gown -->
@@ -2559,6 +2712,7 @@
                   style="background:#f0f7fc;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Baby%20Blue.png" alt="Baby Blue dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Baby blue</span>
               </div>
 
             </div>
@@ -2584,7 +2738,8 @@
                   Blazer</span>
               </div>
             </div>
-            <div class="dress-strip-cards" style="grid-template-columns:repeat(3,1fr);">
+            <p class="dress-swipe-hint">Swipe to see all three looks →</p>
+            <div class="dress-strip-cards" role="region" aria-label="Suit and separates inspiration, scroll for more" tabindex="0">
 
               <!-- Champagne: linen shirt -->
               <div class="dress-strip-card">
@@ -2592,6 +2747,7 @@
                   style="background:#f8f6f0;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Smart%20Casual.png" alt="Champagne dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Champagne</span>
               </div>
 
               <!-- Light Neutrals -->
@@ -2600,6 +2756,7 @@
                   style="background:#f0f6f9;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Light%20Blazer.png" alt="Light Neutrals dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Light neutrals</span>
               </div>
 
               <!-- Suit — champagne/linen with navy tie -->
@@ -2608,6 +2765,7 @@
                   style="background:#f6f5f1;display:flex;align-items:flex-end;justify-content:center;">
                   <img src="Suit%20or%20Blazer.png" alt="Suit or Blazer dress code inspiration" loading="lazy">
                 </div>
+                <span class="dress-strip-label">Suit or blazer</span>
               </div>
 
             </div>
@@ -2624,15 +2782,14 @@
         <p class="eyebrow fade-in">Gift Registry</p>
         <h2 class="section-title fade-in">With <em>Love</em> & Gratitude</h2>
         <p class="section-sub fade-in">Your presence is truly the greatest gift. But if you'd like to contribute, here
-          are three causes close to our hearts.</p>
+          are three things close to our hearts.</p>
         <div class="registry-grid fade-in">
           <div class="registry-card cat">
             <div class="registry-emoji">🐱</div>
             <div>
               <div class="registry-name">Winston's Treat Fund</div>
-              <div class="registry-desc">Help spoil our beloved cat Winston — the original man of the house.
-                Contributions go toward premium treats, toys and the occasional luxury cat tree he absolutely does not
-                need but desperately wants.</div><button type="button" class="registry-btn cat-btn"
+              <div class="registry-desc">Winston, the original man of the house, votes for treats, toys, and a cat tree
+                he absolutely does not need.</div><button type="button" class="registry-btn cat-btn"
                 onclick="openGratitudeModal('Winston’s Treat Fund')">Gift Winston</button>
             </div>
           </div>
@@ -2640,8 +2797,8 @@
             <div class="registry-emoji">🌍</div>
             <div>
               <div class="registry-name">Honeymoon in Africa</div>
-              <div class="registry-desc">We're dreaming of a once-in-a-lifetime safari — watching elephants at sunrise,
-                stargazing in the Serengeti and exploring landscapes that take your breath away.</div><button
+              <div class="registry-desc">Help us chase sunrise safaris, Serengeti stargazing, and a once-in-a-lifetime
+                adventure together.</div><button
                 type="button" class="registry-btn africa-btn" onclick="openGratitudeModal('Honeymoon in Africa')">Fund Our Adventure</button>
             </div>
           </div>
@@ -2649,8 +2806,8 @@
             <div class="registry-emoji">🥊</div>
             <div>
               <div class="registry-name">Weekly Boxing & Wrestling Fund</div>
-              <div class="registry-desc">Fuel our favourite hobby together — training sessions, gear and the occasional
-                championship belt neither of us will ever actually win. Contributions warmly received.</div><button
+              <div class="registry-desc">Help fund our favorite shared hobby: training, gear, and a championship belt
+                we'll probably never win.</div><button
                 type="button" class="registry-btn puppy-btn" onclick="openGratitudeModal('Boxing &amp; Wrestling Fund')">Support the Fight</button>
             </div>
           </div>
