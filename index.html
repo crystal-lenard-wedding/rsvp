@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="2">
+  <meta name="site-version" content="3">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=2" defer></script>
+  <script src="version-check.js?v=3" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -813,11 +813,6 @@
       order: 6;
     }
 
-    #stay,
-    #explore {
-      display: none;
-    }
-
     .mobile-story-carousel {
       display: none;
       order: 0;
@@ -1133,143 +1128,6 @@
     .tl-desc {
       font-size: 0.8rem;
       color: var(--soft);
-      line-height: 1.5;
-    }
-
-    /* INFO CARDS (Travel + Stay) */
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .info-card {
-      border: 1px solid var(--border);
-      padding: 1.4rem;
-      background: var(--white);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--lemon), var(--blue));
-    }
-
-    .info-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(79, 168, 197, 0.1);
-    }
-
-    .info-card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .info-card-dist {
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.4rem;
-    }
-
-    .info-card-body {
-      font-size: 0.8rem;
-      color: var(--soft);
-      line-height: 1.6;
-    }
-
-    .info-card-tag {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: var(--lemon-pale);
-      color: var(--ink);
-      padding: 0.18rem 0.55rem;
-      border: 1px solid var(--lemon-deep);
-    }
-
-    .info-card-link {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--blue);
-      text-decoration: none;
-      border-bottom: 1px solid var(--blue-light);
-      padding-bottom: 1px;
-      transition: color 0.2s;
-    }
-
-    .info-card-link:hover {
-      color: var(--ink);
-    }
-
-    .stay-all-link {
-      display: inline-block;
-      margin-top: 1.4rem;
-      color: var(--ink);
-      font-weight: 500;
-      text-underline-offset: 4px;
-    }
-
-    /* EXPLORE */
-    .explore-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.9rem;
-    }
-
-    .explore-card {
-      border: 1px solid var(--border);
-      padding: 1.2rem;
-      background: var(--white);
-      transition: all 0.3s;
-    }
-
-    .explore-card:hover {
-      background: linear-gradient(135deg, var(--lemon-pale), var(--blue-pale));
-      transform: translateY(-2px);
-    }
-
-    .explore-emoji {
-      font-size: 1.5rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .explore-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.97rem;
-      margin-bottom: 0.12rem;
-    }
-
-    .explore-dist {
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.3rem;
-    }
-
-    .explore-desc {
-      font-size: 0.76rem;
-      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -2204,10 +2062,6 @@
         min-height: auto;
       }
 
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-
       .dress-visual-grid {
         grid-template-columns: 1fr;
       }
@@ -2236,10 +2090,6 @@
         letter-spacing: 0.16em;
       }
 
-      .explore-grid {
-        grid-template-columns: 1fr;
-      }
-
       .guide-grid {
         grid-template-columns: 1fr;
       }
@@ -2256,8 +2106,6 @@
       .section-sub,
       .story-body,
       .tl-desc,
-      .info-card-body,
-      .explore-desc,
       .dress-note,
       .registry-desc,
       .rsvp-card-text {
@@ -2265,15 +2113,12 @@
       }
 
       .tl-time,
-      .info-card-tag,
-      .explore-dist,
       .dress-tip,
       .rsvp-card-note {
         font-size: 0.82rem;
       }
 
       .tl-event,
-      .info-card-title,
       .dress-strip-label,
       .registry-name {
         font-size: 1.18rem;
@@ -2654,137 +2499,6 @@
             <div class="guide-desc">Beaches, gardens, wine country, coastal drives, and local favorites. <span
                 class="guide-more">Click for more.</span></div>
           </a>
-        </div>
-      </div>
-
-      <!-- STAY -->
-      <div class="panel-block" id="stay" data-label="Where to Stay">
-        <p class="eyebrow fade-in">Where to Stay</p>
-        <h2 class="section-title fade-in">Recommended <em>Accommodations</em></h2>
-        <p class="section-sub fade-in">At guests' own expense. Book early! Drive times from Simpson House Inn are approximate and may vary with traffic.</p>
-        <div class="card-grid fade-in">
-          <div class="info-card">
-            <div class="info-card-icon">🍋</div>
-            <div class="info-card-title">Simpson House Inn</div>
-            <div class="info-card-dist">The Venue · Exclusively Ours</div>
-            <div class="info-card-body">We have bought out the entire inn for our wedding weekend — so this one is just
-              for us! Please book one of the nearby hotels below.</div>
-            <div class="info-card-tag" style="background:#ffeaea;color:#b04040;border-color:#f5c5c5;">Not available for
-              guest booking</div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon">🌊</div>
-            <div class="info-card-title">Hotel Californian</div>
-            <div class="info-card-dist">Waterfront · about 10 min drive</div>
-            <div class="info-card-body">Spanish Colonial Revival steps from the beach. Rooftop pool and sweeping ocean
-              views.</div><a href="https://hotelcalifornian.com" target="_blank" class="info-card-link">Visit
-              Website →</a>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon">🌸</div>
-            <div class="info-card-title">El Encanto</div>
-            <div class="info-card-dist">The Riviera · about 5 min drive</div>
-            <div class="info-card-body">Hilltop bungalows, infinity pool and lush gardens. Pure Santa Barbara luxury.
-            </div><a href="https://elencanto.com" target="_blank" class="info-card-link">Visit Website
-              →</a>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon">🏨</div>
-            <div class="info-card-title">Kimpton Canary</div>
-            <div class="info-card-dist">Downtown · about 5 min drive</div>
-            <div class="info-card-body">Boutique hotel with a rooftop terrace overlooking the city, handy for downtown
-              shops and restaurants.</div><a href="https://www.canarysantabarbara.com" target="_blank" rel="noopener noreferrer" class="info-card-link">Visit
-              Website →</a>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon">🌿</div>
-            <div class="info-card-title">Harbor View Inn</div>
-            <div class="info-card-dist">Waterfront · about 10 min drive</div>
-            <div class="info-card-body">Across from the beach near Stearns Wharf, with the harbor and sunset walks
-              close by.</div><a href="https://harborviewinnsb.com" target="_blank" rel="noopener noreferrer" class="info-card-link">Visit Website
-              →</a>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon">🏡</div>
-            <div class="info-card-title">Vacation rentals</div>
-            <div class="info-card-dist">Across Santa Barbara</div>
-            <div class="info-card-body">A flexible choice for groups. Check the location and drive to the venue before
-              booking.</div><a href="https://www.airbnb.com/s/Santa-Barbara--CA" target="_blank" rel="noopener noreferrer"
-              class="info-card-link">Search Airbnb →</a>
-          </div>
-        </div>
-        <a class="stay-all-link" href="accommodations.html">See all stays, including Marriott, Hyatt &amp; Hilton →</a>
-      </div>
-
-      <!-- EXPLORE -->
-      <div class="panel-block" id="explore" data-label="Explore the Area">
-        <p class="eyebrow fade-in">While You're Here</p>
-        <h2 class="section-title fade-in"><em>Explore</em> the Area</h2>
-        <p class="section-sub fade-in">Make a long weekend of it — from SB's garden streets to Big Sur's dramatic
-          cliffs.</p>
-        <div class="explore-grid fade-in">
-          <div class="explore-card">
-            <div class="explore-emoji">🏛️</div>
-            <div class="explore-name">Santa Barbara Mission</div>
-            <div class="explore-dist">SB · 5 min</div>
-            <div class="explore-desc">The "Queen of the Missions" — 1786 Spanish colonial surrounded by rose gardens.
-            </div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🍷</div>
-            <div class="explore-name">Santa Ynez Wine Country</div>
-            <div class="explore-dist">~40 min north</div>
-            <div class="explore-desc">Rolling vineyard valleys and Solvang's charming Danish village.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🌊</div>
-            <div class="explore-name">Butterfly Beach</div>
-            <div class="explore-dist">Montecito · 10 min</div>
-            <div class="explore-desc">Quiet upscale beach — perfect for a golden-hour stroll.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🌁</div>
-            <div class="explore-name">Big Sur</div>
-            <div class="explore-dist">~3 hr north on PCH</div>
-            <div class="explore-desc">McWay Falls, Bixby Bridge — one of the most dramatic coastlines on Earth.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🏡</div>
-            <div class="explore-name">Carmel-by-the-Sea</div>
-            <div class="explore-dist">~4 hr north</div>
-            <div class="explore-desc">Storybook village, white-sand beach, galleries and California's finest dining.
-            </div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🌺</div>
-            <div class="explore-name">Lotusland Garden</div>
-            <div class="explore-dist">SB · 15 min</div>
-            <div class="explore-desc">Extraordinary private estate with 3,000+ exotic species. Book in advance!</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🥘</div>
-            <div class="explore-name">The Funk Zone</div>
-            <div class="explore-dist">SB · 8 min</div>
-            <div class="explore-desc">Wine bars, craft breweries, galleries and the freshest tacos in town.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🦭</div>
-            <div class="explore-name">Channel Islands</div>
-            <div class="explore-dist">~1.5 hr ferry</div>
-            <div class="explore-desc">California's Galápagos — sea caves, marine wildlife, pristine wilderness.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🏰</div>
-            <div class="explore-name">Hearst Castle</div>
-            <div class="explore-dist">~1.5 hr north on PCH</div>
-            <div class="explore-desc">Legendary hilltop palace — Neptune Pool, opulent rooms and ocean panoramas.</div>
-          </div>
-          <div class="explore-card">
-            <div class="explore-emoji">🚲</div>
-            <div class="explore-name">Cabrillo Beachway</div>
-            <div class="explore-dist">SB · 10 min</div>
-            <div class="explore-desc">Rent bikes and cruise the palm-lined coastal path at sunrise.</div>
-          </div>
         </div>
       </div>
 
