@@ -125,146 +125,76 @@
 
     .travel-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.8fr);
-      align-items: end;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 2.75rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .venue-highlight {
+    .travel-hero-photo {
       position: relative;
-      overflow: hidden;
-      padding: 1.65rem 1.75rem;
-      background: var(--ink);
-      color: var(--white);
-      border-bottom: 4px solid var(--lemon);
+      isolation: isolate;
+      padding: 0 0 1rem 1rem;
     }
 
-    .venue-highlight::after {
+    .travel-hero-photo::before {
       content: '';
       position: absolute;
-      width: 145px;
-      height: 145px;
-      border: 1px solid rgba(255, 255, 255, 0.17);
-      border-radius: 50%;
-      right: -55px;
-      top: -75px;
-      pointer-events: none;
+      z-index: -1;
+      inset: 1rem 1rem 0 0;
+      background: var(--lemon);
     }
 
-    .venue-kicker {
-      color: var(--lemon);
-      font-size: 0.67rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .venue-highlight h2 {
-      font: 400 1.45rem 'Playfair Display', serif;
-      margin: 0.55rem 0 0.35rem;
-    }
-
-    .venue-highlight p {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.85rem;
-      line-height: 1.55;
-    }
-
-    .venue-highlight a {
-      display: inline-block;
-      margin-top: 0.85rem;
-      color: var(--lemon);
-      font-size: 0.78rem;
-      font-weight: 500;
-      text-underline-offset: 3px;
-    }
-
-    .travel-topics {
-      margin-bottom: 1.1rem;
-    }
-
-    .travel-topics-label {
-      font-size: 0.68rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--soft);
-      margin-bottom: 0.7rem;
-    }
-
-    .travel-topics-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-
-    .travel-topics-list a {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      min-height: 72px;
-      padding: 0.9rem 1.1rem;
-      background: var(--white);
+    .travel-hero-photo img {
+      display: block;
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
       border: 1px solid var(--border);
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-
-    .travel-topics-list a:hover {
-      border-color: var(--blue);
-      background: #f3fbff;
-    }
-
-    .travel-topics-list a span:first-child {
-      color: #277d99;
-      font: italic 400 1.3rem 'Playfair Display', serif;
-    }
-
-    .travel-topics-list a span:last-child {
-      margin-left: auto;
-      color: #277d99;
     }
 
     .travel-section {
       --section-accent: var(--blue);
       display: grid;
-      grid-template-columns: minmax(170px, 230px) minmax(0, 1fr);
+      grid-template-columns: minmax(160px, 205px) minmax(0, 1fr);
       align-items: start;
-      gap: 1.5rem;
-      padding: 2.2rem 0;
-      border-top: 1px solid var(--border);
-      scroll-margin-top: 85px;
+      gap: 1.75rem;
+      padding: 2rem;
+      margin-bottom: 1rem;
+      background: #eaf6fb;
+      border: 1px solid var(--border);
     }
 
     .section-ground {
       --section-accent: var(--lemon-deep);
+      background: #fcf6d7;
+    }
+
+    .section-venue {
+      --section-accent: #c9788f;
+      background: #fbeef0;
     }
 
     .section-number {
       display: block;
       color: #277d99;
-      font-size: 0.67rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.75rem;
+      font: italic 400 2.75rem/1 'Playfair Display', serif;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-ground .section-number {
+      color: #8a7900;
+    }
+
+    .section-venue .section-number {
+      color: #a4516b;
     }
 
     .travel-section h2 {
       font: 400 clamp(1.6rem, 3vw, 2.15rem) 'Playfair Display', serif;
-      margin-bottom: 0.5rem;
-      scroll-margin-top: 85px;
-    }
-
-    .section-intro {
-      color: var(--soft);
-      font-size: 0.86rem;
-      line-height: 1.6;
-      max-width: 230px;
+      line-height: 1.15;
     }
 
     .card-grid {
@@ -276,7 +206,7 @@
     .info-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--section-accent);
+      border-top: 4px solid var(--section-accent);
       padding: 1.6rem;
       display: flex;
       flex-direction: column;
@@ -340,8 +270,14 @@
         gap: 1.1rem;
       }
 
-      .section-intro {
-        max-width: none;
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+
+      .section-number {
+        margin-bottom: 0;
       }
     }
 
@@ -373,24 +309,21 @@
 
       .travel-hero {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.7rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
       }
 
-      .travel-topics-list {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-
-      .travel-topics-list a {
-        min-height: 58px;
+      .travel-hero-photo img {
+        height: 220px;
       }
 
       .travel-section {
-        scroll-margin-top: 140px;
+        padding: 1.2rem;
       }
 
-      .travel-section h2 {
-        scroll-margin-top: 140px;
+      .section-number {
+        font-size: 2.15rem;
       }
 
       .card-grid {
@@ -426,28 +359,15 @@
         <h1><em>Travel</em> to Santa Barbara</h1>
         <p class="sub">Choose what works for your weekend. Once you're in Santa Barbara, our venue is Simpson House Inn at 121 E Arrellaga St.</p>
       </div>
-      <aside class="venue-highlight" aria-label="Wedding venue">
-        <span class="venue-kicker">Your destination</span>
-        <h2>Simpson House Inn</h2>
-        <p>121 E Arrellaga St<br>Santa Barbara, California</p>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Open directions ↗</a>
-      </aside>
-    </div>
-
-    <nav class="travel-topics" aria-label="Travel topics">
-      <p class="travel-topics-label">Jump to the details</p>
-      <div class="travel-topics-list">
-        <a href="#fly-heading"><span aria-hidden="true">01</span> By air <span aria-hidden="true">↗</span></a>
-        <a href="#ground-heading"><span aria-hidden="true">02</span> By train or car <span aria-hidden="true">↗</span></a>
-        <a href="#venue-heading"><span aria-hidden="true">03</span> At the venue <span aria-hidden="true">↗</span></a>
+      <div class="travel-hero-photo">
+        <img src="attached_assets/generated_images/travel-coast.jpg" alt="" width="1024" height="1024">
       </div>
-    </nav>
+    </div>
 
     <section class="travel-section" aria-labelledby="fly-heading">
       <div class="section-heading">
-        <span class="section-number">01 / Arrival</span>
+        <span class="section-number" aria-hidden="true">01</span>
         <h2 id="fly-heading">By air</h2>
-        <p class="section-intro">Fly into Santa Barbara or connect from Los Angeles.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">
@@ -473,9 +393,8 @@
 
     <section class="travel-section section-ground" aria-labelledby="ground-heading">
       <div class="section-heading">
-        <span class="section-number">02 / Overland</span>
+        <span class="section-number" aria-hidden="true">02</span>
         <h2 id="ground-heading">By train or car</h2>
-        <p class="section-intro">Pick the route that fits your schedule.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">
@@ -499,11 +418,10 @@
       </div>
     </section>
 
-    <section class="travel-section" aria-labelledby="venue-heading">
+    <section class="travel-section section-venue" aria-labelledby="venue-heading">
       <div class="section-heading">
-        <span class="section-number">03 / Final stop</span>
+        <span class="section-number" aria-hidden="true">03</span>
         <h2 id="venue-heading">Getting to the venue</h2>
-        <p class="section-intro">A little planning makes arrival easier.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">

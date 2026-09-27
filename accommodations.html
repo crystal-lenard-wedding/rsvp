@@ -159,21 +159,11 @@
       border: 1px solid rgba(201, 178, 0, 0.2);
     }
 
-    .venue-art figcaption {
-      color: var(--soft);
-      font-size: 0.7rem;
-      padding-top: 0.25rem;
-    }
-
     .hotel-group {
       margin-bottom: 3rem;
     }
 
     .hotel-group-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-      align-items: center;
-      gap: 1.5rem;
       padding-top: 1.5rem;
       margin-bottom: 1.2rem;
       border-top: 1px solid var(--border);
@@ -183,7 +173,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 4vw, 2.2rem);
       font-weight: 400;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.85rem;
     }
 
     .group-intro {
@@ -191,19 +181,16 @@
       line-height: 1.6;
     }
 
+    .group-photo {
+      margin-bottom: 0.85rem;
+    }
+
     .group-photo img {
       display: block;
       width: 100%;
-      height: 170px;
+      height: clamp(180px, 18vw, 230px);
       object-fit: cover;
       border: 1px solid var(--border);
-    }
-
-    .group-photo figcaption {
-      margin-top: 0.25rem;
-      color: var(--soft);
-      font-size: 0.7rem;
-      text-align: right;
     }
 
     .card-grid {
@@ -322,17 +309,8 @@
         height: 210px;
       }
 
-      .hotel-group-header {
-        grid-template-columns: 1fr;
-        gap: 0.9rem;
-      }
-
       .group-photo img {
-        height: 190px;
-      }
-
-      .group-photo figcaption {
-        text-align: left;
+        height: 185px;
       }
     }
   </style>
@@ -363,22 +341,18 @@
         <p>We have bought out the entire inn for the wedding weekend, so it is not available for guest booking. Here are some other places to stay.</p>
         <a href="https://www.simpsonhouseinn.com/" target="_blank" rel="noopener noreferrer">See the venue ↗</a>
       </div>
-      <figure class="venue-art">
-        <img src="attached_assets/generated_images/venue-outing.jpg" alt="Illustration of the Victorian-style Simpson House Inn framed by gardens" width="1024" height="1024">
-        <figcaption>Illustration inspired by Simpson House Inn</figcaption>
-      </figure>
+      <div class="venue-art">
+        <img src="attached_assets/generated_images/venue-outing.jpg" alt="" width="1024" height="1024">
+      </div>
     </div>
 
     <section class="hotel-group" aria-labelledby="downtown-heading">
       <div class="hotel-group-header">
-        <div>
-          <h2 id="downtown-heading">Downtown &amp; the Riviera</h2>
-          <p class="group-intro">City-center stays and a quiet hillside escape.</p>
-        </div>
-        <figure class="group-photo">
+        <h2 id="downtown-heading">Downtown &amp; the Riviera</h2>
+        <div class="group-photo">
           <img src="attached_assets/generated_images/stay-downtown.jpg" alt="" loading="lazy" decoding="async">
-          <figcaption>Neighborhood-inspired image</figcaption>
-        </figure>
+        </div>
+        <p class="group-intro">City-center stays and a quiet hillside escape.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">
@@ -410,14 +384,11 @@
 
     <section class="hotel-group" aria-labelledby="waterfront-heading">
       <div class="hotel-group-header">
-        <div>
-          <h2 id="waterfront-heading">Waterfront</h2>
-          <p class="group-intro">For guests who want the beach, harbor and coastal path close by.</p>
-        </div>
-        <figure class="group-photo">
+        <h2 id="waterfront-heading">Waterfront</h2>
+        <div class="group-photo">
           <img src="attached_assets/generated_images/stay-waterfront.jpg" alt="" loading="lazy" decoding="async">
-          <figcaption>Neighborhood-inspired image</figcaption>
-        </figure>
+        </div>
+        <p class="group-intro">For guests who want the beach, harbor and coastal path close by.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">
@@ -449,14 +420,11 @@
 
     <section class="hotel-group" aria-labelledby="other-heading">
       <div class="hotel-group-header">
-        <div>
-          <h2 id="other-heading">More ways to stay</h2>
-          <p class="group-intro">A Hyatt option farther up State Street, or space for a group.</p>
-        </div>
-        <figure class="group-photo">
+        <h2 id="other-heading">More ways to stay</h2>
+        <div class="group-photo">
           <img src="attached_assets/generated_images/stay-more.jpg" alt="" loading="lazy" decoding="async">
-          <figcaption>Neighborhood-inspired image</figcaption>
-        </figure>
+        </div>
+        <p class="group-intro">A Hyatt option farther up State Street, or space for a group.</p>
       </div>
       <div class="card-grid">
         <div class="info-card">
