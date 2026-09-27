@@ -2,3 +2,4 @@
 - [Hotel travel estimates](hotel-travel-estimates.md) — honor couple-provided drive times; do not invent estimates for newly recommended hotels.
 - [Mobile preview capture](mobile-preview-capture.md) — anchored headless screenshots may catch smooth scrolling midflight and falsely show blank content.
 - [Photo carousel controls](photo-carousel-controls.md) — preserve a high-contrast desktop selector and mobile arrows/count as the gallery grows.
+- [Accommodation area imagery](accommodation-area-imagery.md) — section photos are illustrative area imagery, not photos of listed hotels.

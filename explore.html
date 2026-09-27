@@ -203,7 +203,7 @@
       gap: 1.1rem;
       align-items: start;
       padding: 1.2rem 1.35rem;
-      margin-bottom: 1.55rem;
+      margin-top: 1.5rem;
       background: var(--lemon-pale);
       border: 1px solid rgba(201, 178, 0, 0.26);
     }
@@ -383,7 +383,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div>
         <h1 id="page-title"><em>Explore</em> at your own pace</h1>
-        <p class="sub">A few of our favorite ways to make a wedding weekend of it: courthouse details, harbor air, good things to eat, and a day out if you have one to spare.</p>
+        <p class="sub">A few of our favorite ways to make a wedding weekend of it: views from the Courthouse clock tower, harbor air, good things to eat, and a day out if you have one to spare.</p>
       </div>
     </section>
 
@@ -399,28 +399,27 @@
       </div>
     </section>
 
-    <section class="itinerary" id="mini-plan">
-      <p class="itinerary-kicker">A mini plan</p>
-      <div>
-        <h2>A little of everything</h2>
-        <p>Start with the Courthouse tower, wander toward the Public Market for a casual bite, then save the late afternoon for harbor-to-wharf views or a Butterfly Beach stroll. Check current schedules before you go.</p>
-      </div>
-    </section>
-
-    <section id="results" hidden aria-live="polite">
+    <section id="results" aria-live="polite">
     <div class="results-heading">
-      <h2>Good places to begin</h2>
+      <h2 id="results-title">Your mini plan stops</h2>
       <p class="results-count" id="results-count">12 recommendations</p>
     </div>
     <div class="explore-grid" id="recommendations">
-      <article class="explore-card" data-category="local scenic">
+      <article class="explore-card" data-category="local scenic" data-mini-step="1">
         <div class="explore-emoji" aria-hidden="true">🏛️</div>
         <h3 class="explore-name">Courthouse clock tower</h3>
         <p class="explore-dist">Downtown · Santa Barbara</p>
         <p class="explore-desc">A beautiful landmark with sweeping city-and-coast views from the clock tower. The courthouse offers free tours; check the official page for current tour details.</p>
         <a class="card-link" href="https://www.santabarbara.courts.ca.gov/general-information/historic-county-courthouse" target="_blank" rel="noopener noreferrer">Tour details <span aria-hidden="true">↗</span></a>
       </article>
-      <article class="explore-card" data-category="local scenic">
+      <article class="explore-card" data-category="food local" data-mini-step="2">
+        <div class="explore-emoji" aria-hidden="true">🍋</div>
+        <h3 class="explore-name">Santa Barbara Public Market</h3>
+        <p class="explore-dist">Downtown · Easy group stop</p>
+        <p class="explore-desc">A casual downtown food hall with a variety of vendors—handy when everyone wants something different. Check the market's site for current vendor and visit details.</p>
+        <a class="card-link" href="https://santabarbaraca.com/businesses/santa-barbara-public-market/" target="_blank" rel="noopener noreferrer">Market details <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="local scenic" data-mini-step="3">
         <div class="explore-emoji" aria-hidden="true">⛴️</div>
         <h3 class="explore-name">Lil' Toot water taxi</h3>
         <p class="explore-dist">Harbor to Stearns Wharf</p>
@@ -441,7 +440,7 @@
         <p class="explore-desc">A singular garden estate with a remarkable collection of plants. Advance reservations are required; consult Lotusland for its 2026 season dates and visit details.</p>
         <a class="card-link" href="https://www.lotusland.org/visit/" target="_blank" rel="noopener noreferrer">Reservations &amp; season info <span aria-hidden="true">↗</span></a>
       </article>
-      <article class="explore-card" data-category="local scenic">
+      <article class="explore-card" data-category="local scenic" data-mini-step="4">
         <div class="explore-emoji" aria-hidden="true">🌊</div>
         <h3 class="explore-name">Butterfly Beach</h3>
         <p class="explore-dist">Montecito · By the water</p>
@@ -454,13 +453,6 @@
         <p class="explore-dist">Downtown · Food &amp; wine</p>
         <p class="explore-desc">A colorful pocket near the waterfront for tasting rooms, art, and a choose-as-you-go meal. Make an afternoon of wandering between stops.</p>
         <a class="card-link" href="https://santabarbaraca.com/explore-and-discover-santa-barbara/neighborhoods-towns/santa-barbara/the-funk-zone" target="_blank" rel="noopener noreferrer">Explore the neighborhood <span aria-hidden="true">↗</span></a>
-      </article>
-      <article class="explore-card" data-category="food local">
-        <div class="explore-emoji" aria-hidden="true">🍋</div>
-        <h3 class="explore-name">Santa Barbara Public Market</h3>
-        <p class="explore-dist">Downtown · Easy group stop</p>
-        <p class="explore-desc">A casual downtown food hall with a variety of vendors—handy when everyone wants something different. Check the market's site for current vendor and visit details.</p>
-        <a class="card-link" href="https://santabarbaraca.com/businesses/santa-barbara-public-market/" target="_blank" rel="noopener noreferrer">Market details <span aria-hidden="true">↗</span></a>
       </article>
       <article class="explore-card" data-category="food scenic">
         <div class="explore-emoji" aria-hidden="true">🍇</div>
@@ -498,6 +490,13 @@
         <a class="card-link" href="https://roads.dot.ca.gov/?roadnumber=CA-1" target="_blank" rel="noopener noreferrer">Check CA-1 road status <span aria-hidden="true">↗</span></a>
       </article>
     </div>
+    <section class="itinerary" id="mini-plan" aria-labelledby="mini-plan-title">
+      <p class="itinerary-kicker">A mini plan</p>
+      <div>
+        <h2 id="mini-plan-title">A little of everything</h2>
+        <p>Start with the Courthouse clock tower, stop at the Public Market for a casual bite, then choose a harbor-to-wharf ride on Lil' Toot or a slower stroll at Butterfly Beach. Check current hours and boat schedules before you go.</p>
+      </div>
+    </section>
     <p class="road-note" id="road-note"><strong>Planning a longer coastal drive?</strong> Big Sur and Carmel are overnight/road-trip extensions, not easy day trips. Highway 1 can be affected by closures; <a href="https://roads.dot.ca.gov/?roadnumber=CA-1" target="_blank" rel="noopener noreferrer">check Caltrans CA-1 status</a> and route conditions before you go.</p>
     </section>
   </main>
@@ -506,13 +505,15 @@
       const buttons = Array.from(document.querySelectorAll('.filter-button'));
       const cards = Array.from(document.querySelectorAll('.explore-card'));
       const miniPlan = document.getElementById('mini-plan');
-      const results = document.getElementById('results');
+      const resultsTitle = document.getElementById('results-title');
       const roadNote = document.getElementById('road-note');
       const count = document.getElementById('results-count');
 
       function selectFilter(filter) {
         const visibleCards = cards.filter(function (card) {
-          const visible = filter === 'all' || card.dataset.category.split(' ').includes(filter);
+          const visible = filter === 'mini'
+            ? card.hasAttribute('data-mini-step')
+            : filter === 'all' || card.dataset.category.split(' ').includes(filter);
           card.hidden = !visible;
           return visible;
         });
@@ -520,7 +521,7 @@
           button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
         });
         miniPlan.hidden = filter !== 'mini';
-        results.hidden = filter === 'mini';
+        resultsTitle.textContent = filter === 'mini' ? 'Your mini plan stops' : 'Good places to begin';
         roadNote.hidden = filter !== 'road' && filter !== 'all';
         count.textContent = visibleCards.length + (visibleCards.length === 1 ? ' recommendation' : ' recommendations');
       }
