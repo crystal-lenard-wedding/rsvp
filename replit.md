@@ -19,9 +19,11 @@ committed and pushed to the GitHub repository when approved for publication.
 The RSVP and contact links use external services. Avoid submitting real
 responses while testing the local preview.
 
-Before each production update, run `python3 scripts/bump-version.py` after
-editing the site. It increments `version.json` and the version embedded in all
-four HTML pages, including the `version-check.js` cache-busting URL. Commit and
-push those files together with the update to the existing GitHub Pages repo.
+After editing the site, run `./deploy.sh` from the Replit Shell for a production
+update. It checks the current branch and origin push URL, stops without changing
+the version when there are no edits, then bumps the version, stages all changes,
+commits, and pushes to the existing GitHub Pages repo. Review all local changes
+first because it runs `git add -A`. The version bump updates `version.json` and
+all four HTML pages, including the `version-check.js` cache-busting URL.
 Styles and page-specific JavaScript are inline in the HTML, so they always
 arrive with the page. Do not add a service worker or offline cache.
