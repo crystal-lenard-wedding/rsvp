@@ -1185,6 +1185,14 @@
       color: var(--ink);
     }
 
+    .stay-all-link {
+      display: inline-block;
+      margin-top: 1.4rem;
+      color: var(--ink);
+      font-weight: 500;
+      text-underline-offset: 4px;
+    }
+
     /* EXPLORE */
     .explore-grid {
       display: grid;
@@ -2049,12 +2057,14 @@
 
     .rsvp-card-btn {
       display: inline-block;
-      padding: 1.1rem 3.5rem;
+      max-width: 100%;
+      padding: 1.1rem 1.5rem;
       background: var(--ink);
       color: var(--cream);
       font-family: 'Jost', sans-serif;
       font-size: 0.78rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
       text-transform: uppercase;
       text-decoration: none;
       transition: background 0.3s;
@@ -2573,7 +2583,7 @@
       <div class="panel-block" id="stay" data-label="Where to Stay">
         <p class="eyebrow fade-in">Where to Stay</p>
         <h2 class="section-title fade-in">Recommended <em>Accommodations</em></h2>
-        <p class="section-sub fade-in">At guests' own expense — book early, October is magical in Santa Barbara!</p>
+        <p class="section-sub fade-in">At guests' own expense. Book early! Drive times from Simpson House Inn are approximate and may vary with traffic.</p>
         <div class="card-grid fade-in">
           <div class="info-card">
             <div class="info-card-icon">🍋</div>
@@ -2587,15 +2597,15 @@
           <div class="info-card">
             <div class="info-card-icon">🌊</div>
             <div class="info-card-title">Hotel Californian</div>
-            <div class="info-card-dist">~5 min · Downtown Waterfront</div>
+            <div class="info-card-dist">Waterfront · about 10 min drive</div>
             <div class="info-card-body">Spanish Colonial Revival steps from the beach. Rooftop pool and sweeping ocean
               views.</div><a href="https://hotelcalifornian.com" target="_blank" class="info-card-link">Visit
               Website →</a>
           </div>
           <div class="info-card">
             <div class="info-card-icon">🌸</div>
-            <div class="info-card-title">Belmond El Encanto</div>
-            <div class="info-card-dist">~5 min · Mission Hills</div>
+            <div class="info-card-title">El Encanto</div>
+            <div class="info-card-dist">The Riviera · about 5 min drive</div>
             <div class="info-card-body">Hilltop bungalows, infinity pool and lush gardens. Pure Santa Barbara luxury.
             </div><a href="https://elencanto.com" target="_blank" class="info-card-link">Visit Website
               →</a>
@@ -2603,28 +2613,29 @@
           <div class="info-card">
             <div class="info-card-icon">🏨</div>
             <div class="info-card-title">Kimpton Canary</div>
-            <div class="info-card-dist">~3 min · Downtown</div>
-            <div class="info-card-body">Boutique hotel with rooftop terrace overlooking the Mission. Walkable to
-              everything.</div><a href="https://www.canarysantabarbara.com" target="_blank" class="info-card-link">Visit
+            <div class="info-card-dist">Downtown · about 5 min drive</div>
+            <div class="info-card-body">Boutique hotel with a rooftop terrace overlooking the city, handy for downtown
+              shops and restaurants.</div><a href="https://www.canarysantabarbara.com" target="_blank" rel="noopener noreferrer" class="info-card-link">Visit
               Website →</a>
           </div>
           <div class="info-card">
             <div class="info-card-icon">🌿</div>
             <div class="info-card-title">Harbor View Inn</div>
-            <div class="info-card-dist">~7 min · Waterfront</div>
-            <div class="info-card-body">Right on the harbor with incredible ocean views and one of the best sunsets in
-              town.</div><a href="https://harborviewinnsb.com" target="_blank" class="info-card-link">Visit Website
+            <div class="info-card-dist">Waterfront · about 10 min drive</div>
+            <div class="info-card-body">Across from the beach near Stearns Wharf, with the harbor and sunset walks
+              close by.</div><a href="https://harborviewinnsb.com" target="_blank" rel="noopener noreferrer" class="info-card-link">Visit Website
               →</a>
           </div>
           <div class="info-card">
             <div class="info-card-icon">🏡</div>
-            <div class="info-card-title">Airbnb / VRBO</div>
-            <div class="info-card-dist">Throughout Santa Barbara</div>
-            <div class="info-card-body">Great for groups. Funk Zone, Eastside and Montecito all have lovely rentals
-              close to the venue.</div><a href="https://www.airbnb.com/s/Santa-Barbara--CA" target="_blank"
+            <div class="info-card-title">Vacation rentals</div>
+            <div class="info-card-dist">Across Santa Barbara</div>
+            <div class="info-card-body">A flexible choice for groups. Check the location and drive to the venue before
+              booking.</div><a href="https://www.airbnb.com/s/Santa-Barbara--CA" target="_blank" rel="noopener noreferrer"
               class="info-card-link">Search Airbnb →</a>
           </div>
         </div>
+        <a class="stay-all-link" href="accommodations.html">See all stays, including Marriott, Hyatt &amp; Hilton →</a>
       </div>
 
       <!-- EXPLORE -->
@@ -2830,7 +2841,7 @@
               <div class="registry-desc">Help spoil our beloved cat Winston — the original man of the house.
                 Contributions go toward premium treats, toys and the occasional luxury cat tree he absolutely does not
                 need but desperately wants.</div><button type="button" class="registry-btn cat-btn"
-                onclick="openGratitudeModal()">Gift Winston</button>
+                onclick="openGratitudeModal('Winston’s Treat Fund')">Gift Winston</button>
             </div>
           </div>
           <div class="registry-card africa">
@@ -2839,7 +2850,7 @@
               <div class="registry-name">Honeymoon in Africa</div>
               <div class="registry-desc">We're dreaming of a once-in-a-lifetime safari — watching elephants at sunrise,
                 stargazing in the Serengeti and exploring landscapes that take your breath away.</div><button
-                type="button" class="registry-btn africa-btn" onclick="openGratitudeModal()">Fund Our Adventure</button>
+                type="button" class="registry-btn africa-btn" onclick="openGratitudeModal('Honeymoon in Africa')">Fund Our Adventure</button>
             </div>
           </div>
           <div class="registry-card puppy">
@@ -2848,7 +2859,7 @@
               <div class="registry-name">Weekly Boxing & Wrestling Fund</div>
               <div class="registry-desc">Fuel our favourite hobby together — training sessions, gear and the occasional
                 championship belt neither of us will ever actually win. Contributions warmly received.</div><button
-                type="button" class="registry-btn puppy-btn" onclick="openGratitudeModal()">Support the Fight</button>
+                type="button" class="registry-btn puppy-btn" onclick="openGratitudeModal('Boxing &amp; Wrestling Fund')">Support the Fight</button>
             </div>
           </div>
         </div>
@@ -2860,7 +2871,8 @@
         <h2 class="section-title fade-in">RSVPs are <em>closed</em></h2>
         <div class="rsvp-card fade-in">
           <div class="rsvp-card-icon">🍋</div>
-          <p class="rsvp-card-text">RSVPs are now closed. If your plans have changed, please contact Crystal or Lenard directly.</p>
+          <p class="rsvp-card-text">RSVPs are now closed. If your plans have changed, please let us know.</p>
+          <a class="rsvp-card-btn" href="mailto:lenard.robles@gmail.com?subject=RSVP%20Change%20for%20Crystal%20%26%20Lenard%27s%20Wedding">Email us about an RSVP change →</a>
         </div>
       </div>
 
@@ -2873,8 +2885,9 @@
       <div class="gratitude-header">
         <div>
           <div class="gratitude-title" id="gratitudeModalTitle">With Love & Gratitude</div>
-          <p class="gratitude-subtitle">Choose Venmo, Zelle, or PayPal below. Scan the QR code or use the link/account
-            underneath.</p>
+          <p class="gratitude-subtitle">Cheering for <strong id="gratitudeFund"></strong>? Choose Venmo, Zelle, or
+            PayPal below. If you'd like us to keep a fun tally, add the fund name in your payment note. Totally
+            optional! Choosing a fund here does not label your payment automatically.</p>
         </div>
         <button type="button" class="gratitude-close" onclick="closeGratitudeModal()" aria-label="Close">×</button>
       </div>
@@ -2928,8 +2941,9 @@
       }
     }
 
-    function openGratitudeModal() {
+    function openGratitudeModal(fund) {
       modalReturnFocus = document.activeElement;
+      document.getElementById('gratitudeFund').textContent = fund;
       gratitudeModal.classList.add('open');
       gratitudeModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';

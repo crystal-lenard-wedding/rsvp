@@ -12,9 +12,14 @@
   <style>
     :root {
       --cream: #fffde8;
+      --lemon: #f7e234;
+      --lemon-pale: #fefbd0;
+      --lemon-deep: #c9b200;
       --blue: #4fa8c5;
+      --blue-pale: #e8f7ff;
       --ink: #1c2b4a;
       --soft: #2e4a72;
+      --muted: #73849d;
       --white: #ffffff;
       --border: rgba(79, 168, 197, 0.18);
     }
@@ -23,6 +28,14 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
     }
 
     body {
@@ -62,6 +75,8 @@
       font-weight: 500;
     }
 
+    .nav-link:hover { color: var(--blue); }
+
     .page-links {
       display: flex;
       align-items: center;
@@ -87,7 +102,15 @@
     main {
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 5rem 0;
+      padding: 4.5rem 0 5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(230px, 0.75fr);
+      gap: 2rem;
+      align-items: end;
+      padding-bottom: 2.7rem;
     }
 
     .eyebrow {
@@ -95,15 +118,16 @@
       font-size: 0.72rem;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      font-size: clamp(2.6rem, 8vw, 5.6rem);
-      line-height: 0.95;
-      margin-bottom: 1rem;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
     }
 
     h1 em {
@@ -112,47 +136,200 @@
     }
 
     .sub {
-      max-width: 720px;
+      max-width: 650px;
       color: var(--soft);
       line-height: 1.7;
-      margin-bottom: 2.5rem;
+      margin-top: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .personal-note {
+      border-left: 2px solid var(--lemon-deep);
+      padding: 0.35rem 0 0.35rem 1.15rem;
+      color: var(--soft);
+      line-height: 1.65;
+      font-size: 0.92rem;
+      max-width: 300px;
+      justify-self: end;
+    }
+
+    .personal-note strong {
+      display: block;
+      color: var(--ink);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .picker {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.15rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .picker-label {
+      display: block;
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .filter-button {
+      appearance: none;
+      border: 1px solid rgba(28, 43, 74, 0.2);
+      border-radius: 99px;
+      padding: 0.62rem 1rem;
+      background: transparent;
+      color: var(--ink);
+      font: 400 0.87rem 'Jost', sans-serif;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .filter-button:hover { border-color: var(--blue); }
+
+    .filter-button[aria-pressed="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .itinerary {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.1rem;
+      align-items: start;
+      padding: 1.2rem 1.35rem;
+      margin-bottom: 1.55rem;
+      background: var(--lemon-pale);
+      border: 1px solid rgba(201, 178, 0, 0.26);
+    }
+
+    .itinerary-kicker {
+      color: #8a7800;
+      font-size: 0.67rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding-top: 0.2rem;
+    }
+
+    .itinerary h2 {
+      font: 500 1.22rem 'Playfair Display', serif;
+      margin-bottom: 0.3rem;
+    }
+
+    .itinerary p {
+      color: var(--soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .results-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin: 2.3rem 0 0.9rem;
+    }
+
+    .results-heading h2 {
+      font: 500 1.5rem 'Playfair Display', serif;
+    }
+
+    .results-count {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
     }
 
     .explore-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.9rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
 
     .explore-card {
       border: 1px solid var(--border);
       background: var(--white);
-      padding: 1.25rem;
+      padding: 1.3rem;
+      min-height: 222px;
+      display: flex;
+      flex-direction: column;
     }
 
     .explore-emoji {
-      font-size: 1.7rem;
-      margin-bottom: 0.65rem;
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
     }
 
     .explore-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.08rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
     }
 
     .explore-dist {
       color: var(--blue);
-      font-size: 0.7rem;
+      font-size: 0.66rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
+      font-weight: 500;
     }
 
     .explore-desc {
       color: var(--soft);
       line-height: 1.6;
       font-size: 0.88rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      margin-top: auto;
+      width: fit-content;
+    }
+
+    .card-link:hover { color: #277d99; }
+
+    .road-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.2rem;
+      background: var(--blue-pale);
+      color: var(--soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      border-left: 3px solid var(--blue);
+    }
+
+    .road-note strong { color: var(--ink); }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 820px) {
+      .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero { grid-template-columns: 1fr; gap: 1.4rem; }
+      .personal-note { justify-self: start; max-width: 520px; }
     }
 
     @media(max-width:640px) {
@@ -176,9 +353,15 @@
         padding: 3rem 0;
       }
 
-      .explore-grid {
-        grid-template-columns: 1fr;
-      }
+      .explore-grid { grid-template-columns: 1fr; }
+      .itinerary { grid-template-columns: 1fr; gap: 0.35rem; }
+      .itinerary-kicker { padding: 0; }
+      .results-heading { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
+      .filter-button { padding: 0.57rem 0.83rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
 </head>
@@ -198,73 +381,181 @@
   <div class="guest-guide-banner">🍋 Wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View our Mini Guest Guide →</a></div>
 
   <main>
-    <p class="eyebrow">While You're Here</p>
-    <h1><em>Explore</em> the Area</h1>
-    <p class="sub">Make a long weekend of it, from Santa Barbara's garden streets to Big Sur's dramatic cliffs.</p>
-    <div class="explore-grid">
-      <div class="explore-card">
-        <div class="explore-emoji">🏛️</div>
-        <div class="explore-name">Santa Barbara Mission</div>
-        <div class="explore-dist">SB · 5 min</div>
-        <div class="explore-desc">The "Queen of the Missions", an 1786 Spanish colonial landmark surrounded by rose
-          gardens.</div>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">A little local love · Santa Barbara</p>
+        <h1 id="page-title"><em>Explore</em> at your own pace</h1>
+        <p class="sub">A few of our favorite ways to make a wedding weekend of it: courthouse details, harbor air, good things to eat, and a day out if you have one to spare.</p>
       </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🍷</div>
-        <div class="explore-name">Santa Ynez Wine Country</div>
-        <div class="explore-dist">~40 min north</div>
-        <div class="explore-desc">Rolling vineyard valleys and Solvang's charming Danish village.</div>
+      <aside class="personal-note">
+        <strong>Our kind of itinerary</strong>
+        Keep it loose. Pick a neighborhood, leave room for a long lunch, and check each destination's current details before you go.
+      </aside>
+    </section>
+
+    <section class="picker" aria-label="Choose your kind of outing">
+      <span class="picker-label">What sounds like you?</span>
+      <div class="filter-list" role="group" aria-label="Filter recommendations">
+        <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All ideas</button>
+        <button class="filter-button" type="button" data-filter="local" aria-pressed="false">Stay local</button>
+        <button class="filter-button" type="button" data-filter="food" aria-pressed="false">Food &amp; wine</button>
+        <button class="filter-button" type="button" data-filter="scenic" aria-pressed="false">Scenic day trip</button>
+        <button class="filter-button" type="button" data-filter="road" aria-pressed="false">Longer road trip</button>
       </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🌊</div>
-        <div class="explore-name">Butterfly Beach</div>
-        <div class="explore-dist">Montecito · 10 min</div>
-        <div class="explore-desc">Quiet upscale beach, perfect for a golden-hour stroll.</div>
+    </section>
+
+    <section class="itinerary" aria-live="polite" aria-atomic="true">
+      <p class="itinerary-kicker">A mini plan</p>
+      <div>
+        <h2 id="itinerary-title">A little of everything</h2>
+        <p id="itinerary-copy">Start with the Courthouse tower, wander toward the Public Market for a casual bite, then save the late afternoon for harbor-to-wharf views or a Butterfly Beach stroll. For any outing, check the destination's current schedule and visit details first.</p>
       </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🌁</div>
-        <div class="explore-name">Big Sur</div>
-        <div class="explore-dist">~3 hr north on PCH</div>
-        <div class="explore-desc">McWay Falls, Bixby Bridge, and one of the most dramatic coastlines on Earth.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🏡</div>
-        <div class="explore-name">Carmel-by-the-Sea</div>
-        <div class="explore-dist">~4 hr north</div>
-        <div class="explore-desc">Storybook village, white-sand beach, galleries, and California dining.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🌺</div>
-        <div class="explore-name">Lotusland Garden</div>
-        <div class="explore-dist">SB · 15 min</div>
-        <div class="explore-desc">Extraordinary private estate with 3,000+ exotic species. Book in advance.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🥘</div>
-        <div class="explore-name">The Funk Zone</div>
-        <div class="explore-dist">SB · 8 min</div>
-        <div class="explore-desc">Wine bars, craft breweries, galleries, and fresh tacos.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🦭</div>
-        <div class="explore-name">Channel Islands</div>
-        <div class="explore-dist">~1.5 hr ferry</div>
-        <div class="explore-desc">California's Galapagos: sea caves, marine wildlife, and pristine wilderness.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🏰</div>
-        <div class="explore-name">Hearst Castle</div>
-        <div class="explore-dist">~1.5 hr north on PCH</div>
-        <div class="explore-desc">Legendary hilltop palace with Neptune Pool, opulent rooms, and ocean panoramas.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-emoji">🚲</div>
-        <div class="explore-name">Cabrillo Beachway</div>
-        <div class="explore-dist">SB · 10 min</div>
-        <div class="explore-desc">Rent bikes and cruise the palm-lined coastal path at sunrise.</div>
-      </div>
+    </section>
+
+    <div class="results-heading">
+      <h2>Good places to begin</h2>
+      <p class="results-count" id="results-count">12 recommendations</p>
     </div>
+    <div class="explore-grid" id="recommendations">
+      <article class="explore-card" data-category="local scenic">
+        <div class="explore-emoji" aria-hidden="true">🏛️</div>
+        <h3 class="explore-name">Courthouse clock tower</h3>
+        <p class="explore-dist">Downtown · Santa Barbara</p>
+        <p class="explore-desc">A beautiful landmark with sweeping city-and-coast views from the clock tower. The courthouse offers free tours; check the official page for current tour details.</p>
+        <a class="card-link" href="https://www.santabarbara.courts.ca.gov/general-information/historic-county-courthouse" target="_blank" rel="noopener noreferrer">Tour details <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="local scenic">
+        <div class="explore-emoji" aria-hidden="true">⛴️</div>
+        <h3 class="explore-name">Lil' Toot water taxi</h3>
+        <p class="explore-dist">Harbor to Stearns Wharf</p>
+        <p class="explore-desc">A narrated, 25-minute harbor-to-wharf boat ride—an easy way to take in the waterfront. Check the schedule before heading to the harbor.</p>
+        <a class="card-link" href="https://liltootsb.com/" target="_blank" rel="noopener noreferrer">Ride &amp; schedule info <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="local scenic">
+        <div class="explore-emoji" aria-hidden="true">🌿</div>
+        <h3 class="explore-name">Santa Barbara Botanic Garden</h3>
+        <p class="explore-dist">A garden walk · Santa Barbara</p>
+        <p class="explore-desc">A lovely change of pace among California native plants. Review visit information and reserve ahead as required by the garden.</p>
+        <a class="card-link" href="https://sbbotanicgarden.org/visit/plan-your-visit" target="_blank" rel="noopener noreferrer">Plan your visit <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="local scenic">
+        <div class="explore-emoji" aria-hidden="true">🌺</div>
+        <h3 class="explore-name">Lotusland</h3>
+        <p class="explore-dist">Montecito · Garden visit</p>
+        <p class="explore-desc">A singular garden estate with a remarkable collection of plants. Advance reservations are required; consult Lotusland for its 2026 season dates and visit details.</p>
+        <a class="card-link" href="https://www.lotusland.org/visit/" target="_blank" rel="noopener noreferrer">Reservations &amp; season info <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="local scenic">
+        <div class="explore-emoji" aria-hidden="true">🌊</div>
+        <h3 class="explore-name">Butterfly Beach</h3>
+        <p class="explore-dist">Montecito · By the water</p>
+        <p class="explore-desc">Bring a layer and make time for a shoreline stroll. A simple, unhurried pick for golden-hour light and a little ocean air.</p>
+        <a class="card-link" href="https://santabarbaraca.com/plan-your-trip/beaches-parks/beaches" target="_blank" rel="noopener noreferrer">Santa Barbara beach guide <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="food local">
+        <div class="explore-emoji" aria-hidden="true">🍷</div>
+        <h3 class="explore-name">The Funk Zone</h3>
+        <p class="explore-dist">Downtown · Food &amp; wine</p>
+        <p class="explore-desc">A colorful pocket near the waterfront for tasting rooms, art, and a choose-as-you-go meal. Make an afternoon of wandering between stops.</p>
+        <a class="card-link" href="https://santabarbaraca.com/explore-and-discover-santa-barbara/neighborhoods-towns/santa-barbara/the-funk-zone" target="_blank" rel="noopener noreferrer">Explore the neighborhood <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="food local">
+        <div class="explore-emoji" aria-hidden="true">🍋</div>
+        <h3 class="explore-name">Santa Barbara Public Market</h3>
+        <p class="explore-dist">Downtown · Easy group stop</p>
+        <p class="explore-desc">A casual downtown food hall with a variety of vendors—handy when everyone wants something different. Check the market's site for current vendor and visit details.</p>
+        <a class="card-link" href="https://santabarbaraca.com/businesses/santa-barbara-public-market/" target="_blank" rel="noopener noreferrer">Market details <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="food scenic">
+        <div class="explore-emoji" aria-hidden="true">🍇</div>
+        <h3 class="explore-name">Santa Ynez wine country</h3>
+        <p class="explore-dist">Valleys, vineyards &amp; small towns</p>
+        <p class="explore-desc">Give the day to the vineyard scenery and tasting rooms, with a stop in a nearby town if that suits your pace. Plan a designated driver or transportation before tasting.</p>
+        <a class="card-link" href="https://www.visitsyv.com/wine" target="_blank" rel="noopener noreferrer">Explore wine country <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="food scenic">
+        <div class="explore-emoji" aria-hidden="true">🪵</div>
+        <h3 class="explore-name">Cold Spring Tavern</h3>
+        <p class="explore-dist">Mountain stop · Food &amp; history</p>
+        <p class="explore-desc">A historic stagecoach stop tucked in the mountains. Seating is first come, first served; check the tavern's site for current days and details before setting out.</p>
+        <a class="card-link" href="https://www.coldspringtavern.com/" target="_blank" rel="noopener noreferrer">Tavern details <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="scenic">
+        <div class="explore-emoji" aria-hidden="true">🛶</div>
+        <h3 class="explore-name">Channel Islands National Park</h3>
+        <p class="explore-dist">A full-day island outing</p>
+        <p class="explore-desc">Wild coast, sea caves, and wildlife make this a memorable bigger day out. Island access requires advance planning; check current park and boat-operator information before committing.</p>
+        <a class="card-link" href="https://www.nps.gov/chis/planyourvisit/index.htm" target="_blank" rel="noopener noreferrer">Plan an island visit <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="road">
+        <div class="explore-emoji" aria-hidden="true">🌁</div>
+        <h3 class="explore-name">Big Sur</h3>
+        <p class="explore-dist">LONGER OVERNIGHT / ROAD-TRIP EXTENSION</p>
+        <p class="explore-desc">A spectacular stretch of California coast, but not an easy day trip from Santa Barbara. Treat it as a separate overnight plan and check Highway 1 conditions before choosing a route.</p>
+        <a class="card-link" href="https://roads.dot.ca.gov/?roadnumber=CA-1" target="_blank" rel="noopener noreferrer">Check CA-1 road status <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="explore-card" data-category="road">
+        <div class="explore-emoji" aria-hidden="true">🏡</div>
+        <h3 class="explore-name">Carmel-by-the-Sea</h3>
+        <p class="explore-dist">LONGER OVERNIGHT / ROAD-TRIP EXTENSION</p>
+        <p class="explore-desc">A storybook coastal village of galleries, small lanes, and a beautiful beach—best saved for a dedicated overnight road trip, not squeezed into a Santa Barbara day.</p>
+        <a class="card-link" href="https://roads.dot.ca.gov/?roadnumber=CA-1" target="_blank" rel="noopener noreferrer">Check CA-1 road status <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <p class="road-note"><strong>Planning a longer coastal drive?</strong> Big Sur and Carmel are overnight/road-trip extensions, not easy day trips. Highway 1 can be affected by closures; <a href="https://roads.dot.ca.gov/?roadnumber=CA-1" target="_blank" rel="noopener noreferrer">check Caltrans CA-1 status</a> and route conditions before you go.</p>
   </main>
+  <script>
+    (function () {
+      const buttons = Array.from(document.querySelectorAll('.filter-button'));
+      const cards = Array.from(document.querySelectorAll('.explore-card'));
+      const title = document.getElementById('itinerary-title');
+      const copy = document.getElementById('itinerary-copy');
+      const count = document.getElementById('results-count');
+      const plans = {
+        all: {
+          title: 'A little of everything',
+          copy: 'Start with the Courthouse tower, wander toward the Public Market for a casual bite, then save the late afternoon for harbor-to-wharf views or a Butterfly Beach stroll. For any outing, check current schedules and visit details first.'
+        },
+        local: {
+          title: 'A no-rush Santa Barbara day',
+          copy: 'Take in the Courthouse tower, then choose a harbor ride or a garden visit. Wrap up with a walk by the water; Lotusland and the Botanic Garden need advance planning, so check their visit details first.'
+        },
+        food: {
+          title: 'Taste your way around',
+          copy: 'Keep it casual at the Public Market, browse the Funk Zone at your own pace, or set aside a full day for Santa Ynez wine country. For wine tasting, plan safe transportation before you go.'
+        },
+        scenic: {
+          title: 'A scenery-first day out',
+          copy: 'For an easy local reset, pick a garden or Butterfly Beach. If you have a full day and plan ahead, consider the Channel Islands; island access depends on current park and boat-operator arrangements.'
+        },
+        road: {
+          title: 'Make it an overnight',
+          copy: 'Big Sur and Carmel are longer road-trip extensions, not quick Santa Barbara day trips. Give the coast its own overnight, check CA-1 status before departure, and build your route around current road conditions.'
+        }
+      };
+
+      function selectFilter(filter) {
+        const visibleCards = cards.filter(function (card) {
+          const visible = filter === 'all' || card.dataset.category.split(' ').includes(filter);
+          card.hidden = !visible;
+          return visible;
+        });
+        buttons.forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+        });
+        title.textContent = plans[filter].title;
+        copy.textContent = plans[filter].copy;
+        count.textContent = visibleCards.length + (visibleCards.length === 1 ? ' recommendation' : ' recommendations');
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          selectFilter(button.dataset.filter);
+        });
+      });
+      selectFilter('all');
+    }());
+  </script>
 </body>
 
 </html>

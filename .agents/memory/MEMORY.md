@@ -1,1 +1,2 @@
 - [Replit config edits](replit-config-edits.md) — .replit needs validated replacement; running Node can auto-add its module to a static project.
+- [Hotel travel estimates](hotel-travel-estimates.md) — honor couple-provided drive times; do not invent estimates for newly recommended hotels.

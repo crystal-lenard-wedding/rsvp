@@ -116,7 +116,36 @@
       max-width: 720px;
       color: var(--soft);
       line-height: 1.7;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .venue-note {
+      background: #fefbd0;
+      border: 1px solid rgba(201, 178, 0, 0.28);
+      padding: 1.2rem 1.5rem;
+      line-height: 1.65;
+      margin-bottom: 3rem;
+    }
+
+    .venue-note strong {
+      font-weight: 500;
+    }
+
+    .hotel-group {
+      margin-bottom: 3rem;
+    }
+
+    .hotel-group h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      margin-bottom: 0.45rem;
+    }
+
+    .group-intro {
+      color: var(--soft);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
     }
 
     .card-grid {
@@ -129,7 +158,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       padding: 1.6rem;
-      min-height: 240px;
+      min-height: 225px;
     }
 
     .info-card-icon {
@@ -166,6 +195,16 @@
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 500;
+    }
+
+    .info-card-link {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
     }
 
     .info-card-tag {
@@ -231,55 +270,103 @@
   <main>
     <p class="eyebrow">Where to Stay</p>
     <h1>Recommended <em>Accommodations</em></h1>
-    <p class="sub">At guests' own expense. Book early; October is magical in Santa Barbara.</p>
-    <div class="card-grid">
-      <div class="info-card">
-        <div class="info-card-icon">🍋</div>
-        <div class="info-card-title">Simpson House Inn</div>
-        <div class="info-card-dist">The Venue · Exclusively Ours</div>
-        <div class="info-card-body">We have bought out the entire inn for our wedding weekend, so this one is just for
-          us. Please book one of the nearby hotels below.</div>
-        <div class="info-card-tag">Not available for guest booking</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🌊</div>
-        <div class="info-card-title">Hotel Californian</div>
-        <div class="info-card-dist">~5 min · Downtown Waterfront</div>
-        <div class="info-card-body">Spanish Colonial Revival steps from the beach. Rooftop pool and sweeping ocean
-          views.</div>
-        <a href="https://hotelcalifornian.com" target="_blank" class="info-card-link">Visit Website →</a>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🌸</div>
-        <div class="info-card-title">Belmond El Encanto</div>
-        <div class="info-card-dist">~5 min · Mission Hills</div>
-        <div class="info-card-body">Hilltop bungalows, infinity pool, and lush gardens. Pure Santa Barbara luxury.</div>
-        <a href="https://elencanto.com" target="_blank" class="info-card-link">Visit Website →</a>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">🏨</div>
-        <div class="info-card-title">Kimpton Canary</div>
-        <div class="info-card-dist">~3 min · Downtown</div>
-        <div class="info-card-body">Boutique hotel with rooftop terrace overlooking the Mission. Walkable to everything.
+    <p class="sub">At guests' own expense. Book early; October is magical in Santa Barbara. Drive times below are
+      approximate from Simpson House Inn and can vary with traffic.</p>
+    <div class="venue-note"><strong>Our venue is Simpson House Inn.</strong> We have bought out the entire inn for the
+      wedding weekend, so it is not available for guest booking. Here are some other places to stay.</div>
+
+    <section class="hotel-group" aria-labelledby="downtown-heading">
+      <h2 id="downtown-heading">Downtown &amp; the Riviera</h2>
+      <p class="group-intro">City-center stays and a quiet hillside escape.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🏨</div>
+          <div class="info-card-title">Kimpton Canary</div>
+          <div class="info-card-dist">Downtown · about 5 min drive</div>
+          <div class="info-card-body">Boutique hotel with a rooftop terrace overlooking the city. Handy for downtown
+            shops and restaurants.</div>
+          <a href="https://www.canarysantabarbara.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
+            aria-label="Visit Kimpton Canary website">Visit website →</a>
         </div>
-        <a href="https://www.canarysantabarbara.com" target="_blank" class="info-card-link">Visit Website →</a>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🌿</div>
+          <div class="info-card-title">Courtyard Santa Barbara Downtown</div>
+          <div class="info-card-dist">Downtown · Marriott Bonvoy</div>
+          <div class="info-card-body">A Marriott option on State Street with a pool and on-site dining. Check directions
+            for your drive to the venue.</div>
+          <a href="https://www.marriott.com/en-us/hotels/sbacs-courtyard-santa-barbara-downtown/overview/" target="_blank"
+            rel="noopener noreferrer" class="info-card-link" aria-label="Visit Courtyard Santa Barbara Downtown website">Visit website →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🌸</div>
+          <div class="info-card-title">El Encanto</div>
+          <div class="info-card-dist">The Riviera · about 5 min drive</div>
+          <div class="info-card-body">Hilltop bungalows, gardens and sweeping views. A quieter Santa Barbara stay above
+            downtown.</div>
+          <a href="https://elencanto.com/" target="_blank" rel="noopener noreferrer" class="info-card-link"
+            aria-label="Visit El Encanto website">Visit website →</a>
+        </div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">🌿</div>
-        <div class="info-card-title">Harbor View Inn</div>
-        <div class="info-card-dist">~7 min · Waterfront</div>
-        <div class="info-card-body">Right on the harbor with ocean views and one of the best sunsets in town.</div>
-        <a href="https://harborviewinnsb.com" target="_blank" class="info-card-link">Visit Website →</a>
+    </section>
+
+    <section class="hotel-group" aria-labelledby="waterfront-heading">
+      <h2 id="waterfront-heading">Waterfront</h2>
+      <p class="group-intro">For guests who want the beach, harbor and coastal path close by.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🌊</div>
+          <div class="info-card-title">Hotel Californian</div>
+          <div class="info-card-dist">Waterfront · about 10 min drive</div>
+          <div class="info-card-body">Spanish Colonial Revival steps from the beach, with a rooftop pool and ocean
+            views.</div>
+          <a href="https://hotelcalifornian.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
+            aria-label="Visit Hotel Californian website">Visit website →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🌴</div>
+          <div class="info-card-title">Harbor View Inn</div>
+          <div class="info-card-dist">Waterfront · about 10 min drive</div>
+          <div class="info-card-body">Across from the beach near Stearns Wharf, with the harbor and sunset walks close
+            by.</div>
+          <a href="https://harborviewinnsb.com" target="_blank" rel="noopener noreferrer" class="info-card-link"
+            aria-label="Visit Harbor View Inn website">Visit website →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">☀️</div>
+          <div class="info-card-title">Hilton Santa Barbara Beachfront Resort</div>
+          <div class="info-card-dist">Waterfront · Hilton Honors</div>
+          <div class="info-card-body">A beachfront resort on East Cabrillo Boulevard. Check directions for your drive
+            to the venue.</div>
+          <a href="https://www.hilton.com/en/hotels/sbafphh-hilton-santa-barbara-beachfront-resort/" target="_blank"
+            rel="noopener noreferrer" class="info-card-link" aria-label="Visit Hilton Santa Barbara Beachfront Resort website">Visit website →</a>
+        </div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">🏡</div>
-        <div class="info-card-title">Airbnb / VRBO</div>
-        <div class="info-card-dist">Throughout Santa Barbara</div>
-        <div class="info-card-body">Great for groups. Funk Zone, Eastside, and Montecito all have lovely rentals close
-          to the venue.</div>
-        <a href="https://www.airbnb.com/s/Santa-Barbara--CA" target="_blank" class="info-card-link">Search Airbnb →</a>
+    </section>
+
+    <section class="hotel-group" aria-labelledby="other-heading">
+      <h2 id="other-heading">More ways to stay</h2>
+      <p class="group-intro">A Hyatt option farther up State Street, or space for a group.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🧳</div>
+          <div class="info-card-title">Hyatt Place Santa Barbara</div>
+          <div class="info-card-dist">Upper State Street · World of Hyatt</div>
+          <div class="info-card-body">A Hyatt option at 4111 State Street, farther from downtown. Check directions for
+            your drive to the venue.</div>
+          <a href="https://www.hyatt.com/hyatt-place/en-US/sbazs-hyatt-place-santa-barbara" target="_blank"
+            rel="noopener noreferrer" class="info-card-link" aria-label="Visit Hyatt Place Santa Barbara website">Visit website →</a>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon" aria-hidden="true">🏡</div>
+          <div class="info-card-title">Vacation rentals</div>
+          <div class="info-card-dist">Across Santa Barbara</div>
+          <div class="info-card-body">A flexible choice for groups. Check the location and drive to the venue before
+            booking.</div>
+          <a href="https://www.airbnb.com/s/Santa-Barbara--CA" target="_blank" rel="noopener noreferrer" class="info-card-link"
+            aria-label="Search Santa Barbara vacation rentals on Airbnb">Search Airbnb →</a>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </body>
 
