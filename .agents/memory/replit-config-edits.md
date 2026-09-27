@@ -9,8 +9,8 @@ Direct patch edits to .replit are blocked. Prepare a complete temporary TOML fil
 
 **How to apply:** When a future change genuinely requires editing .replit, use the validated replacement route and check the resulting diff. Prefer dedicated workflow tools for run configuration.
 
-Running `node` for one-off browser QA can automatically add the Node.js runtime module to `.replit`, even when a static site has no Node dependency.
+For one-off JavaScript checks in this static workspace, prefer browser-based verification when Node is absent. Adding Node just for QA can automatically add its runtime module to `.replit`, even though the site does not need it.
 
-**Why:** A temporary QA script changed tracked Replit configuration despite no deliberate project setup change.
+**Why:** Node was unavailable in a later static-site check; an earlier temporary Node QA script changed tracked Replit configuration despite no deliberate project setup change.
 
-**How to apply:** After one-off Node checks, inspect the `.replit` diff and remove the unused runtime through the package-management skill's uninstall callback. Avoid leaving unrelated module changes in the site's source diff.
+**How to apply:** Verify interactions and syntax in a browser rather than installing Node solely for a check. If a Node check does add the runtime, inspect the `.replit` diff and remove the unused module through the package-management skill's uninstall callback.

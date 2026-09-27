@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" role="img" aria-labelledby="title description">
+  <title id="title">Simpson House Inn and Alice Keck Park Memorial Garden</title>
+  <desc id="description">An illustrated location map with Simpson House Inn west of the E Arrellaga Street and Santa Barbara Street intersection. Alice Keck Park Memorial Garden is across those streets to the northeast.</desc>
+  <defs>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r=".55" fill="#a9a184" opacity=".22"/>
+    </pattern>
+    <g id="garden-flower">
+      <path d="M0-8C4-8 4-3 0-2 4-3 7 0 4 3 2 5 0 2 0 2c0 5-5 6-6 2-1-2 1-4 2-5-5 1-7-3-4-6 2-2 5-1 7 0-2-4 0-6 1-6Z" fill="#f1d279" opacity=".85"/>
+      <circle r="2" fill="#a58e50"/>
+    </g>
+    <!-- The park is confined to the northeast side of both bordering streets. -->
+    <clipPath id="garden-boundary">
+      <path d="M447-35H615V445H542L297 190Z"/>
+    </clipPath>
+  </defs>
+  <rect width="600" height="430" fill="#faf7ec"/>
+
+  <!-- These two diagonals meet just east of the inn, as in the reference map. -->
+  <path d="M447-35H615V445H542L297 190Z" fill="#e3ecd8"/>
+  <g clip-path="url(#garden-boundary)">
+    <path d="M379 28c33 26 69 49 106 83 37 34 46 76 55 109m-174-23c42 1 83 25 95 65 8 26 32 53 75 76m29-244c-32 37-33 61-17 90" fill="none" stroke="#b4caaa" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M442 231c20-19 46-16 58 2 13 20 4 39-20 47-26 9-46-3-52-19-4-12 1-21 14-30Z" fill="#c7dcd5"/>
+    <path d="M446 249c14-15 32-16 45-7" fill="none" stroke="#acc9bc" stroke-width="1.2"/>
+    <path d="M385 41c37 27 69 57 89 97m56 31c-25 33-23 66-7 93m-133 51c30-12 55-7 76 19" fill="none" stroke="#f6f5e5" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/>
+    <g fill="#b1c6a5">
+      <circle cx="399" cy="75" r="3"/><circle cx="480" cy="63" r="3"/>
+      <circle cx="527" cy="167" r="3"/><circle cx="383" cy="198" r="2.5"/>
+      <circle cx="550" cy="292" r="3"/><circle cx="478" cy="356" r="2.5"/>
+    </g>
+    <use href="#garden-flower" x="395" y="84"/>
+    <use href="#garden-flower" x="549" y="83" transform="rotate(20 549 83)"/>
+    <use href="#garden-flower" x="550" y="215"/>
+    <use href="#garden-flower" x="406" y="312" transform="rotate(-20 406 312)"/>
+    <use href="#garden-flower" x="546" y="373"/>
+  </g>
+
+  <g fill="#f4edda" stroke="#e4dbc1" stroke-width="1.2" stroke-linejoin="round">
+    <path d="m126 43 30-18 23 24-28 22Z"/>
+    <path d="m60 91 28-20 22 22-29 21Z"/>
+    <path d="m88 327 32-22 31 27-30 25Z"/>
+    <path d="m248 354 31-22 29 27-32 24Z"/>
+  </g>
+
+  <!-- Draw the same street centerlines twice for a quiet, consistent road width. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-55 390 260-40M-70 125 310 505M132 440 450-40M90-25 527 430" stroke="#d6d0b9" stroke-width="36"/>
+    <path d="M-55 390 260-40M-70 125 310 505M132 440 450-40M90-25 527 430" stroke="#fffdf6" stroke-width="32"/>
+  </g>
+  <!-- Soft color marks streets to try, without suggesting individual parking spaces. -->
+  <g fill="none" stroke="#f2e4ae" stroke-width="23" stroke-linecap="round" opacity=".82">
+    <path d="M253 257 181 365"/>
+    <path d="M360 256 485 386"/>
+  </g>
+  <rect width="600" height="430" fill="url(#grain)" opacity=".7"/>
+
+  <!-- Each label is anchored at the midpoint of its text on the road centerline. -->
+  <g fill="#56664d" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing=".5" text-anchor="middle" dominant-baseline="middle">
+    <text x="70" y="219" transform="rotate(-54 70 219)">E VALERIO ST</text>
+    <text x="160" y="355" transform="rotate(45 160 355)">ANACAPA ST</text>
+    <text x="360" y="96" transform="rotate(-56 360 96)">E ARRELLAGA ST</text>
+    <text x="190" y="79" transform="rotate(46 190 79)">SANTA BARBARA ST</text>
+  </g>
+
+  <g text-anchor="middle" fill="#4e674d">
+    <text x="483" y="128" font-family="Georgia,serif" font-size="19" font-style="italic">Alice Keck Park</text>
+    <text x="483" y="148" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing=".9">MEMORIAL GARDEN</text>
+  </g>
+
+  <!-- Inn is on the west side of E Arrellaga, before the Santa Barbara crossing. -->
+  <circle cx="200" cy="211" r="46" fill="#fffaf0" stroke="#b29b57" stroke-width="1.7"/>
+  <circle cx="200" cy="211" r="43" fill="none" stroke="#ded1a7" stroke-width=".9"/>
+  <g transform="translate(170 181)" fill="none" stroke="#60714f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 27 16 13l16 14M29 24 46 8l17 17"/>
+    <path d="M5 26v29h53V24M10 24h18m8-1h19M12 55V33h16v22m13 0V30h11v25"/>
+    <path d="M15 36h10m-10 6h10m-10 6h10m29-14v12m-12-6h10M33 55V35h6v20M2 55h60"/>
+    <path d="M3 53c-5-6-4-14 0-19m58 19c5-6 5-13 1-18" stroke="#8c9e79"/>
+  </g>
+  <g aria-hidden="true" transform="translate(-102 -91) scale(1.5)">
+    <path d="M198 179c3-4 9-4 13-1 4 3 3 9-2 12-5 3-10 1-12-3-2-3-1-6 1-8Z" fill="#f7d64c" stroke="#ac923f" stroke-width="1"/>
+    <path d="M199 180c2-2 4-2.5 6-1.5" fill="none" stroke="#fffaf0" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="200" cy="184" r=".8" fill="#fffdf4"/>
+    <path d="M204 176c1-5 4-7 8-8" fill="none" stroke="#708659" stroke-width="1" stroke-linecap="round"/>
+    <path d="M209 171c4-4 9-3 11 0-4 3-8 4-11 0Z" fill="#8fa879" stroke="#708659" stroke-width=".8"/>
+  </g>
+  <path d="M200 257v10h-18" fill="none" stroke="#8f855f" stroke-width="1.4"/>
+  <rect x="62" y="267" width="166" height="40" rx="1" fill="#fffdf6" stroke="#b7a56f" stroke-width="1.3"/>
+  <text x="145" y="293" text-anchor="middle" fill="#33402f" font-family="Georgia,serif" font-size="16">Simpson House Inn</text>
+
+  <g transform="translate(40 41)" fill="none" stroke="#5a6b50" stroke-width="1.6" stroke-linecap="round">
+    <path d="M0 16V-6m-5 9 5-9 5 9"/>
+    <text x="0" y="-12" text-anchor="middle" fill="#5a6b50" stroke="none" font-family="Arial,sans-serif" font-size="11" font-weight="700">N</text>
+  </g>
+</svg>

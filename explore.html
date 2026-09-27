@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="4">
+  <meta name="site-version" content="5">
   <title>Explore — Crystal & Lenard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=4" defer></script>
+  <script src="version-check.js?v=5" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -144,46 +144,57 @@
     .picker {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 1.35rem 0 1.75rem;
+      padding: 1.2rem 0 1.5rem;
       margin-bottom: 1.75rem;
     }
 
     .picker-label {
       display: block;
-      margin-bottom: 1rem;
-      font: 400 clamp(1.55rem, 3vw, 2.25rem) 'Playfair Display', serif;
+      margin-bottom: 0.75rem;
+      font: 400 clamp(1.45rem, 3vw, 2rem) 'Playfair Display', serif;
+    }
+
+    .picker-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+      gap: 1rem;
     }
 
     .filter-list {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
     }
 
     .filter-button {
       appearance: none;
       border: 1px solid var(--border);
+      border-left: 3px solid transparent;
       border-radius: 0;
-      padding: 0;
+      padding: 0.7rem 0.8rem;
       background: var(--white);
       color: var(--ink);
-      font: 400 1.1rem 'Playfair Display', serif;
+      font: 500 0.92rem/1.3 'Jost', sans-serif;
       text-align: left;
       cursor: pointer;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-height: 52px;
       transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
     }
 
-    .filter-button img {
-      display: block;
-      width: 100%;
-      height: clamp(132px, 15vw, 185px);
-      object-fit: cover;
+    .filter-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      flex: none;
     }
 
-    .filter-button span {
-      display: block;
-      padding: 0.82rem 1rem;
+    .filter-button[aria-pressed="true"]::after {
+      content: '✓';
+      margin-left: auto;
+      color: #276d85;
+      font: 600 1rem 'Jost', sans-serif;
     }
 
     .filter-button:hover {
@@ -191,10 +202,47 @@
       transform: translateY(-2px);
     }
 
+    .filter-button:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
     .filter-button[aria-pressed="true"] {
       border-color: var(--blue);
-      box-shadow: inset 0 0 0 2px var(--blue);
+      border-left-color: var(--blue);
+      box-shadow: inset 0 0 0 1px var(--blue);
       background: var(--blue-pale);
+    }
+
+    .picker-feature {
+      position: relative;
+      min-height: 168px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--blue-pale);
+      border: 1px solid var(--border);
+    }
+
+    .picker-feature img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .picker-feature figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 1.2rem 1rem 0.75rem;
+      background: linear-gradient(transparent, rgba(12, 25, 39, 0.83));
+      color: var(--white);
+      font: italic 400 1.1rem 'Playfair Display', serif;
+    }
+
+    #results {
+      scroll-margin-top: 1rem;
     }
 
     .itinerary {
@@ -320,8 +368,8 @@
 
     @media (max-width: 820px) {
       .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .filter-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .filter-button img { height: 160px; }
+      .picker-layout { grid-template-columns: 1fr; }
+      .picker-feature { min-height: 175px; }
     }
 
     @media(max-width:640px) {
@@ -354,9 +402,10 @@
       .itinerary { grid-template-columns: 1fr; gap: 0.35rem; }
       .itinerary-kicker { padding: 0; }
       .results-heading { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
-      .filter-list { gap: 0.55rem; }
-      .filter-button img { height: 115px; }
-      .filter-button span { padding: 0.65rem; font-size: 0.95rem; }
+      .filter-list { gap: 0.45rem; }
+      .filter-button { padding: 0.55rem 0.6rem; min-height: 48px; font-size: 0.88rem; gap: 0.4rem; }
+      .filter-icon { font-size: 1rem; }
+      .picker-feature { min-height: 128px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -389,13 +438,19 @@
 
     <section class="picker" aria-label="Choose your kind of outing">
       <span class="picker-label">What sounds like you?</span>
-      <div class="filter-list" role="group" aria-label="Filter recommendations">
-        <button class="filter-button" type="button" data-filter="mini" aria-pressed="true"><img src="attached_assets/generated_images/mini-outing.jpg" alt="" width="1024" height="1024"><span>A mini plan →</span></button>
-        <button class="filter-button" type="button" data-filter="local" aria-pressed="false"><img src="attached_assets/generated_images/local-outing.jpg" alt="" width="1024" height="1024" loading="lazy"><span>Stay local →</span></button>
-        <button class="filter-button" type="button" data-filter="food" aria-pressed="false"><img src="attached_assets/generated_images/food-outing.jpg" alt="" width="1024" height="1024" loading="lazy"><span>Food &amp; wine →</span></button>
-        <button class="filter-button" type="button" data-filter="scenic" aria-pressed="false"><img src="attached_assets/generated_images/scenic-outing.jpg" alt="" width="1024" height="1024" loading="lazy"><span>Scenic day trip →</span></button>
-        <button class="filter-button" type="button" data-filter="road" aria-pressed="false"><img src="attached_assets/generated_images/road-outing.jpg" alt="" width="1024" height="1024" loading="lazy"><span>Longer road trip →</span></button>
-        <button class="filter-button" type="button" data-filter="all" aria-pressed="false"><img src="attached_assets/generated_images/all-outing.jpg" alt="" width="1024" height="1024" loading="lazy"><span>All ideas →</span></button>
+      <div class="picker-layout">
+        <div class="filter-list" role="group" aria-label="Filter recommendations">
+          <button class="filter-button" type="button" data-filter="mini" data-photo="images/optimized/mini-outing.webp" aria-pressed="true"><span class="filter-icon" aria-hidden="true">🍋</span>A mini plan</button>
+          <button class="filter-button" type="button" data-filter="local" data-photo="images/optimized/local-outing.webp" aria-pressed="false"><span class="filter-icon" aria-hidden="true">📍</span>Stay local</button>
+          <button class="filter-button" type="button" data-filter="food" data-photo="images/optimized/food-outing.webp" aria-pressed="false"><span class="filter-icon" aria-hidden="true">🍽️</span>Food &amp; wine</button>
+          <button class="filter-button" type="button" data-filter="scenic" data-photo="images/optimized/scenic-outing.webp" aria-pressed="false"><span class="filter-icon" aria-hidden="true">🌿</span>Scenic day trip</button>
+          <button class="filter-button" type="button" data-filter="road" data-photo="images/optimized/road-outing.webp" aria-pressed="false"><span class="filter-icon" aria-hidden="true">🚗</span>Longer road trip</button>
+          <button class="filter-button" type="button" data-filter="all" data-photo="images/optimized/all-outing.webp" aria-pressed="false"><span class="filter-icon" aria-hidden="true">✨</span>All ideas</button>
+        </div>
+        <figure class="picker-feature">
+          <img id="filter-photo" src="images/optimized/mini-outing.webp" alt="" width="800" height="800" decoding="async">
+          <figcaption>Your pick: <span id="filter-caption">A mini plan</span></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -506,8 +561,11 @@
       const cards = Array.from(document.querySelectorAll('.explore-card'));
       const miniPlan = document.getElementById('mini-plan');
       const resultsTitle = document.getElementById('results-title');
+      const results = document.getElementById('results');
       const roadNote = document.getElementById('road-note');
       const count = document.getElementById('results-count');
+      const photo = document.getElementById('filter-photo');
+      const caption = document.getElementById('filter-caption');
 
       function selectFilter(filter) {
         const visibleCards = cards.filter(function (card) {
@@ -520,6 +578,11 @@
         buttons.forEach(function (button) {
           button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
         });
+        const selected = buttons.find(function (button) { return button.dataset.filter === filter; });
+        if (selected) {
+          photo.src = selected.dataset.photo;
+          caption.textContent = selected.textContent.trim();
+        }
         miniPlan.hidden = filter !== 'mini';
         resultsTitle.textContent = filter === 'mini' ? 'Your mini plan stops' : 'Good places to begin';
         roadNote.hidden = filter !== 'road' && filter !== 'all';
@@ -529,6 +592,10 @@
       buttons.forEach(function (button) {
         button.addEventListener('click', function () {
           selectFilter(button.dataset.filter);
+          results.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            block: 'start'
+          });
         });
       });
       selectFilter('mini');

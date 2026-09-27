@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="4">
+  <meta name="site-version" content="5">
   <title>Travel — Crystal & Lenard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=4" defer></script>
+  <script src="version-check.js?v=5" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -18,6 +18,7 @@
       --lemon-deep: #c9b200;
       --blue: #4fa8c5;
       --blue-light: #b3daea;
+      --blue-pale: #e8f7ff;
       --ink: #1c2b4a;
       --soft: #2e4a72;
       --muted: #7a8fae;
@@ -93,7 +94,7 @@
     main {
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 4.5rem 0 5rem;
+      padding: 3.5rem 0 5rem;
     }
 
     .eyebrow {
@@ -107,7 +108,7 @@
     h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      font-size: clamp(2.6rem, 8vw, 5.6rem);
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
       line-height: 0.95;
       margin-bottom: 1rem;
     }
@@ -123,13 +124,56 @@
       line-height: 1.7;
     }
 
+    .travel-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.35rem;
+    }
+
+    .travel-shortcut {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid rgba(79, 168, 197, 0.45);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.25;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .travel-shortcut:first-child {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .travel-shortcut:hover {
+      background: var(--blue-pale);
+      border-color: var(--blue);
+      color: var(--ink);
+    }
+
+    .travel-shortcut:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    #fly-heading, #ground-heading, #parking-heading, #venue-heading {
+      scroll-margin-top: 1.5rem;
+    }
+
     .travel-hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       align-items: center;
-      gap: 3rem;
-      margin-bottom: 2.75rem;
-      padding-bottom: 2.5rem;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
       border-bottom: 1px solid var(--border);
     }
 
@@ -140,7 +184,7 @@
     .travel-hero-photo img {
       display: block;
       width: 100%;
-      height: 350px;
+      height: 320px;
       object-fit: cover;
       border: 1px solid var(--border);
     }
@@ -366,18 +410,28 @@
       }
 
       main {
-        padding: 3rem 0;
+        padding: 2.2rem 0;
       }
 
       .travel-hero {
         grid-template-columns: 1fr;
-        gap: 1.7rem;
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
+        gap: 1.1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .travel-shortcuts {
+        gap: 0.45rem;
+        margin-top: 1rem;
+      }
+
+      .travel-shortcut {
+        font-size: 0.86rem;
+        padding: 0.5rem 0.7rem;
       }
 
       .travel-hero-photo img {
-        height: 220px;
+        height: 180px;
       }
 
       .travel-section {
@@ -420,9 +474,15 @@
         <p class="eyebrow">Getting Here</p>
         <h1><em>Travel</em> to Santa Barbara</h1>
         <p class="sub">Choose what works for your weekend. Once you're in Santa Barbara, our venue is Simpson House Inn at 121 E Arrellaga St.</p>
+        <nav class="travel-shortcuts" aria-label="Travel quick links">
+          <a class="travel-shortcut" href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Venue directions ↗</a>
+          <a class="travel-shortcut" href="#parking-heading">Parking ↓</a>
+          <a class="travel-shortcut" href="#fly-heading">By air ↓</a>
+          <a class="travel-shortcut" href="#ground-heading">Train or car ↓</a>
+        </nav>
       </div>
       <div class="travel-hero-photo">
-        <img src="attached_assets/generated_images/travel-coast.jpg" alt="" width="1024" height="1024">
+        <img src="images/optimized/travel-coast.webp" alt="" width="960" height="960" decoding="async">
       </div>
     </div>
 
@@ -488,7 +548,7 @@
       <div class="card-grid">
         <div class="info-card">
           <div class="info-card-icon" aria-hidden="true">🅿️</div>
-          <h3 class="info-card-title">Parking nearby</h3>
+          <h3 class="info-card-title" id="parking-heading">Parking nearby</h3>
           <p class="info-card-body">Street parking around Simpson House Inn can be limited, and there is no dedicated guest parking lot. Leave extra time if you're driving.</p>
           <div class="info-card-footer">
             <span class="info-card-tag">Limited street parking</span>
@@ -506,7 +566,7 @@
         </div>
       </div>
       <div class="venue-arrival">
-        <img class="venue-map" src="https://crystal-lenard-guest-guide.replit.app/assets/simpson-neighborhood.svg"
+        <img class="venue-map" src="images/simpson-neighborhood.svg"
           alt="Neighborhood map showing Simpson House Inn near E Arrellaga Street and Santa Barbara Street, with Alice Keck Park Memorial Garden nearby. Highlighted streets are places to try for parking, not guaranteed spaces."
           width="600" height="430" loading="lazy" decoding="async">
         <div class="venue-reminders">
