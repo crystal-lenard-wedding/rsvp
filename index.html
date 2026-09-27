@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="5">
+  <meta name="site-version" content="6">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <script src="version-check.js?v=5" defer></script>
+  <script src="version-check.js?v=6" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -1566,10 +1566,12 @@
     }
 
     .registry-btn {
-      display: inline-block;
-      padding: 0.5rem 1.3rem;
-      font-size: 0.63rem;
-      letter-spacing: 0.22em;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.65rem 1rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       cursor: pointer;
       border: none;
@@ -1658,11 +1660,43 @@
 
     .gratitude-subtitle {
       color: var(--soft);
-      font-size: 0.84rem;
-      line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.55;
       margin-top: 0.55rem;
-      max-width: 560px;
+      max-width: 650px;
     }
+
+    .gratitude-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      margin: 0 1.8rem 1.15rem;
+      background: var(--blue-pale);
+      color: var(--soft);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .gratitude-copy {
+      flex: none;
+      min-height: 40px;
+      padding: 0.45rem 0.7rem;
+      border: 1px solid var(--blue);
+      background: var(--white);
+      color: var(--ink);
+      font: 500 0.8rem 'Jost', sans-serif;
+      cursor: pointer;
+    }
+
+    .gratitude-status {
+      margin: 0 1.8rem 0.6rem;
+      color: var(--soft);
+      font-size: 0.8rem;
+    }
+
+    .gratitude-status:empty { margin-bottom: 0; }
 
     .gratitude-close {
       width: 2.4rem;
@@ -1693,39 +1727,79 @@
       border: 1px solid var(--border);
       background: #fffdf8;
       padding: 1rem;
-      text-align: center;
+      text-align: left;
     }
 
     .gratitude-option-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
       color: var(--ink);
+    }
+
+    .gratitude-account {
+      display: block;
+      margin-bottom: 0.75rem;
+      color: var(--soft);
+      font-size: 0.82rem;
+      overflow-wrap: anywhere;
+    }
+
+    .gratitude-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font: 500 0.9rem 'Jost', sans-serif;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .gratitude-action:hover,
+    .gratitude-action:focus-visible {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .gratitude-help {
+      margin-top: 0.65rem;
+      color: var(--soft);
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .gratitude-qr-details {
+      margin-top: 0.8rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .gratitude-qr-details summary {
+      width: fit-content;
+      color: var(--soft);
+      font-size: 0.78rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
     }
 
     .gratitude-qr {
       width: 100%;
+      max-width: 160px;
       aspect-ratio: 1;
       object-fit: contain;
       display: block;
       background: var(--white);
       border: 1px solid rgba(234, 218, 171, 0.7);
       padding: 0.45rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .gratitude-link {
-      display: block;
-      color: var(--blue);
-      font-size: 0.78rem;
-      line-height: 1.35;
-      word-break: break-word;
-      text-decoration: none;
-    }
-
-    .gratitude-link:hover {
-      color: var(--ink);
-      text-decoration: underline;
+      margin: 0.75rem auto 0;
     }
 
     /* RSVP */
@@ -2314,6 +2388,15 @@
         padding: 0 0.95rem 0.95rem;
       }
 
+      .gratitude-note {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0 0.95rem 0.8rem;
+        padding: 0.7rem;
+      }
+
+      .gratitude-status { margin: 0 0.95rem 0.5rem; }
+
       .gratitude-dialog {
         width: min(94vw, 380px);
         max-height: calc(100vh - 1.2rem);
@@ -2324,7 +2407,7 @@
       }
 
       .gratitude-subtitle {
-        font-size: 0.76rem;
+        font-size: 0.84rem;
         line-height: 1.45;
         margin-top: 0.35rem;
       }
@@ -2336,25 +2419,15 @@
       }
 
       .gratitude-option {
-        padding: 0.7rem;
+        padding: 0.85rem;
       }
 
       .gratitude-option-name {
-        font-size: 0.92rem;
-        margin-bottom: 0.45rem;
+        font-size: 1.1rem;
       }
 
       .gratitude-qr {
-        width: min(46vw, 142px);
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0.3rem;
-        margin-bottom: 0.45rem;
-      }
-
-      .gratitude-link {
-        font-size: 0.72rem;
+        width: min(46vw, 160px);
       }
     }
   </style>
@@ -2790,7 +2863,7 @@
               <div class="registry-name">Winston's Treat Fund</div>
               <div class="registry-desc">Winston, the original man of the house, votes for treats, toys, and a cat tree
                 he absolutely does not need.</div><button type="button" class="registry-btn cat-btn"
-                onclick="openGratitudeModal('Winston’s Treat Fund')">Gift Winston</button>
+                onclick="openGratitudeModal('Winston’s Treat Fund', this)">See gift options →</button>
             </div>
           </div>
           <div class="registry-card africa">
@@ -2799,7 +2872,7 @@
               <div class="registry-name">Honeymoon in Africa</div>
               <div class="registry-desc">Help us chase sunrise safaris, Serengeti stargazing, and a once-in-a-lifetime
                 adventure together.</div><button
-                type="button" class="registry-btn africa-btn" onclick="openGratitudeModal('Honeymoon in Africa')">Fund Our Adventure</button>
+                type="button" class="registry-btn africa-btn" onclick="openGratitudeModal('Honeymoon in Africa', this)">See gift options →</button>
             </div>
           </div>
           <div class="registry-card puppy">
@@ -2808,7 +2881,7 @@
               <div class="registry-name">Weekly Boxing & Wrestling Fund</div>
               <div class="registry-desc">Help fund our favorite shared hobby: training, gear, and a championship belt
                 we'll probably never win.</div><button
-                type="button" class="registry-btn puppy-btn" onclick="openGratitudeModal('Boxing &amp; Wrestling Fund')">Support the Fight</button>
+                type="button" class="registry-btn puppy-btn" onclick="openGratitudeModal('Weekly Boxing &amp; Wrestling Fund', this)">See gift options →</button>
             </div>
           </div>
         </div>
@@ -2834,29 +2907,45 @@
       <div class="gratitude-header">
         <div>
           <div class="gratitude-title" id="gratitudeModalTitle">With Love & Gratitude</div>
-          <p class="gratitude-subtitle">Cheering for <strong id="gratitudeFund"></strong>? Choose Venmo, Zelle, or
-            PayPal below. If you'd like us to keep a fun tally, add the fund name in your payment note. Totally
-            optional! Choosing a fund here does not label your payment automatically.</p>
+          <p class="gratitude-subtitle">Giving to <strong id="gratitudeFund"></strong>. Choose the way that works best for you.</p>
         </div>
         <button type="button" class="gratitude-close" onclick="closeGratitudeModal()" aria-label="Close">×</button>
       </div>
+      <div class="gratitude-note">
+        <span>Optional: add the fund name to your payment note so we know what you're cheering for. It won't be added automatically.</span>
+        <button type="button" class="gratitude-copy" onclick="copyGiftText(this, 'fund')">Copy fund name</button>
+      </div>
+      <p class="gratitude-status" id="gratitudeCopyStatus" role="status" aria-live="polite"></p>
       <div class="gratitude-options">
         <div class="gratitude-option">
           <div class="gratitude-option-name">Venmo</div>
-          <img class="gratitude-qr" src="Venmo.png" alt="Venmo QR code" loading="lazy">
-          <a class="gratitude-link" href="https://venmo.com/u/dranel" target="_blank"
-            rel="noopener">venmo.com/u/dranel</a>
+          <span class="gratitude-account">venmo.com/u/dranel</span>
+          <a class="gratitude-action" href="https://venmo.com/u/dranel" target="_blank"
+            rel="noopener noreferrer">Open Venmo ↗</a>
+          <details class="gratitude-qr-details">
+            <summary>Show QR for another device</summary>
+            <img class="gratitude-qr" src="Venmo.png" alt="Venmo QR code" loading="lazy">
+          </details>
         </div>
         <div class="gratitude-option">
           <div class="gratitude-option-name">Zelle</div>
-          <img class="gratitude-qr" src="Zelle.png" alt="Zelle QR code" loading="lazy">
-          <a class="gratitude-link" href="mailto:lenard.robles@gmail.com">lenard.robles@gmail.com</a>
+          <span class="gratitude-account" id="zelleAddress">lenard.robles@gmail.com</span>
+          <button type="button" class="gratitude-action" onclick="copyGiftText(this, 'zelle')">Copy Zelle email</button>
+          <p class="gratitude-help">Use this email in your bank's Zelle app. Confirm the recipient before sending.</p>
+          <details class="gratitude-qr-details">
+            <summary>Show QR for another device</summary>
+            <img class="gratitude-qr" src="Zelle.png" alt="Zelle QR code" loading="lazy">
+          </details>
         </div>
         <div class="gratitude-option">
           <div class="gratitude-option-name">PayPal</div>
-          <img class="gratitude-qr" src="paypal.png" alt="PayPal QR code" loading="lazy">
-          <a class="gratitude-link" href="https://paypal.me/lenardrobles" target="_blank"
-            rel="noopener">@lenardrobles</a>
+          <span class="gratitude-account">paypal.me/lenardrobles</span>
+          <a class="gratitude-action" href="https://paypal.me/lenardrobles" target="_blank"
+            rel="noopener noreferrer">Open PayPal ↗</a>
+          <details class="gratitude-qr-details">
+            <summary>Show QR for another device</summary>
+            <img class="gratitude-qr" src="paypal.png" alt="PayPal QR code" loading="lazy">
+          </details>
         </div>
       </div>
     </div>
@@ -2877,7 +2966,7 @@
     let modalReturnFocus = null;
 
     function trapFocus(container, event) {
-      const focusable = [...container.querySelectorAll('a[href], button:not([disabled])')];
+      const focusable = [...container.querySelectorAll('a[href], button:not([disabled]), summary')];
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -2890,13 +2979,55 @@
       }
     }
 
-    function openGratitudeModal(fund) {
-      modalReturnFocus = document.activeElement;
+    function openGratitudeModal(fund, trigger) {
+      modalReturnFocus = trigger || document.activeElement;
       document.getElementById('gratitudeFund').textContent = fund;
+      document.getElementById('gratitudeCopyStatus').textContent = '';
+      gratitudeModal.querySelectorAll('[data-original-label]').forEach(button => {
+        clearTimeout(button.copyResetTimer);
+        button.textContent = button.dataset.originalLabel;
+      });
+      gratitudeModal.querySelectorAll('.gratitude-qr-details').forEach(details => { details.open = false; });
       gratitudeModal.classList.add('open');
       gratitudeModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       gratitudeModal.querySelector('.gratitude-close').focus();
+    }
+
+    async function copyGiftText(button, kind) {
+      const text = kind === 'fund'
+        ? document.getElementById('gratitudeFund').textContent
+        : document.getElementById('zelleAddress').textContent.trim();
+      const status = document.getElementById('gratitudeCopyStatus');
+      let copied = false;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        }
+      } catch (_) { /* Try the browser's selection-based copy below. */ }
+
+      if (!copied) {
+        const helper = document.createElement('textarea');
+        helper.value = text;
+        helper.style.position = 'fixed';
+        helper.style.opacity = '0';
+        document.body.appendChild(helper);
+        helper.select();
+        try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
+        helper.remove();
+        button.focus();
+      }
+
+      if (copied) {
+        button.dataset.originalLabel ??= button.textContent;
+        button.textContent = 'Copied!';
+        status.textContent = kind === 'fund' ? 'Fund name copied. Add it to your payment note if you like.' : 'Zelle email copied. Check the recipient in your banking app.';
+        clearTimeout(button.copyResetTimer);
+        button.copyResetTimer = setTimeout(() => { button.textContent = button.dataset.originalLabel; }, 2200);
+      } else {
+        status.textContent = 'Copy unavailable. You can select the text shown above instead.';
+      }
     }
 
     function closeGratitudeModal() {
