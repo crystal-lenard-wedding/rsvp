@@ -134,17 +134,7 @@
     }
 
     .travel-hero-photo {
-      position: relative;
-      isolation: isolate;
-      padding: 0 0 1rem 1rem;
-    }
-
-    .travel-hero-photo::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      inset: 1rem 1rem 0 0;
-      background: var(--lemon);
+      min-width: 0;
     }
 
     .travel-hero-photo img {
@@ -264,6 +254,74 @@
       text-transform: uppercase;
     }
 
+    .venue-arrival {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 1.6rem;
+      padding: 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .venue-map {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+    }
+
+    .venue-reminders {
+      padding: 0.3rem 0.25rem;
+    }
+
+    .venue-reminders h3 {
+      font: 400 1.55rem 'Playfair Display', serif;
+      margin-bottom: 0.7rem;
+    }
+
+    .venue-reminders p,
+    .venue-reminders li {
+      color: var(--soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .venue-reminders p {
+      margin-bottom: 0.85rem;
+    }
+
+    .venue-reminders strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .venue-reminders ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .venue-reminders li {
+      position: relative;
+      padding: 0.65rem 0 0.65rem 1.05rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .venue-reminders li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #a4516b;
+    }
+
+    .venue-reminders a {
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-underline-offset: 3px;
+    }
+
     @media(max-width:900px) {
       .travel-section {
         grid-template-columns: 1fr;
@@ -278,6 +336,10 @@
 
       .section-number {
         margin-bottom: 0;
+      }
+
+      .venue-arrival {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -441,6 +503,21 @@
             <span class="info-card-tag">Easy arrival option</span>
             <a class="info-card-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Simpson+House+Inn%2C+121+E+Arrellaga+St%2C+Santa+Barbara%2C+CA" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
           </div>
+        </div>
+      </div>
+      <div class="venue-arrival">
+        <img class="venue-map" src="https://crystal-lenard-guest-guide.replit.app/assets/simpson-neighborhood.svg"
+          alt="Neighborhood map showing Simpson House Inn near E Arrellaga Street and Santa Barbara Street, with Alice Keck Park Memorial Garden nearby. Highlighted streets are places to try for parking, not guaranteed spaces."
+          width="600" height="430" loading="lazy" decoding="async">
+        <div class="venue-reminders">
+          <h3>Wedding-day arrival</h3>
+          <p>Plan to arrive by <strong>3:30 PM</strong>, with time to find parking and walk over before the <strong>4:00 PM ceremony</strong>.</p>
+          <ul>
+            <li>Street parking is limited. Try E Arrellaga Street or the streets around Alice Keck Park Memorial Garden. There is no dedicated guest lot.</li>
+            <li>Rideshare is encouraged if you would rather skip the parking search.</li>
+            <li>On Sunday, residential permit rules and 90-minute restrictions are generally not in effect. Check posted signs before leaving your car.</li>
+          </ul>
+          <a href="https://crystal-lenard-guest-guide.replit.app/#parking" target="_blank" rel="noopener noreferrer">See the guest guide’s parking details ↗</a>
         </div>
       </div>
     </section>
