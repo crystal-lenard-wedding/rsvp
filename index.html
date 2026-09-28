@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="9">
+  <meta name="site-version" content="10">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=9" defer></script>
+  <script src="version-check.js?v=10" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -3321,69 +3321,6 @@
     mobileViewport.addEventListener('change', updateCarouselPlayback);
     document.addEventListener('visibilitychange', updateCarouselPlayback);
 
-    // RSVP — connected to Formspree
-    // 👉 Replace YOUR_FORM_ID below with your actual Formspree form ID after setup
-    const FORMSPREE_URL = 'https://formspree.io/f/mbdpllgj';
-
-    async function submitRSVP() {
-      const fn = document.getElementById('firstName').value.trim();
-      const ln = document.getElementById('lastName').value.trim();
-      const att = document.querySelector('input[name="attending"]:checked');
-      const email = document.getElementById('email').value.trim();
-      const guests = document.getElementById('guests').value;
-      const meal1 = document.getElementById('meal1').value;
-      const meal2 = document.getElementById('meal2').value;
-      const dietary = document.getElementById('dietary').value.trim();
-      const song = document.getElementById('song').value.trim();
-      const msg = document.getElementById('message').value.trim();
-
-      if (!fn || !ln) { alert('Please enter your first and last name.'); return; }
-      if (!att) { alert("Please let us know if you'll be attending."); return; }
-      if (!email) { alert('Please enter your email address.'); return; }
-
-      const btn = document.querySelector('.btn-submit');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      const payload = {
-        'First Name': fn,
-        'Last Name': ln,
-        'Attending': att.value === 'yes' ? 'Yes — Joyfully Accepts' : 'No — Regretfully Declines',
-        'Email': email,
-        'Number of Guests': guests,
-        'Meal Choice (You)': meal1 || 'Not selected',
-        'Meal Choice (Guest)': meal2 || 'Not selected',
-        'Dietary Restrictions': dietary || 'None',
-        'Song Request': song || 'None',
-        'Message': msg || 'None',
-        '_subject': `RSVP from ${fn} ${ln} — Crystal & Lenard Wedding`
-      };
-
-      try {
-        const res = await fetch(FORMSPREE_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          document.getElementById('rsvpForm').classList.add('hidden');
-          const s = document.getElementById('successMsg');
-          s.classList.add('show');
-          document.getElementById('successText').textContent = att.value === 'yes'
-            ? `We're so excited to celebrate with you, ${fn}! See you under the Santa Barbara sun. 🌞`
-            : `We'll miss you, ${fn}! Thank you for letting us know — we'll be thinking of you.`;
-        } else {
-          btn.textContent = 'Send My RSVP 🍋';
-          btn.disabled = false;
-          alert('Something went wrong. Please try again or contact us directly.');
-        }
-      } catch (err) {
-        btn.textContent = 'Send My RSVP 🍋';
-        btn.disabled = false;
-        alert('Network error. Please check your connection and try again.');
-      }
-    }
   </script>
 </body>
 
