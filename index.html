@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="16">
+  <meta name="site-version" content="17">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=16" defer></script>
+  <script src="version-check.js?v=17" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -1272,11 +1272,40 @@
     }
 
     .contacts-shortcut {
-      display: inline-block;
-      margin: 0.15rem 0 1.2rem;
-      color: #276d85;
-      font-size: 0.82rem;
+      display: flex;
+      width: max-content;
+      max-width: 100%;
+      min-height: 44px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin: 0.15rem auto 1.2rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(255, 253, 232, 0.9);
+      background: var(--cream);
+      color: #1c2b4a;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      text-align: center;
       text-underline-offset: 3px;
+      transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .contacts-shortcut strong {
+      font-weight: 500;
+    }
+
+    .contacts-shortcut:hover {
+      background: #fffdf0;
+      border-color: #fffdf0;
+      color: #14213a;
+    }
+
+    .contacts-shortcut:focus-visible {
+      outline: 2px solid var(--cream);
+      outline-offset: 3px;
     }
 
     .weekend-contacts {
@@ -2732,6 +2761,7 @@
   <!-- DETAILS STRIP -->
   <section class="details-strip" aria-labelledby="glance-heading">
     <h2 class="details-heading" id="glance-heading">Wedding at a glance</h2>
+    <a class="contacts-shortcut" href="#weekend-contacts"><strong>Need weekend help?</strong><span>Contact our wedding planners ↓</span></a>
     <div class="details-grid">
       <div class="detail-item">
         <div class="detail-label">Date</div>
@@ -2906,7 +2936,6 @@
         <p class="eyebrow fade-in">October 25, 2026</p>
         <h2 class="section-title fade-in">Day of <em>Schedule</em></h2>
         <div class="divider-lemon fade-in"><span class="line"></span><span>🍋</span><span class="line r"></span></div>
-        <a class="contacts-shortcut fade-in" href="#weekend-contacts">Need weekend help? Contact our wedding planners ↓</a>
         <div class="timeline fade-in">
           <div class="tl-item">
             <div class="tl-time">3:30 PM</div>

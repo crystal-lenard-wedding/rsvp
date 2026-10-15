@@ -32,3 +32,9 @@ Put Mini Guest Guide first in the opened mobile menu.
 **Why:** The user explicitly requested it at the top rather than below the other navigation links.
 
 **How to apply:** Preserve first-link placement and immediate visibility, including on short and landscape phone screens.
+
+Keep the weekend-help shortcut prominent near the top of the site and explicitly direct guests to the wedding planners, not the couple.
+
+**Why:** The user said the small link in the day-of schedule was not prominent enough and asked to move it up.
+
+**How to apply:** Keep a clearly visible call to action near the opening guest information, linking to the existing planner contact cards.
