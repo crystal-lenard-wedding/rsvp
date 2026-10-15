@@ -110,8 +110,8 @@ The 24 checks cover **320 × 844**, **390 × 844**, short portrait **320 × 420*
 and landscape **844 × 390** touch-enabled viewports:
 
 The short portrait size represents the usable page area with browser controls
-taking up screen space. Both compact sizes must initially clip the guide itself,
-not merely overflow the menu's bottom padding.
+taking up screen space. Both compact sizes must initially clip the last link,
+while the Mini Guest Guide must be the first link and visible immediately.
 
 - Touch opening and Weekend Contacts activation, URL hash and destination focus.
 - A visible destination heading with clearance beneath the fixed header,
@@ -121,7 +121,7 @@ not merely overflow the menu's bottom padding.
 - Forward and backward keyboard traversal, including both focus-trap boundaries.
 - Background scroll locking while the menu is open, starting partway down the page.
 - A fully visible, unobscured, highlighted Mini Guest Guide link and New badge.
-- On short and landscape screens, the guide starts clipped and must be reached
+- On short and landscape screens, the last link starts clipped and must be reached
   with real touch scrolling inside the menu. Checks assert menu scroll movement,
   a stationary background (including at the bottom), and a reachable close control.
 - Keyboard focus remains trapped after scrolling the menu, and both Escape and

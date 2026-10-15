@@ -140,7 +140,7 @@ class MobileMenuChecks:
 
     def test_close_button_returns_focus_and_unlocks(self):
         self.open_menu()
-        self.touch_reach("#mobileMenu a.guide-link")
+        self.touch_reach('#mobileMenu a[href="#registry"]')
         self.assert_close_reachable()
         self.browser.tap("#mobileMenu .mobile-close")
         self.closed()
@@ -149,7 +149,7 @@ class MobileMenuChecks:
 
     def test_tab_and_shift_tab_trap(self):
         self.open_menu()
-        self.touch_reach("#mobileMenu a.guide-link")
+        self.touch_reach('#mobileMenu a[href="#registry"]')
         # Obtain the expected DOM order, but use real keyboard events to traverse it.
         selectors = self.browser.js("""Array.from(
             document.querySelectorAll('#mobileMenu button, #mobileMenu a[href]'),
@@ -188,17 +188,18 @@ class MobileMenuChecks:
 
     def test_highlighted_guest_guide_is_visible(self):
         self.open_menu()
+        self.assertTrue(self.browser.js("""document.querySelector('#mobileMenu a[href]')
+            === document.querySelector('#mobileMenu a.guide-link')"""),
+                        "Mini Guest Guide must be the first menu link")
+        self.assertTrue(self.target_visible("#mobileMenu a.guide-link"),
+                        "Mini Guest Guide must be visible immediately on every screen size")
         if self.expects_overflow:
-            self.assertFalse(self.target_visible("#mobileMenu a.guide-link"),
-                             "Short-screen case must exercise an initially clipped guide")
+            self.assertFalse(self.target_visible('#mobileMenu a[href="#registry"]'),
+                             "Short-screen case must exercise an initially clipped last link")
             self.assertTrue(self.browser.js("""(() => {
                 const menu = document.querySelector('#mobileMenu');
                 return menu.scrollHeight > menu.clientHeight && menu.scrollTop === 0;
             })()"""), "Short-screen menu must initially overflow")
-        else:
-            self.assertTrue(self.target_visible("#mobileMenu a.guide-link"),
-                            "Tall-screen guide must remain visible without scrolling")
-        self.touch_reach("#mobileMenu a.guide-link")
         self.assertTrue(self.browser.js("""(() => {
             const link = document.querySelector('#mobileMenu a.guide-link');
             const badge = link?.querySelector('.nav-guide-new');
@@ -219,6 +220,7 @@ class MobileMenuChecks:
                 && link.contains(document.elementFromPoint(r.x + r.width/2, r.y + r.height/2));
         })()"""), "Mini Guest Guide and New badge must be onscreen, unobscured and highlighted")
         if self.expects_overflow:
+            self.touch_reach('#mobileMenu a[href="#registry"]')
             # Another swipe at the bottom must not chain through to the page.
             background = self.browser.settled_scroll()
             self.browser.swipe("#mobileMenu")

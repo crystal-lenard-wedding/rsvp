@@ -26,3 +26,9 @@ The hero should communicate that the wedding is approaching, not invite new RSVP
 **Why:** The user said this is no longer an RSVP website and reported that the tertiary Story link was getting lost against the blue background.
 
 **How to apply:** Preserve this hierarchy during hero edits without reducing Story to unframed, low-contrast text.
+
+Put Mini Guest Guide first in the opened mobile menu.
+
+**Why:** The user explicitly requested it at the top rather than below the other navigation links.
+
+**How to apply:** Preserve first-link placement and immediate visibility, including on short and landscape phone screens.

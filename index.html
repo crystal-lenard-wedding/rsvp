@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="15">
+  <meta name="site-version" content="16">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=15" defer></script>
+  <script src="version-check.js?v=16" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -2694,6 +2694,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
     <button class="mobile-close" type="button" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    <a href="https://crystal-lenard-guest-guide.replit.app/" class="guide-link" onclick="navigateFromMenu(event)">Mini Guest Guide <span class="nav-guide-new">New</span> ↗</a>
     <a href="#story" onclick="navigateFromMenu(event)">Story</a>
     <a href="#schedule" onclick="navigateFromMenu(event)">Schedule</a>
     <a href="#weekend-contacts" onclick="navigateFromMenu(event)">Weekend Contacts</a>
@@ -2702,7 +2703,6 @@
     <a href="accommodations.html" class="page-link" onclick="navigateFromMenu(event)">Accommodations ↗</a>
     <a href="explore.html" class="page-link" onclick="navigateFromMenu(event)">Explore ↗</a>
     <a href="#registry" onclick="navigateFromMenu(event)">Registry</a>
-    <a href="https://crystal-lenard-guest-guide.replit.app/" class="guide-link" onclick="navigateFromMenu(event)">Mini Guest Guide <span class="nav-guide-new">New</span> ↗</a>
   </div>
 
   <div class="guest-guide-banner">🍋 Our wedding is almost here! <a href="https://crystal-lenard-guest-guide.replit.app/">View the Mini Guest Guide →</a></div>
