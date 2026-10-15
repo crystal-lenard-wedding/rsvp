@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="13">
+  <meta name="site-version" content="14">
   <title>Accommodations — Crystal & Lenard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,8 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=13" defer></script>
+  <script src="version-check.js?v=14" defer></script>
+  <script src="nav-scroll.js?v=12" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -186,6 +187,51 @@
       margin-bottom: 1.5rem;
     }
 
+    .accommodation-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1.35rem 0 2.5rem;
+    }
+
+    .accommodation-shortcut {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid rgba(79, 168, 197, 0.45);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.25;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .accommodation-shortcut:first-child {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .accommodation-shortcut:hover {
+      background: #e8f7ff;
+      border-color: var(--blue);
+      color: var(--ink);
+    }
+
+    .accommodation-shortcut:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    #downtown-section,
+    #waterfront-section,
+    #more-stays-section {
+      scroll-margin-top: calc(var(--sticky-nav-height, 64px) + 3.5rem);
+    }
+
     .venue-note {
       background: #fefbd0;
       border: 1px solid rgba(201, 178, 0, 0.28);
@@ -332,6 +378,12 @@
     }
 
     @media(max-width:920px) {
+      #downtown-section,
+      #waterfront-section,
+      #more-stays-section {
+        scroll-margin-top: calc(var(--sticky-nav-height, 9.5rem) + 3.5rem);
+      }
+
       nav {
         height: auto;
         padding: 0.9rem 1rem;
@@ -371,6 +423,16 @@
 
       main {
         padding: 3rem 0;
+      }
+
+      .accommodation-shortcuts {
+        gap: 0.45rem;
+        margin: 1rem 0 2rem;
+      }
+
+      .accommodation-shortcut {
+        font-size: 0.86rem;
+        padding: 0.5rem 0.7rem;
       }
 
       .card-grid {
@@ -416,6 +478,11 @@
     <h1>Recommended <em>Accommodations</em></h1>
     <p class="sub">At guests' own expense. If you still need accommodations, we recommend booking as soon as possible. Drive times below are
       approximate from Simpson House Inn and can vary with traffic.</p>
+    <div class="accommodation-shortcuts" role="group" aria-label="Jump to a hotel area">
+      <a class="accommodation-shortcut" href="#downtown-section">Downtown &amp; the Riviera ↓</a>
+      <a class="accommodation-shortcut" href="#waterfront-section">Waterfront ↓</a>
+      <a class="accommodation-shortcut" href="#more-stays-section">More ways to stay ↓</a>
+    </div>
     <div class="venue-note">
       <div class="venue-note-copy">
         <strong>Our venue is Simpson House Inn.</strong>
@@ -427,7 +494,7 @@
       </div>
     </div>
 
-    <section class="hotel-group" aria-labelledby="downtown-heading">
+    <section class="hotel-group" id="downtown-section" aria-labelledby="downtown-heading">
       <div class="hotel-group-header">
         <h2 id="downtown-heading">Downtown &amp; the Riviera</h2>
         <div class="group-photo">
@@ -463,7 +530,7 @@
       </div>
     </section>
 
-    <section class="hotel-group" aria-labelledby="waterfront-heading">
+    <section class="hotel-group" id="waterfront-section" aria-labelledby="waterfront-heading">
       <div class="hotel-group-header">
         <h2 id="waterfront-heading">Waterfront</h2>
         <div class="group-photo">
@@ -499,7 +566,7 @@
       </div>
     </section>
 
-    <section class="hotel-group" aria-labelledby="other-heading">
+    <section class="hotel-group" id="more-stays-section" aria-labelledby="other-heading">
       <div class="hotel-group-header">
         <h2 id="other-heading">More ways to stay</h2>
         <div class="group-photo">
