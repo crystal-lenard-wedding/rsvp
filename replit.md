@@ -24,6 +24,11 @@ For repeatable mobile menu browser checks at 320px and 390px, run
 packages or build step. See `scripts/README.md` for setup, coverage and failure
 evidence. The checks serve the working copy locally and block analytics traffic.
 
+For the seven guest navigation analytics reports, run
+`python3 scripts/check-analytics-events.py`. It uses the same Python/Chromium
+helper, blocks third-party traffic, and checks exact event names, single dispatch,
+untracked Weekend Contacts links, and navigation when analytics is unavailable.
+
 After editing the site, run `./deploy.sh` from the Replit Shell for a production
 update. It checks the current branch and origin push URL, stops without changing
 the version when there are no edits, then bumps the version, stages all changes,

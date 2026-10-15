@@ -1,4 +1,34 @@
-# Local mobile menu regression checks
+# Local regression checks
+
+## Navigation analytics
+
+```sh
+python3 scripts/check-analytics-events.py
+```
+
+Uses the same dependency-free Python/Chromium helper described below. No Node,
+packages, build step, or preview server is needed. All HTTPS requests are blocked,
+including Plausible and the external Mini Guest Guide. No live reports are sent.
+
+The analytics suite checks the real `index.html` and `analytics-events.js`:
+
+- The seven exact existing report names across all 20 supported links in the
+  desktop nav, mobile menu, guest-guide banner, hero buttons and guide cards.
+- Exactly one dispatch per click, including nested targets and repeat clicks.
+- Missing, throwing and non-callable analytics cannot cancel navigation or leak
+  errors. Every local supported link also follows its real destination without
+  a test cancellation handler in each unavailable-analytics mode.
+- External guide links are not followed; the suite checks their href and that
+  site code has not canceled their default navigation.
+- Untracked links, including both Weekend Contacts shortcuts, emit no custom
+  event. Recognized hrefs outside supported locations and non-link targets are
+  ignored.
+
+Failures print the mode, location, href and target variant and return a nonzero
+exit code. This suite uses DOM click activation, not physical touch input; menu
+accessibility and layout are covered separately below.
+
+## Mobile menu
 
 Run from the repository root:
 
