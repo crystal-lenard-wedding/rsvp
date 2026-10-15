@@ -140,9 +140,9 @@ class Browser:
             raise RuntimeError(result["exceptionDetails"])
         return result.get("result", {}).get("value")
 
-    def load(self, width):
+    def load(self, width, height=844):
         self.call("Emulation.setDeviceMetricsOverride", {
-            "width": width, "height": 844, "deviceScaleFactor": 1, "mobile": True,
+            "width": width, "height": height, "deviceScaleFactor": 1, "mobile": True,
         })
         # Leaving the old document first prevents a readiness check seeing stale content.
         self.call("Page.navigate", {"url": "about:blank"})
@@ -174,30 +174,48 @@ class Browser:
         self.call("Input.dispatchKeyEvent", {"type": "keyDown", **params})
         self.call("Input.dispatchKeyEvent", {"type": "keyUp", **params})
 
-    def swipe(self):
+    def swipe(self, selector=None):
         # synthesizeScrollGesture(source="touch") can succeed without scrolling
         # in headless Chromium. Send an actual touch sequence instead.
+        # Keep every point within the viewport and, optionally, a scroll container.
+        bounds = self.js(f"""(() => {{
+            const selector = {json.dumps(selector)};
+            const r = selector ? document.querySelector(selector).getBoundingClientRect()
+                : {{left: 0, top: 0, right: innerWidth, bottom: innerHeight}};
+            return {{left: Math.max(0, r.left), top: Math.max(0, r.top),
+                right: Math.min(innerWidth, r.right), bottom: Math.min(innerHeight, r.bottom)}};
+        }})()""")
+        width = bounds["right"] - bounds["left"]
+        height = bounds["bottom"] - bounds["top"]
+        if width <= 0 or height < 80:
+            raise AssertionError(f"No visible area for touch scrolling: {selector}")
+        x = bounds["left"] + width / 2
+        start = bounds["top"] + height * 0.8
+        distance = height * 0.45
         self.call("Input.dispatchTouchEvent", {
-            "type": "touchStart", "touchPoints": [{"x": 150, "y": 650}],
+            "type": "touchStart", "touchPoints": [{"x": x, "y": start}],
         })
-        for y in range(630, 350, -20):
+        for step in range(1, 16):
             self.call("Input.dispatchTouchEvent", {
-                "type": "touchMove", "touchPoints": [{"x": 150, "y": y}],
+                "type": "touchMove",
+                "touchPoints": [{"x": x, "y": start - distance * step / 15}],
             })
             time.sleep(0.02)
         self.call("Input.dispatchTouchEvent", {"type": "touchEnd", "touchPoints": []})
 
-    def settled_scroll(self):
+    def settled_scroll(self, selector=None):
+        expression = (f"document.querySelector({json.dumps(selector)}).scrollTop"
+                      if selector else "scrollY")
         previous, stable_since = None, time.monotonic()
 
         def stable():
             nonlocal previous, stable_since
-            current = self.js("scrollY")
+            current = self.js(expression)
             if current != previous:
                 previous, stable_since = current, time.monotonic()
             return time.monotonic() - stable_since >= 0.25
 
-        wait_for(stable, "Page scrolling did not settle")
+        wait_for(stable, f"Scrolling did not settle: {selector or 'page'}")
         return previous
 
     def __exit__(self, *_):
