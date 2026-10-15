@@ -20,3 +20,9 @@ Keep the main site fast and simple, with detailed interactive weather in the Min
 **Why:** The user explicitly chose the guide for detailed weather and guest logistics, while retaining useful information on the main site.
 
 **How to apply:** Use lightweight guide links where useful; do not remove existing practical content merely because it also appears in the guide.
+
+The hero should communicate that the wedding is approaching, not invite new RSVPs. Keep Our Story less prominent than Guide and Schedule, but visibly styled as a button with contrast against the artwork.
+
+**Why:** The user said this is no longer an RSVP website and reported that the tertiary Story link was getting lost against the blue background.
+
+**How to apply:** Preserve this hierarchy during hero edits without reducing Story to unframed, low-contrast text.
