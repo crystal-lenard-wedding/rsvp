@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="17">
+  <meta name="site-version" content="18">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=17" defer></script>
+  <script src="version-check.js?v=18" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -1283,13 +1283,13 @@
       gap: 0.2rem;
       margin: 0.15rem auto 1.2rem;
       padding: 0.6rem 1rem;
-      border: 1px solid rgba(255, 253, 232, 0.9);
-      background: var(--cream);
-      color: #1c2b4a;
+      border: 1px solid rgba(255, 253, 232, 0.18);
+      background: transparent;
+      color: var(--cream);
       font-size: 0.9rem;
       line-height: 1.35;
       text-align: center;
-      text-underline-offset: 3px;
+      text-decoration: none;
       transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
     }
 
@@ -1297,14 +1297,25 @@
       font-weight: 500;
     }
 
+    .contacts-shortcut span {
+      color: var(--lemon);
+      text-decoration: underline;
+      text-decoration-color: var(--lemon);
+      text-underline-offset: 3px;
+    }
+
     .contacts-shortcut:hover {
-      background: #fffdf0;
-      border-color: #fffdf0;
-      color: #14213a;
+      background: rgba(255, 253, 232, 0.06);
+      border-color: rgba(255, 226, 112, 0.55);
+      color: var(--cream);
+    }
+
+    .contacts-shortcut:hover span {
+      color: var(--lemon);
     }
 
     .contacts-shortcut:focus-visible {
-      outline: 2px solid var(--cream);
+      outline: 2px solid var(--lemon);
       outline-offset: 3px;
     }
 

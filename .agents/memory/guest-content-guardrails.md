@@ -37,4 +37,6 @@ Keep the weekend-help shortcut prominent near the top of the site and explicitly
 
 **Why:** The user said the small link in the day-of schedule was not prominent enough and asked to move it up.
 
-**How to apply:** Keep a clearly visible call to action near the opening guest information, linking to the existing planner contact cards.
+**How to apply:** Keep a clearly visible call to action near the opening guest information, linking to the existing planner contact cards. Blend it into Wedding at a glance using the section's navy, cream and lemon treatment rather than a solid cream box.
+
+**Why this treatment:** The user asked for the help link to feel naturally integrated into the section, not like a separate filled button.
