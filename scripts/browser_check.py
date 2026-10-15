@@ -140,19 +140,39 @@ class Browser:
             raise RuntimeError(result["exceptionDetails"])
         return result.get("result", {}).get("value")
 
-    def load(self, width, height=844, mobile=True):
+    def wait_js(self, expression, message, timeout=10):
+        """Poll across document changes without hiding script or browser errors."""
+        def ready():
+            try:
+                return self.js(expression)
+            except RuntimeError as error:
+                # Runtime.evaluate can race a normal cross-document navigation.
+                # Retry only these CDP context-lifetime errors, within the deadline.
+                if not any(text in str(error) for text in (
+                    "Inspected target navigated or closed",
+                    "Execution context was destroyed",
+                    "Cannot find context with specified id",
+                )):
+                    raise
+                return False
+
+        return wait_for(ready, message, timeout)
+
+    def load(self, width, height=844, mobile=True, path="index.html"):
+        url = self.url.rsplit("/", 1)[0] + "/" + path
         self.call("Emulation.setDeviceMetricsOverride", {
             "width": width, "height": height, "deviceScaleFactor": 1, "mobile": mobile,
         })
         self.call("Emulation.setTouchEmulationEnabled", {"enabled": mobile})
         # Leaving the old document first prevents a readiness check seeing stale content.
         self.call("Page.navigate", {"url": "about:blank"})
-        wait_for(lambda: self.js("location.href === 'about:blank'"), "Could not reset browser")
-        self.call("Page.navigate", {"url": self.url})
-        wait_for(lambda: self.js(
-            "location.pathname === '/index.html' && document.readyState === 'complete'"
-            " && document.fonts.status === 'loaded' && typeof toggleMenu === 'function'"
-        ), "Homepage or fonts did not finish loading", timeout=20)
+        self.wait_js("location.href === 'about:blank'", "Could not reset browser")
+        self.call("Page.navigate", {"url": url})
+        self.wait_js(
+            f"location.pathname === {json.dumps('/' + path)}"
+            " && document.readyState === 'complete' && document.fonts.status === 'loaded'"
+            + (" && typeof toggleMenu === 'function'" if path == "index.html" else ""),
+            f"{path} or fonts did not finish loading", timeout=20)
 
     def target_point(self, selector):
         return self.js(f"""(() => {{

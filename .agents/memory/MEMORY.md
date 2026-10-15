@@ -7,3 +7,4 @@
 - [Travel shortcut landing](travel-shortcut-landing.md) — a visible heading can still feel like overscrolling; land ahead of each section with breathing room.
 - [Guest content guardrails](guest-content-guardrails.md) — preserve approved adults-only wording and useful content; publish only vetted logistics, with detailed weather kept in the guide.
 - [Chromium touch checks](chromium-touch-checks.md) — verify actual scroll movement; a successful synthetic touch gesture can be a headless no-op.
+- [Chromium navigation waits](chromium-navigation-waits.md) — document changes can invalidate an in-flight evaluation; retry context-lifetime errors only.

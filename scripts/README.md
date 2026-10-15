@@ -50,23 +50,37 @@ Uses the same dependency-free Python/Chromium helper described below. No Node,
 packages, build step, or preview server is needed. All HTTPS requests are blocked,
 including Plausible and the external Mini Guest Guide. No live reports are sent.
 
-The analytics suite checks the real `index.html` and `analytics-events.js`:
+The analytics suite checks the real `index.html`, `travel.html`,
+`accommodations.html`, `explore.html` and shared `analytics-events.js`:
 
 - The seven exact existing report names across all 20 supported links in the
   desktop nav, mobile menu, guest-guide banner, hero buttons and guide cards.
+- Each detail page has five supported links: Travel, Accommodations, Explore
+  and Mini Guest Guide in the header, plus Mini Guest Guide in the banner.
+  The inventory also asserts there are no supported links in the other tracked
+  locations on these pages. Every page loads the shared handler exactly once.
 - Exactly one dispatch per click, including nested targets and repeat clicks.
 - Missing, throwing and non-callable analytics cannot cancel navigation or leak
   errors. Every local supported link also follows its real destination without
-  a test cancellation handler in each unavailable-analytics mode.
+  a test cancellation handler in each unavailable-analytics mode, including
+  same-page detail links. Both detail-page Home controls navigate too.
 - External guide links are not followed; the suite checks their href and that
   site code has not canceled their default navigation.
 - Untracked links, including both Weekend Contacts shortcuts, emit no custom
-  event. Recognized hrefs outside supported locations and non-link targets are
-  ignored.
+  event. Detail-page Home, travel shortcuts, hotel and attraction links also
+  remain untracked. Recognized hrefs outside supported locations and non-link
+  targets are ignored. No Weekend Contacts report is introduced.
 
-Failures print the mode, location, href and target variant and return a nonzero
-exit code. This suite uses DOM click activation, not physical touch input; menu
-accessibility and layout are covered separately below.
+Failures print the page-specific test class, mode, location, href and target
+variant and return a nonzero exit code. To run one page's checks:
+
+```sh
+python3 scripts/check-analytics-events.py TravelAnalyticsChecks
+```
+
+This suite uses DOM click activation, not physical touch input; menu
+accessibility and layout are covered separately below. Accommodation-area
+shortcut layout and destination checks are outside this analytics suite.
 
 ## Mobile menu
 
