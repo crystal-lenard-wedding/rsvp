@@ -5,3 +5,4 @@
 - [Accommodation area imagery](accommodation-area-imagery.md) — section photos are illustrative area imagery, not photos of listed hotels.
 - [Site cache versioning](site-cache-versioning.md) — bump version markers together across every page and the manifest so guests receive updated HTML.
 - [Travel shortcut landing](travel-shortcut-landing.md) — a visible heading can still feel like overscrolling; land ahead of each section with breathing room.
+- [Guest content guardrails](guest-content-guardrails.md) — preserve approved adults-only wording and useful content; publish only vetted logistics, with detailed weather kept in the guide.

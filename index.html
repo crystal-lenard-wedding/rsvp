@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="10">
+  <meta name="site-version" content="11">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=10" defer></script>
+  <script src="version-check.js?v=11" defer></script>
   <style>
     :root {
       --cream: #fffde8;
@@ -541,6 +541,33 @@
       flex-wrap: wrap;
     }
 
+    .hero-cta .btn-guide {
+      background: var(--lemon);
+      color: var(--ink);
+      border: 1px solid var(--lemon-deep);
+      font-weight: 500;
+    }
+
+    .hero-cta .btn-guide:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-cta .btn-story {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+      border-color: transparent;
+      color: var(--soft);
+    }
+
+    .hero-cta .btn-story:hover {
+      background: transparent;
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
     .btn {
       display: inline-block;
       padding: 1.1rem 3rem;
@@ -593,6 +620,17 @@
       max-width: 1200px;
       margin: 0 auto;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .garden-note {
+      max-width: 850px;
+      margin: 0.35rem auto 0;
+      padding: 0.75rem 1rem 0.25rem;
+      color: rgba(255, 253, 232, 0.78);
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      font-style: italic;
     }
 
     .detail-item {
@@ -1231,6 +1269,77 @@
       font-size: 0.8rem;
       color: var(--soft);
       line-height: 1.5;
+    }
+
+    .contacts-shortcut {
+      display: inline-block;
+      margin: 0.15rem 0 1.2rem;
+      color: #276d85;
+      font-size: 0.82rem;
+      text-underline-offset: 3px;
+    }
+
+    .weekend-contacts {
+      margin-top: 1.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(79, 168, 197, 0.24);
+      scroll-margin-top: calc(var(--nav-h) + 1rem);
+    }
+
+    .weekend-contacts h3 {
+      font: italic 400 1.45rem/1.2 'Playfair Display', serif;
+      margin-bottom: 0.55rem;
+    }
+
+    .contacts-intro {
+      color: var(--soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .contacts-intro a {
+      color: #276d85;
+      font-weight: 500;
+      text-underline-offset: 3px;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .contact-card {
+      min-width: 0;
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(79, 168, 197, 0.22);
+      border-top: 2px solid var(--lemon-deep);
+    }
+
+    .contact-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-card a {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      padding: 0.35rem 0;
+      color: #276d85;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+      text-underline-offset: 3px;
+    }
+
+    .contact-card a:hover,
+    .contacts-intro a:hover {
+      color: var(--ink);
     }
 
     /* ADULTS BANNER */
@@ -2280,11 +2389,26 @@
 
       .hero-cta {
         margin-top: 1.6rem;
-        gap: 0.65rem;
+        flex-direction: column;
+        align-items: center;
+        width: min(100%, 330px);
+        margin-right: auto;
+        margin-left: auto;
+        gap: 0.45rem;
       }
 
       .hero-cta .btn {
         padding: 0.85rem 1.5rem;
+      }
+
+      .hero-cta .btn-guide,
+      .hero-cta .btn-dark {
+        width: 100%;
+      }
+
+      .hero-cta .btn-story {
+        align-self: center;
+        padding: 0.45rem 0.8rem;
       }
 
       .details-strip {
@@ -2314,6 +2438,15 @@
 
       .detail-value {
         font-size: 1.07rem;
+      }
+
+      .garden-note {
+        padding: 0.7rem 0.15rem 0.25rem;
+        font-size: 0.88rem;
+      }
+
+      .contact-cards {
+        grid-template-columns: 1fr;
       }
 
       .dress-swipe-hint {
@@ -2406,11 +2539,6 @@
       .palette-swatch {
         width: 34px;
         height: 34px;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-        align-items: center;
       }
 
       .btn {
@@ -2523,8 +2651,9 @@
       <p class="hero-venue">Simpson House Inn</p>
       <p class="hero-location">Santa Barbara, California</p>
       <div class="hero-cta">
+        <a href="https://crystal-lenard-guest-guide.replit.app/" class="btn btn-guide">Mini Guest Guide</a>
         <a href="#schedule" class="btn btn-dark">Wedding Schedule</a>
-        <a href="#story" class="btn btn-outline">Our Story</a>
+        <a href="#story" class="btn btn-outline btn-story">Our Story</a>
       </div>
     </div>
   </section>
@@ -2555,6 +2684,7 @@
         <div class="detail-sub">Reception winds down around this time</div>
       </div>
     </div>
+    <p class="garden-note">The ceremony, cocktail hour, and reception will take place outdoors in the garden. Please plan for grass/garden terrain and cooler temperatures after sunset.</p>
   </section>
 
   <!-- SPLIT LAYOUT -->
@@ -2705,6 +2835,7 @@
         <p class="eyebrow fade-in">October 25, 2026</p>
         <h2 class="section-title fade-in">Day of <em>Schedule</em></h2>
         <div class="divider-lemon fade-in"><span class="line"></span><span>🍋</span><span class="line r"></span></div>
+        <a class="contacts-shortcut fade-in" href="#weekend-contacts">Need weekend help? Contact our wedding planners ↓</a>
         <div class="timeline fade-in">
           <div class="tl-item">
             <div class="tl-time">3:30 PM</div>
@@ -2734,6 +2865,22 @@
             <div class="tl-desc">A lovely close to our evening together</div>
           </div>
         </div>
+        <section class="weekend-contacts fade-in" id="weekend-contacts" aria-labelledby="weekend-contacts-heading">
+          <h3 id="weekend-contacts-heading">Weekend Contacts</h3>
+          <p class="contacts-intro">Our amazing wedding planners, Anna and Lucky from <a href="https://www.thedarlingbuds.events/" target="_blank" rel="noopener noreferrer">The Darling Buds Events</a>, will be there helping keep everything moving. 💛</p>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <h4 class="contact-name">Anna Zhang</h4>
+              <a href="tel:+15307609092">(530) 760-9092</a>
+              <a href="mailto:anna@thedarlingbuds.events">anna@thedarlingbuds.events</a>
+            </div>
+            <div class="contact-card">
+              <h4 class="contact-name">Lucky Li</h4>
+              <a href="tel:+16193563759">(619) 356-3759</a>
+              <a href="mailto:lucky@thedarlingbuds.events">lucky@thedarlingbuds.events</a>
+            </div>
+          </div>
+        </section>
         <div class="adults-banner fade-in">
           <div class="icon" aria-hidden="true">🥂</div>
           <h3>An Adults-Only <em>Affair</em></h3>
@@ -2936,7 +3083,7 @@
         <h2 class="section-title fade-in">RSVPs are <em>closed</em></h2>
         <div class="rsvp-card fade-in">
           <div class="rsvp-card-icon">🍋</div>
-          <p class="rsvp-card-text">RSVPs are now closed. If your plans have changed, please let us know.</p>
+          <p class="rsvp-card-text">RSVPs are now closed. If your attendance changes, please let us know as soon as possible.</p>
           <a class="rsvp-card-btn" href="mailto:lenard.robles@gmail.com?subject=RSVP%20Change%20for%20Crystal%20%26%20Lenard%27s%20Wedding">Email us about an RSVP change →</a>
         </div>
       </div>

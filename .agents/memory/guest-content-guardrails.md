@@ -1,0 +1,22 @@
+---
+name: Guest content guardrails
+description: Public-facing content constraints for final wedding guest updates.
+---
+
+Preserve the existing “An Adults-Only Affair” section essentially as-is. Do not remove, soften, qualify, or materially rewrite it, or add adults-only messaging elsewhere without a concrete need.
+
+**Why:** The user explicitly confirmed that this is the intentional public-facing policy.
+
+**How to apply:** Keep this block unchanged during unrelated updates. Do not infer new guest eligibility or publish private planning context.
+
+Keep the main site's design, personality, meaningful story, dress code, schedule, and venue information. Only publish logistical claims and events approved for public guests. Flag uncertain information instead of guessing. QA source times do not automatically require a more detailed public timeline.
+
+**Why:** The user prioritizes accurate, easy-to-scan final guest information over redesign or exhaustive duplication.
+
+**How to apply:** Make focused, low-risk updates. Keep uploaded planning briefs out of publication because they may include context that is not intended for the public site.
+
+Keep the main site fast and simple, with detailed interactive weather in the Mini Guest Guide rather than another weather API or large weather component.
+
+**Why:** The user explicitly chose the guide for detailed weather and guest logistics, while retaining useful information on the main site.
+
+**How to apply:** Use lightweight guide links where useful; do not remove existing practical content merely because it also appears in the guide.
