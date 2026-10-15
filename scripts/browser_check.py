@@ -140,10 +140,11 @@ class Browser:
             raise RuntimeError(result["exceptionDetails"])
         return result.get("result", {}).get("value")
 
-    def load(self, width, height=844):
+    def load(self, width, height=844, mobile=True):
         self.call("Emulation.setDeviceMetricsOverride", {
-            "width": width, "height": height, "deviceScaleFactor": 1, "mobile": True,
+            "width": width, "height": height, "deviceScaleFactor": 1, "mobile": mobile,
         })
+        self.call("Emulation.setTouchEmulationEnabled", {"enabled": mobile})
         # Leaving the old document first prevents a readiness check seeing stale content.
         self.call("Page.navigate", {"url": "about:blank"})
         wait_for(lambda: self.js("location.href === 'about:blank'"), "Could not reset browser")
@@ -153,25 +154,39 @@ class Browser:
             " && document.fonts.status === 'loaded' && typeof toggleMenu === 'function'"
         ), "Homepage or fonts did not finish loading", timeout=20)
 
-    def tap(self, selector):
-        point = self.js(f"""(() => {{
+    def target_point(self, selector):
+        return self.js(f"""(() => {{
             const el = document.querySelector({json.dumps(selector)});
-            if (!el) throw new Error('Missing touch target');
+            if (!el) throw new Error('Missing input target');
             const r = el.getBoundingClientRect();
             const x = r.x + r.width / 2, y = r.y + r.height / 2;
             if (!r.width || !r.height || x < 0 || y < 0 || x >= innerWidth || y >= innerHeight
                 || !el.contains(document.elementFromPoint(x, y)))
-                throw new Error('Touch target is outside the viewport or obscured: ' + el.outerHTML);
+                throw new Error('Input target is outside the viewport or obscured: ' + el.outerHTML);
             return {{x, y}};
         }})()""")
+
+    def tap(self, selector):
+        point = self.target_point(selector)
         self.call("Input.dispatchTouchEvent", {"type": "touchStart", "touchPoints": [point]})
         self.call("Input.dispatchTouchEvent", {"type": "touchEnd", "touchPoints": []})
 
+    def click(self, selector):
+        point = self.target_point(selector)
+        self.call("Input.dispatchMouseEvent", {"type": "mouseMoved", **point})
+        for event in ("mousePressed", "mouseReleased"):
+            self.call("Input.dispatchMouseEvent", {
+                "type": event, "button": "left", "clickCount": 1, **point,
+            })
+
     def key(self, key, shift=False):
-        codes = {"Tab": 9, "Escape": 27}
-        params = {"key": key, "code": key, "windowsVirtualKeyCode": codes[key],
+        codes = {"Tab": 9, "Escape": 27, "Enter": 13, " ": 32}
+        params = {"key": key, "code": "Space" if key == " " else key,
+                  "windowsVirtualKeyCode": codes[key],
                   "nativeVirtualKeyCode": codes[key], "modifiers": 8 if shift else 0}
-        self.call("Input.dispatchKeyEvent", {"type": "keyDown", **params})
+        # Chromium needs Enter's character data for native button activation.
+        text = {"text": "\r", "unmodifiedText": "\r"} if key == "Enter" else {}
+        self.call("Input.dispatchKeyEvent", {"type": "keyDown", **params, **text})
         self.call("Input.dispatchKeyEvent", {"type": "keyUp", **params})
 
     def swipe(self, selector=None):

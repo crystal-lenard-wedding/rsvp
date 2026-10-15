@@ -1,5 +1,45 @@
 # Local regression checks
 
+## Gift dialog
+
+Run from the repository root:
+
+```sh
+python3 scripts/check-gift-dialog.py
+```
+
+Requires Python 3 and Chrome/Chromium, with the same executable discovery and
+optional `CHROMIUM` override as the mobile-menu checks below. No packages,
+build step or running preview server are needed. The shared `browser_check.py`
+helper starts a loopback-only server and isolated browser, then cleans both up.
+
+The suite covers 36 scenarios across desktop **1280 × 900** (mouse and wheel)
+and mobile **390 × 844** (touch):
+
+- All three gift buttons open the real `gratitudeModal` using Enter and Space.
+- The selected fund, visible labelled dialog, initial close-button focus and
+  background scroll lock are checked.
+- Tab and Shift+Tab traverse every control in order and wrap at both boundaries,
+  twice in each direction.
+- Escape from inside the dialog, keyboard close-button activation, and mouse or
+  touch close-button activation dismiss the dialog.
+- Each dismissal hides the dialog, restores focus to the exact initiating gift
+  button, releases the scroll lock and permits actual wheel or touch scrolling.
+  The same input must also scroll the unlocked page before opening.
+
+Payment links are only focused, never activated. External HTTPS requests
+(including payment sites, analytics and fonts) are blocked before loading;
+link activation and form submission are also prevented by test-only guards.
+No money is sent, clipboard actions are not activated, and no real responses
+are submitted. The suite tests only the local working copy and never publishes.
+
+Failures return a nonzero exit code and save a PNG screenshot plus JSON state
+(scenario, focused element, dialog markup and scroll/overflow state) under
+the ignored `generated-artifacts/gift-dialog/` directory. Evidence is captured
+per failing scenario; successful runs do not remove earlier evidence.
+
+These are repeatable Chromium checks, not real-device Safari/Android coverage.
+
 ## Navigation analytics
 
 ```sh

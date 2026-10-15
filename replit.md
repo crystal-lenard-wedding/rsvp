@@ -29,6 +29,11 @@ For the seven guest navigation analytics reports, run
 helper, blocks third-party traffic, and checks exact event names, single dispatch,
 untracked Weekend Contacts links, and navigation when analytics is unavailable.
 
+For gift-dialog keyboard opening, focus containment, close controls and restored
+scrolling on desktop and mobile, run `python3 scripts/check-gift-dialog.py`.
+See `scripts/README.md` for coverage and ignored failure evidence. Payment links
+are not activated, and external HTTPS traffic is blocked.
+
 After editing the site, run `./deploy.sh` from the Replit Shell for a production
 update. It checks the current branch and origin push URL, stops without changing
 the version when there are no edits, then bumps the version, stages all changes,
