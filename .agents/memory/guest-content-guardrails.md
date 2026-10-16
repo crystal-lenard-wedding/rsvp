@@ -27,6 +27,12 @@ The hero should communicate that the wedding is approaching, not invite new RSVP
 
 **How to apply:** Preserve this hierarchy during hero edits without reducing Story to unframed, low-contrast text.
 
+Keep core guest information readable without JavaScript; scroll animation should enhance content rather than be required to see it.
+
+**Why:** Guests need reliable access to logistics even when browser scripting is disabled or restricted.
+
+**How to apply:** Preserve a no-script fallback for scroll-revealed content during animation changes.
+
 Put Mini Guest Guide first in the opened mobile menu.
 
 **Why:** The user explicitly requested it at the top rather than below the other navigation links.

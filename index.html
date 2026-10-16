@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="site-version" content="18">
+  <meta name="site-version" content="19">
   <title>Crystal & Lenard — October 25, 2026</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,15 @@
     plausible.init({ outboundLinks: true })
   </script>
   <script src="analytics-events.js" defer></script>
-  <script src="version-check.js?v=18" defer></script>
+  <script src="version-check.js?v=19" defer></script>
+  <noscript>
+    <style>
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
   <style>
     :root {
       --cream: #fffde8;
@@ -2518,6 +2526,10 @@
 
       .hero-cta .btn-story {
         align-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
         padding: 0.45rem 0.8rem;
       }
 
